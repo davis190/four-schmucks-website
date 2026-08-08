@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - aws --version
+  pre_build:
+    commands:
+      - chmod +x deploy.sh test-sites.sh
+      - ./test-sites.sh
+  build:
+    commands:
+      - ./deploy.sh

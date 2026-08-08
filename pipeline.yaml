@@ -1,0 +1,294 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  CI/CD pipeline for Four Schmucks: CodePipeline + CodeBuild that deploys the
+  fourschmucks-site CloudFormation stack (cloudformation.yaml) and syncs the
+  static site to S3 whenever main is pushed on GitHub. This stack is bootstrapped
+  once (manually, or via CI) and is separate from the site stack it deploys.
+
+Parameters:
+  GitHubConnectionArn:
+    Type: String
+    Description: >
+      ARN of the CodeConnections/CodeStar connection authorized against the
+      davis190 GitHub account. Must already be in "Available" status.
+    Default: arn:aws:codeconnections:us-east-1:696364089867:connection/6b3a3165-977b-4c4e-8bea-53e78b98d4d0
+  RepositoryId:
+    Type: String
+    Description: GitHub repo as "owner/name"
+    Default: davis190/four-schmucks-website
+  BranchName:
+    Type: String
+    Default: main
+  DomainName:
+    Type: String
+    Default: fourschmucks.com
+    Description: Passed through to deploy.sh as DOMAIN_NAME
+  SiteBucketName:
+    Type: String
+    Default: fourschmucks-static-site
+    Description: Passed through to deploy.sh as BUCKET_NAME; also the site stack's BucketName parameter
+  SiteStackName:
+    Type: String
+    Default: fourschmucks-site
+    Description: Name of the CloudFormation stack deploy.sh manages
+
+Resources:
+  ArtifactBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireOldArtifacts
+            Status: Enabled
+            ExpirationInDays: 30
+
+  CodeBuildServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: FourSchmucksDeployPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: Logs
+                Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/*"
+              - Sid: ArtifactBucketAccess
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectVersion
+                  - s3:PutObject
+                  - s3:GetBucketAcl
+                  - s3:GetBucketLocation
+                Resource:
+                  - !GetAtt ArtifactBucket.Arn
+                  - !Sub "${ArtifactBucket.Arn}/*"
+              - Sid: SiteBucketSync
+                Effect: Allow
+                Action:
+                  - s3:ListBucket
+                  - s3:GetBucketLocation
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:DeleteObject
+                Resource:
+                  - !Sub "arn:aws:s3:::${SiteBucketName}"
+                  - !Sub "arn:aws:s3:::${SiteBucketName}/*"
+              - Sid: CloudFormationDeploy
+                Effect: Allow
+                Action:
+                  - cloudformation:CreateStack
+                  - cloudformation:UpdateStack
+                  - cloudformation:DescribeStacks
+                  - cloudformation:DescribeStackEvents
+                  - cloudformation:DescribeStackResource
+                  - cloudformation:DescribeStackResources
+                  - cloudformation:GetTemplate
+                  - cloudformation:ValidateTemplate
+                  - cloudformation:CreateChangeSet
+                  - cloudformation:DescribeChangeSet
+                  - cloudformation:ExecuteChangeSet
+                  - cloudformation:DeleteChangeSet
+                  - cloudformation:ListChangeSets
+                  - cloudformation:ListStackResources
+                Resource:
+                  - !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${SiteStackName}/*"
+              - Sid: LambdaEdgeManagement
+                Effect: Allow
+                Action:
+                  - lambda:CreateFunction
+                  - lambda:UpdateFunctionCode
+                  - lambda:UpdateFunctionConfiguration
+                  - lambda:GetFunction
+                  - lambda:GetFunctionConfiguration
+                  - lambda:DeleteFunction
+                  - lambda:PublishVersion
+                  - lambda:ListVersionsByFunction
+                  - lambda:AddPermission
+                  - lambda:RemovePermission
+                  - lambda:GetPolicy
+                  - lambda:TagResource
+                  - lambda:ListTags
+                Resource:
+                  - !Sub "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:fourschmucks-subdomain-routing-*"
+              - Sid: IamRoleForLambdaExecution
+                Effect: Allow
+                Action:
+                  - iam:CreateRole
+                  - iam:DeleteRole
+                  - iam:GetRole
+                  - iam:AttachRolePolicy
+                  - iam:DetachRolePolicy
+                  - iam:ListAttachedRolePolicies
+                  - iam:PassRole
+                  - iam:TagRole
+                Resource:
+                  - !Sub "arn:aws:iam::${AWS::AccountId}:role/${SiteStackName}-*"
+              # ACM and CloudFront don't support tight resource-level ARN scoping for
+              # most of the actions this stack needs (cert issuance, OAI, invalidations),
+              # so these two are broader than the rest by necessity.
+              - Sid: AcmCertificate
+                Effect: Allow
+                Action:
+                  - acm:RequestCertificate
+                  - acm:DescribeCertificate
+                  - acm:DeleteCertificate
+                  - acm:AddTagsToCertificate
+                  - acm:ListTagsForCertificate
+                Resource: "*"
+              - Sid: CloudFrontDistribution
+                Effect: Allow
+                Action:
+                  - cloudfront:CreateDistribution
+                  - cloudfront:GetDistribution
+                  - cloudfront:GetDistributionConfig
+                  - cloudfront:UpdateDistribution
+                  - cloudfront:DeleteDistribution
+                  - cloudfront:TagResource
+                  - cloudfront:CreateInvalidation
+                  - cloudfront:GetInvalidation
+                  - cloudfront:ListDistributions
+                  - cloudfront:CreateCloudFrontOriginAccessIdentity
+                  - cloudfront:GetCloudFrontOriginAccessIdentity
+                  - cloudfront:UpdateCloudFrontOriginAccessIdentity
+                  - cloudfront:DeleteCloudFrontOriginAccessIdentity
+                Resource: "*"
+              - Sid: SiteBucketPolicyManagement
+                Effect: Allow
+                Action:
+                  - s3:PutBucketPolicy
+                  - s3:GetBucketPolicy
+                  - s3:DeleteBucketPolicy
+                  - s3:PutBucketWebsite
+                  - s3:GetBucketWebsite
+                  - s3:CreateBucket
+                  - s3:DeleteBucket
+                Resource:
+                  - !Sub "arn:aws:s3:::${SiteBucketName}"
+
+  CodeBuildProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Name: fourschmucks-site-deploy
+      Description: Deploys the fourschmucks-site CloudFormation stack and syncs the static site to S3
+      ServiceRole: !GetAtt CodeBuildServiceRole.Arn
+      Artifacts:
+        Type: CODEPIPELINE
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: buildspec.yml
+      Environment:
+        Type: LINUX_CONTAINER
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/amazonlinux2-x86_64-standard:5.0
+        EnvironmentVariables:
+          - Name: DOMAIN_NAME
+            Value: !Ref DomainName
+          - Name: BUCKET_NAME
+            Value: !Ref SiteBucketName
+      TimeoutInMinutes: 30
+
+  CodePipelineServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: codepipeline.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: FourSchmucksPipelinePolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ArtifactBucketAccess
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectVersion
+                  - s3:PutObject
+                  - s3:GetBucketVersioning
+                  - s3:GetBucketLocation
+                Resource:
+                  - !GetAtt ArtifactBucket.Arn
+                  - !Sub "${ArtifactBucket.Arn}/*"
+              - Sid: UseGitHubConnection
+                Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: !Ref GitHubConnectionArn
+              - Sid: RunCodeBuild
+                Effect: Allow
+                Action:
+                  - codebuild:StartBuild
+                  - codebuild:BatchGetBuilds
+                Resource: !GetAtt CodeBuildProject.Arn
+
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      Name: fourschmucks-site-pipeline
+      RoleArn: !GetAtt CodePipelineServiceRole.Arn
+      ArtifactStore:
+        Type: S3
+        Location: !Ref ArtifactBucket
+      Stages:
+        - Name: Source
+          Actions:
+            - Name: Source
+              ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Provider: CodeStarSourceConnection
+                Version: '1'
+              Configuration:
+                ConnectionArn: !Ref GitHubConnectionArn
+                FullRepositoryId: !Ref RepositoryId
+                BranchName: !Ref BranchName
+              OutputArtifacts:
+                - Name: SourceOutput
+        - Name: Deploy
+          Actions:
+            - Name: Deploy
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: '1'
+              InputArtifacts:
+                - Name: SourceOutput
+              OutputArtifacts:
+                - Name: DeployOutput
+              Configuration:
+                ProjectName: !Ref CodeBuildProject
+
+Outputs:
+  PipelineName:
+    Value: !Ref Pipeline
+  CodeBuildProjectName:
+    Value: !Ref CodeBuildProject
+  ArtifactBucketName:
+    Value: !Ref ArtifactBucket

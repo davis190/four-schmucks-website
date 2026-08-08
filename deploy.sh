@@ -92,7 +92,7 @@ echo "✅ CloudFront Domain: $CLOUDFRONT_DOMAIN"
 echo "✅ CloudFront Distribution ID: $CLOUDFRONT_DIST_ID"
 
 echo "Syncing static site to S3 bucket: $S3_BUCKET"
-aws s3 sync . s3://$S3_BUCKET/ --exclude ".git/*" --exclude "deploy.sh" --exclude "cloudformation.yaml" --delete
+aws s3 sync . s3://$S3_BUCKET/ --exclude ".git/*" --exclude "deploy.sh" --exclude "cloudformation.yaml" --exclude "pipeline.yaml" --exclude "buildspec.yml" --delete
 aws s3 sync ./logos s3://$S3_BUCKET/logos/ --delete
 
 echo "Invalidating CloudFront distribution: $CLOUDFRONT_DIST_ID"
