@@ -105,6 +105,7 @@ Resources:
                   - cloudformation:DescribeStackResource
                   - cloudformation:DescribeStackResources
                   - cloudformation:GetTemplate
+                  - cloudformation:GetTemplateSummary
                   - cloudformation:ValidateTemplate
                   - cloudformation:CreateChangeSet
                   - cloudformation:DescribeChangeSet
