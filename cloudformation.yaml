@@ -1,0 +1,205 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Four Schmucks Multi-Site Infrastructure with Subdomain Routing
+
+Parameters:
+  DomainName:
+    Type: String
+    Description: The main domain name (e.g., fourschmucks.com)
+  BucketName:
+    Type: String
+    Description: The S3 bucket name for static hosting
+  LambdaRoutingCodeVersion:
+    Type: String
+    Default: "2"
+    Description: >
+      Bump this any time SubdomainRoutingFunction's inline code changes (e.g. a new
+      subdomain is added). AWS::Lambda::Version is immutable and CloudFormation only
+      publishes a new one when a property of the Version resource itself changes -
+      it does not detect that the underlying function code changed. Without bumping
+      this, CloudFront keeps using the old published version and new subdomains 404
+      or silently fall back to the default site.
+
+Resources:
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+  CloudFrontOAI:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: !Sub "OAI for ${DomainName}"
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOAI.S3CanonicalUserId
+            Action: s3:GetObject
+            Resource: !Sub "arn:aws:s3:::${BucketName}/*"
+
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      SubjectAlternativeNames:
+        - !Ref DomainName
+        - !Sub "www.${DomainName}"
+        - !Sub "lifestyle.${DomainName}"
+        - !Sub "plumbing.${DomainName}"
+        - !Sub "poop.${DomainName}"
+        - !Sub "brewing.${DomainName}"
+        - !Sub "consulting.${DomainName}"
+        - !Sub "stonks.${DomainName}"
+        - !Sub "rickroll.${DomainName}"
+        - !Sub "mirage.${DomainName}"
+      ValidationMethod: DNS
+
+  # Lambda@Edge function for subdomain routing
+  SubdomainRoutingFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub "fourschmucks-subdomain-routing-${AWS::StackName}"
+      Runtime: nodejs18.x
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Code:
+        ZipFile: |
+          exports.handler = async (event) => {
+            try {
+              const request = event.Records[0].cf.request;
+              const host = request.headers.host[0].value;
+              const uri = request.uri;
+              
+              console.log('Lambda@Edge triggered for host:', host, 'URI:', uri);
+              
+              // Extract subdomain from host
+              const subdomain = host.split('.')[0];
+              console.log('Extracted subdomain:', subdomain);
+              
+              // Map subdomains to HTML files
+              const subdomainMap = {
+                'www': 'index.html',
+                'lifestyle': 'lifestyle.html',
+                'plumbing': 'plumbing.html',
+                'poop': 'plumbing.html',
+                'brewing': 'brewing.html',
+                'consulting': 'consulting.html',
+                'stonks': 'stonks.html',
+                'rickroll': 'rickroll.html',
+                'mirage': 'mirage.html'
+              };
+              
+              // If it's a subdomain and we have a mapping, serve the appropriate file
+              if (subdomainMap[subdomain] && subdomain !== 'www') {
+                console.log('Subdomain mapping found:', subdomain, '->', subdomainMap[subdomain]);
+                
+                // For root path or paths without extensions, serve the subdomain-specific HTML file
+                if (uri === '/' || uri === '' || (!uri.includes('.') && !uri.startsWith('/logos/'))) {
+                  const newUri = '/' + subdomainMap[subdomain];
+                  console.log('Modifying URI from', uri, 'to', newUri);
+                  request.uri = newUri;
+                  return request;
+                }
+              }
+              
+              console.log('No subdomain routing needed, serving original URI:', uri);
+              return request;
+            } catch (error) {
+              console.error('Error in Lambda@Edge function:', error);
+              // Return original request on error
+              return event.Records[0].cf.request;
+            }
+          };
+      Timeout: 5
+      MemorySize: 128
+
+  # IAM role for Lambda execution
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service: edgelambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  # Lambda function version (required for Lambda@Edge)
+  SubdomainRoutingFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !Ref SubdomainRoutingFunction
+      Description: !Sub "Subdomain routing logic v${LambdaRoutingCodeVersion}"
+
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        DefaultRootObject: index.html
+        Aliases:
+          - !Ref DomainName
+          - !Sub "www.${DomainName}"
+          - !Sub "lifestyle.${DomainName}"
+          - !Sub "plumbing.${DomainName}"
+          - !Sub "poop.${DomainName}"
+          - !Sub "brewing.${DomainName}"
+          - !Sub "consulting.${DomainName}"
+          - !Sub "stonks.${DomainName}"
+          - !Sub "rickroll.${DomainName}"
+          - !Sub "mirage.${DomainName}"
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOAI}"
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          LambdaFunctionAssociations:
+            - EventType: viewer-request
+              LambdaFunctionARN: !Ref SubdomainRoutingFunctionVersion
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: sni-only
+        PriceClass: PriceClass_100
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+
+Outputs:
+  S3BucketName:
+    Description: Name of the S3 bucket
+    Value: !Ref WebsiteBucket
+  CloudFrontDomain:
+    Description: CloudFront distribution domain name
+    Value: !GetAtt CloudFrontDistribution.DomainName
+  CertificateArn:
+    Description: ACM certificate ARN
+    Value: !Ref Certificate
+  LambdaFunctionArn:
+    Description: Lambda@Edge function ARN
+    Value: !Ref SubdomainRoutingFunction 

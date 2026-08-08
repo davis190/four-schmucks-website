@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four Schmucks Brewing - Craft Beer with Character</title>
+  <meta name="description" content="Four Schmucks Brewing offers craft beer with a playful premium feel, featuring unique brews, seasonal specialties, and the Brewmaster's Blog.">
+  <meta property="og:title" content="Four Schmucks Brewing - Craft Beer with Character" />
+  <meta property="og:description" content="Four Schmucks Brewing offers craft beer with a playful premium feel, featuring unique brews, seasonal specialties, and the Brewmaster's Blog." />
+  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Four Schmucks Brewing - Craft Beer with Character" />
+  <meta name="twitter:description" content="Four Schmucks Brewing offers craft beer with a playful premium feel, featuring unique brews, seasonal specialties, and the Brewmaster's Blog." />
+  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-701KZR6WCN');
+  </script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Merriweather', Georgia, serif; line-height: 1.6; color: #2c2c2c; }
+    
+    .header { background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+    .logo { height: 50px; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #FFD700; }
+    
+    .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
+    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+    .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+    .cta-button { background: #FFD700; color: #333; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
+    .cta-button:hover { transform: translateY(-3px); }
+    
+    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .section { margin-bottom: 4rem; }
+    .section h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #8B4513; }
+    
+    .beers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .beer-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .beer-card:hover { transform: translateY(-10px); }
+    .beer-card img { width: 100%; height: 250px; object-fit: cover; }
+    .beer-card .content { padding: 1.5rem; }
+    .beer-card h3 { color: #8B4513; margin-bottom: 1rem; font-size: 1.5rem; }
+    .beer-card .style { color: #666; font-style: italic; margin-bottom: 0.5rem; }
+    .beer-card .abv { color: #8B4513; font-weight: bold; margin-bottom: 1rem; }
+    .beer-card p { color: #666; margin-bottom: 1rem; }
+    .beer-card .price { color: #8B4513; font-size: 1.2rem; font-weight: bold; }
+    
+    .seasonal-section { background: #F5F5DC; padding: 4rem 0; }
+    .seasonal-content { text-align: center; max-width: 800px; margin: 0 auto; }
+    
+    .taproom-section { background: white; padding: 4rem 0; }
+    .taproom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .taproom-card { background: #F5F5DC; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .taproom-card h3 { color: #8B4513; margin-bottom: 1rem; }
+    .taproom-card .address { color: #666; margin-bottom: 1rem; }
+    .taproom-card .hours { color: #8B4513; font-weight: bold; }
+    
+    .blog-section { background: #F5F5DC; padding: 4rem 0; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .blog-card { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .blog-card h4 { color: #8B4513; margin-bottom: 0.5rem; }
+    .blog-card .date { color: #999; font-size: 0.9rem; margin-bottom: 1rem; }
+    .blog-card .excerpt { color: #666; margin-bottom: 1rem; }
+    
+    .merchandise-section { background: white; padding: 4rem 0; }
+    .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .merch-item { background: #F5F5DC; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .merch-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; }
+    .merch-item h4 { color: #8B4513; margin-bottom: 0.5rem; }
+    .merch-item .price { color: #8B4513; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; }
+    
+    .footer { background: #8B4513; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1.2rem; }
+      .beers-grid { grid-template-columns: 1fr; }
+      .taproom-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .merch-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="https://www.fourschmucks.com">
+        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Brewing Logo" class="logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#beers">Our Beers</a></li>
+        <li><a href="#seasonal">Seasonal</a></li>
+        <li><a href="#taproom">Taproom</a></li>
+        <li><a href="#blog">Brewmaster's Blog</a></li>
+        <li><a href="#merchandise">Merchandise</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Four Schmucks Brewing</h1>
+      <p>Craft Beer with Character & a Dash of Humor</p>
+      <a href="#beers" class="cta-button">Explore Our Beers</a>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <section id="beers" class="section">
+      <h2>Our Signature Beers</h2>
+      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        Each brew tells a story, and every story has a twist. Our beers are crafted with passion, 
+        precision, and just the right amount of personality to make them unforgettable.
+      </p>
+      
+      <div class="beers-grid">
+        <div class="beer-card">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Schmucks IPA">
+          <div class="content">
+            <h3>Schmucks IPA</h3>
+            <div class="style">West Coast IPA</div>
+            <div class="abv">ABV: 6.8%</div>
+            <p>Bold, hoppy, and unapologetically flavorful. This IPA packs a punch with citrus notes and a smooth finish.</p>
+            <div class="price">$8.99 / 6-pack</div>
+          </div>
+        </div>
+        
+        <div class="beer-card">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Golden Schmuck">
+          <div class="content">
+            <h3>Golden Schmuck</h3>
+            <div class="style">Belgian Blonde</div>
+            <div class="abv">ABV: 5.2%</div>
+            <p>Light, crisp, and refreshing with subtle spice notes. Perfect for any occasion that calls for elegance.</p>
+            <div class="price">$7.99 / 6-pack</div>
+          </div>
+        </div>
+        
+        <div class="beer-card">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dark Schmuck Stout">
+          <div class="content">
+            <h3>Dark Schmuck Stout</h3>
+            <div class="style">Imperial Stout</div>
+            <div class="abv">ABV: 8.5%</div>
+            <p>Rich, complex, and full-bodied with notes of chocolate, coffee, and a hint of vanilla.</p>
+            <div class="price">$9.99 / 4-pack</div>
+          </div>
+        </div>
+        
+        <div class="beer-card">
+          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Wheat Schmuck">
+          <div class="content">
+            <h3>Wheat Schmuck</h3>
+            <div class="style">Hefeweizen</div>
+            <div class="abv">ABV: 5.4%</div>
+            <p>Cloudy, smooth, and refreshing with banana and clove notes. A summer favorite.</p>
+            <div class="price">$7.49 / 6-pack</div>
+          </div>
+        </div>
+        
+        <div class="beer-card">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Pale Schmuck">
+          <div class="content">
+            <h3>Pale Schmuck</h3>
+            <div class="style">American Pale Ale</div>
+            <div class="abv">ABV: 5.6%</div>
+            <p>Balanced and approachable with moderate hop bitterness and a clean, crisp finish.</p>
+            <div class="price">$7.99 / 6-pack</div>
+          </div>
+        </div>
+        
+        <div class="beer-card">
+          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Sour Schmuck">
+          <div class="content">
+            <h3>Sour Schmuck</h3>
+            <div class="style">Berliner Weisse</div>
+            <div class="abv">ABV: 3.8%</div>
+            <p>Tart, refreshing, and slightly acidic with a clean finish. Perfect for hot summer days.</p>
+            <div class="price">$8.49 / 4-pack</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="seasonal" class="seasonal-section">
+      <div class="seasonal-content">
+        <h2>Seasonal Specialties</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+          Our seasonal brews capture the essence of each season, from spring's fresh hop harvests 
+          to winter's rich, warming ales.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+          <div>
+            <h3 style="color: #8B4513; margin-bottom: 1rem;">Spring: Hop Harvest Ale</h3>
+            <p>Fresh, green hop character with floral and citrus notes. Limited release each spring.</p>
+          </div>
+          <div>
+            <h3 style="color: #8B4513; margin-bottom: 1rem;">Summer: Beach Schmuck</h3>
+            <p>Light, refreshing session ale perfect for beach days and backyard barbecues.</p>
+          </div>
+          <div>
+            <h3 style="color: #8B4513; margin-bottom: 1rem;">Fall: Pumpkin Schmuck</h3>
+            <p>Spiced pumpkin ale with cinnamon, nutmeg, and a hint of vanilla. Autumn in a glass.</p>
+          </div>
+          <div>
+            <h3 style="color: #8B4513; margin-bottom: 1rem;">Winter: Holiday Schmuck</h3>
+            <p>Rich, spiced winter warmer with notes of ginger, cinnamon, and holiday cheer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="taproom" class="taproom-section">
+      <h2>Visit Our Taproom</h2>
+      <div class="taproom-grid">
+        <div class="taproom-card">
+          <h3>Schmucks Brewery & Taproom</h3>
+          <div class="address">
+            789 Brewery Lane<br>
+            Craft Beer District<br>
+            Portland, OR 97201
+          </div>
+          <div class="hours">
+            <strong>Hours:</strong><br>
+            Monday-Thursday: 3 PM - 10 PM<br>
+            Friday-Saturday: 12 PM - 12 AM<br>
+            Sunday: 12 PM - 8 PM
+          </div>
+        </div>
+        
+        <div class="taproom-card">
+          <h3>Upcoming Events</h3>
+          <div style="margin-bottom: 1rem;">
+            <strong>August 15:</strong> Summer Lager Release Party<br>
+            <strong>August 22:</strong> Brewmaster vs. AI Head Brewmaster Taste-Off<br>
+            <strong>August 29:</strong> Brewmaster's Q&A Session<br>
+            <strong>September 5:</strong> Homebrew Competition
+          </div>
+          <a href="#" class="cta-button">View Full Calendar</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+      <h2>Brewmaster's Blog</h2>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <h4>We Let an AI Choose the Hops for Our New IPA. It Chose All of Them.</h4>
+          <div class="date">July 22, 2026</div>
+          <div class="excerpt">The batch is called "Overfit." It tastes like every hop that has ever existed, simultaneously.</div>
+          <a href="#" style="color: #8B4513; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <h4>Brewing with Local Ingredients</h4>
+          <div class="date">July 9, 2026</div>
+          <div class="excerpt">Supporting local farmers and using regional ingredients to create truly unique beer experiences.</div>
+          <a href="#" style="color: #8B4513; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <h4>The Science of Fermentation</h4>
+          <div class="date">June 26, 2026</div>
+          <div class="excerpt">Understanding the complex process of fermentation and how it affects the final flavor profile.</div>
+          <a href="#" style="color: #8B4513; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <h4>Pairing Beer with Food (A Task Our AI Sommelier Insists It Can Do, Cannot Taste, Does Anyway)</h4>
+          <div class="date">June 14, 2026</div>
+          <div class="excerpt">Its top pairing for our stout was "more stout." We're workshopping the model.</div>
+          <a href="#" style="color: #8B4513; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="merchandise" class="merchandise-section">
+      <h2>Brewery Merchandise</h2>
+      <div class="merch-grid">
+        <div class="merch-item">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="T-Shirt">
+          <h4>Four Schmucks T-Shirt</h4>
+          <div class="price">$24.99</div>
+          <a href="#" class="cta-button">Add to Cart</a>
+        </div>
+        
+        <div class="merch-item">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Hoodie">
+          <h4>Brewery Hoodie</h4>
+          <div class="price">$49.99</div>
+          <a href="#" class="cta-button">Add to Cart</a>
+        </div>
+        
+        <div class="merch-item">
+          <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Glassware">
+          <h4>Pint Glass Set</h4>
+          <div class="price">$19.99</div>
+          <a href="#" class="cta-button">Add to Cart</a>
+        </div>
+        
+        <div class="merch-item">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Hat">
+          <h4>Brewery Cap</h4>
+          <div class="price">$22.99</div>
+          <a href="#" class="cta-button">Add to Cart</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact & Distribution</h2>
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h3 style="color: #8B4513; margin-bottom: 1rem;">Distribution</h3>
+        <p style="margin-bottom: 2rem;">
+          Our beers are available in select craft beer stores, restaurants, and bars across the United States, 
+          Canada, and parts of Europe. Contact us to find a location near you.
+        </p>
+        
+        <h3 style="color: #8B4513; margin-bottom: 1rem;">Brewery Tours</h3>
+        <p style="margin-bottom: 2rem;">
+          Experience the magic of craft brewing with our guided tours. Available Tuesday-Sunday by appointment.
+        </p>
+        
+        <h3 style="color: #8B4513; margin-bottom: 1rem;">Contact Information</h3>
+        <p style="margin-bottom: 2rem;">
+          <strong>Phone:</strong> (503) 555-BEER<br>
+          <strong>Email:</strong> brewing@fourschmucks.com<br>
+          <strong>Wholesale:</strong> wholesale@fourschmucks.com
+        </p>
+        
+        <a href="mailto:brewing@fourschmucks.com" class="cta-button">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Four Schmucks Brewing. All rights reserved. | "Craft Beer with Character"</p>
+    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com" style="color: #FFD700; text-decoration: none;">← Back to Four Schmucks</a></p>
+  </footer>
+</body>
+</html> 

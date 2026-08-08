@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four Schmucks Stonks - Finance & Investment Excellence</title>
+  <meta name="description" content="Four Schmucks Stonks offers finance and investment services with 'Schmuckonomics' insights and portfolio management.">
+  <meta property="og:title" content="Four Schmucks Stonks - Finance & Investment Excellence" />
+  <meta property="og:description" content="Four Schmucks Stonks offers finance and investment services with 'Schmuckonomics' insights and portfolio management." />
+  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Four Schmucks Stonks - Finance & Investment Excellence" />
+  <meta name="twitter:description" content="Four Schmucks Stonks offers finance and investment services with 'Schmuckonomics' insights and portfolio management." />
+  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-701KZR6WCN');
+  </script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1a1a1a; }
+    
+    .header { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+    .logo { height: 50px; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #fbbf24; }
+    
+    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
+    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+    .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+    .cta-button { background: #fbbf24; color: #1a1a1a; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
+    .cta-button:hover { transform: translateY(-3px); }
+    
+    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .section { margin-bottom: 4rem; }
+    .section h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #1e3a8a; }
+    
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .service-card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; border-left: 5px solid #1e3a8a; }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card h3 { color: #1e3a8a; margin-bottom: 1rem; font-size: 1.5rem; }
+    .service-card p { color: #666; margin-bottom: 1rem; }
+    .service-card .icon { font-size: 2rem; color: #1e3a8a; margin-bottom: 1rem; }
+    
+    .performance-section { background: #f8fafc; padding: 4rem 0; }
+    .performance-content { text-align: center; max-width: 800px; margin: 0 auto; }
+    .performance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .performance-stat { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .performance-stat .number { font-size: 2.5rem; font-weight: bold; color: #1e3a8a; margin-bottom: 0.5rem; }
+    .performance-stat .label { color: #666; font-size: 0.9rem; }
+    
+    .blog-section { background: white; padding: 4rem 0; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .blog-card { background: #f8fafc; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); }
+    .blog-card h4 { color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .blog-card .date { color: #999; font-size: 0.9rem; margin-bottom: 1rem; }
+    .blog-card .excerpt { color: #666; margin-bottom: 1rem; }
+    .blog-card .category { background: #dbeafe; color: #1e3a8a; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; display: inline-block; }
+    
+    .awards-section { background: #1e3a8a; color: white; padding: 4rem 0; }
+    .awards-content { text-align: center; max-width: 800px; margin: 0 auto; }
+    .awards-content h2 { color: white; }
+    .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .award-item { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; }
+    .award-item h3 { margin-bottom: 1rem; }
+    .award-item .year { color: #fbbf24; font-weight: bold; }
+    
+    .press-section { background: #f8fafc; padding: 4rem 0; }
+    .press-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .press-item { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .press-item .publication { color: #1e3a8a; font-weight: bold; margin-bottom: 0.5rem; }
+    .press-item .headline { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.1rem; }
+    .press-item .date { color: #999; font-size: 0.9rem; }
+    
+    .footer { background: #1e3a8a; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1.2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .performance-stats { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .press-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="https://www.fourschmucks.com">
+        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Stonks Logo" class="logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#blog">Schmuckonomics</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Four Schmucks Stonks</h1>
+      <p>Where Finance Meets Innovation & Humor</p>
+      <a href="#services" class="cta-button">Explore Our Services</a>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <section id="services" class="section">
+      <h2>Investment & Financial Services</h2>
+      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        We combine cutting-edge financial technology with our proprietary "Schmuckonomics" methodology 
+        to deliver exceptional returns while keeping our clients entertained and informed.
+      </p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">📈</div>
+          <h3>Portfolio Management</h3>
+          <p>Customized investment strategies tailored to your risk tolerance and financial goals, managed by our expert team of financial professionals.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">🎯</div>
+          <h3>Schmuckonomics Research</h3>
+          <p>Our proprietary research methodology that combines traditional financial analysis with unconventional insights and market psychology.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">💼</div>
+          <h3>Wealth Planning</h3>
+          <p>Comprehensive financial planning services including retirement planning, tax optimization, and estate planning strategies.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">🌍</div>
+          <h3>International Investments</h3>
+          <p>Global investment opportunities across emerging markets, developed economies, and alternative asset classes.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">🔬</div>
+          <h3>Alternative Assets</h3>
+          <p>Access to private equity, venture capital, real estate, and other alternative investment opportunities.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">📱</div>
+          <h3>Digital Trading Platform</h3>
+          <p>State-of-the-art trading platform with real-time market data, advanced analytics, and seamless execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="performance" class="performance-section">
+      <div class="performance-content">
+        <h2>Performance Excellence</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+          Our track record speaks for itself. We've consistently outperformed market benchmarks 
+          while maintaining our commitment to transparency and client education.
+        </p>
+        <div class="performance-stats">
+          <div class="performance-stat">
+            <div class="number">94%</div>
+            <div class="label">Market Prediction Accuracy</div>
+          </div>
+          <div class="performance-stat">
+            <div class="number">18.7%</div>
+            <div class="label">Average Annual Return</div>
+          </div>
+          <div class="performance-stat">
+            <div class="number">$2.4B</div>
+            <div class="label">Assets Under Management</div>
+          </div>
+          <div class="performance-stat">
+            <div class="number">15,000+</div>
+            <div class="label">Happy Clients Worldwide</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+      <h2>Schmuckonomics Blog</h2>
+      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto; margin-bottom: 2rem;">
+        Stay ahead of the market with our unique insights, analysis, and occasionally humorous take on finance.
+      </p>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="category">Market Analysis</div>
+          <h4>The Great AI Stock Correction: Why We're Not Worried (We're Never Worried)</h4>
+          <div class="date">July 30, 2026</div>
+          <div class="excerpt">Our analysis shows that the recent AI selloff presents unique opportunities for long-term investors. Here's why we're doubling down on quality AI stocks.</div>
+          <a href="#" style="color: #1e3a8a; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="category">Investment Strategy</div>
+          <h4>Schmuckonomics 101: We Taught Our Trading AI About Market Psychology and Now It Won't Stop Journaling</h4>
+          <div class="date">July 20, 2026</div>
+          <div class="excerpt">Understanding the emotional factors that drive market movements, and why our model now writes a paragraph about its "feelings" before every trade.</div>
+          <a href="#" style="color: #1e3a8a; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="category">Emerging Markets</div>
+          <h4>Why Southeast Asia's AI Data Center Boom is the Next Investment Frontier</h4>
+          <div class="date">July 8, 2026</div>
+          <div class="excerpt">Our research team identifies the top opportunities in Southeast Asian markets and the sectors poised for explosive growth.</div>
+          <a href="#" style="color: #1e3a8a; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="category">Alternative Assets</div>
+          <h4>Cryptocurrency Winter: A Contrarian's Dream (Our AI Agrees, Reluctantly)</h4>
+          <div class="date">June 25, 2026</div>
+          <div class="excerpt">While others panic, we see opportunity. Our trading model was prompted five separate ways and still refuses to say "sell."</div>
+          <a href="#" style="color: #1e3a8a; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="category">Economic Outlook</div>
+          <h4>2027 Economic Forecast: The Schmucks Perspective</h4>
+          <div class="date">June 12, 2026</div>
+          <div class="excerpt">Our comprehensive economic outlook for 2027, including inflation expectations, interest rate predictions, and investment implications.</div>
+          <a href="#" style="color: #1e3a8a; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+
+        <div class="blog-card">
+          <div class="category">Personal Finance</div>
+          <h4>Building Wealth in Your 20s: Schmucks-Style (Now That AI Took the Entry-Level Jobs)</h4>
+          <div class="date">May 30, 2026</div>
+          <div class="excerpt">Practical advice for young investors on building wealth early, including our favorite investment vehicles and common pitfalls to avoid.</div>
+          <a href="#" style="color: #1e3a8a; text-decoration: none; font-weight: 500;">Read More →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="awards-section">
+      <div class="awards-content">
+        <h2>Awards & Recognition</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+          Our commitment to excellence and innovation has been recognized by the financial industry's most prestigious organizations.
+        </p>
+        <div class="awards-grid">
+          <div class="award-item">
+            <h3>Best Investment Firm</h3>
+            <div class="year">2026</div>
+            <p>Financial Times Investment Awards</p>
+          </div>
+          <div class="award-item">
+            <h3>Most Innovative Use of AI in Research</h3>
+            <div class="year">2026</div>
+            <p>Bloomberg Markets Recognition</p>
+          </div>
+          <div class="award-item">
+            <h3>Client Satisfaction Excellence</h3>
+            <div class="year">2025</div>
+            <p>Investment Management Association</p>
+          </div>
+          <div class="award-item">
+            <h3>Technology Innovation Award</h3>
+            <div class="year">2025</div>
+            <p>FinTech Breakthrough Awards</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="press" class="press-section">
+      <h2>Press & Media Coverage</h2>
+      <div class="press-grid">
+        <div class="press-item">
+          <div class="publication">The Wall Street Journal</div>
+          <div class="headline">"Four Schmucks Stonks: The Unconventional Approach to Investment Success"</div>
+          <div class="date">July 25, 2026</div>
+        </div>
+
+        <div class="press-item">
+          <div class="publication">Bloomberg Businessweek</div>
+          <div class="headline">"How Schmuckonomics AI is Revolutionizing Market Analysis (And Occasionally Refusing to Explain Itself)"</div>
+          <div class="date">July 18, 2026</div>
+        </div>
+
+        <div class="press-item">
+          <div class="publication">Financial Times</div>
+          <div class="headline">"Four Schmucks Stonks Named Top Performer in Alternative Investments"</div>
+          <div class="date">July 9, 2026</div>
+        </div>
+
+        <div class="press-item">
+          <div class="publication">CNBC</div>
+          <div class="headline">"The Rise of Schmuckonomics: How One Firm Let an AI Have Opinions About the Fed"</div>
+          <div class="date">June 27, 2026</div>
+        </div>
+
+        <div class="press-item">
+          <div class="publication">Forbes</div>
+          <div class="headline">"Four Schmucks Stonks: Where Finance Meets Innovation"</div>
+          <div class="date">June 19, 2026</div>
+        </div>
+
+        <div class="press-item">
+          <div class="publication">Reuters</div>
+          <div class="headline">"Alternative Investment Firm Four Schmucks Stonks Reports Record Growth"</div>
+          <div class="date">June 10, 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Ready to Invest with the Schmucks?</h2>
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+          Join thousands of investors who trust Four Schmucks Stonks with their financial future. 
+          Let's discuss how we can help you achieve your investment goals.
+        </p>
+        
+        <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Investment Options</h3>
+        <p style="margin-bottom: 2rem;">
+          <strong>Individual Accounts:</strong> Personalized investment strategies for individual investors<br>
+          <strong>Retirement Planning:</strong> 401(k), IRA, and other retirement account management<br>
+          <strong>Institutional Services:</strong> Corporate and institutional investment management<br>
+          <strong>Alternative Investments:</strong> Access to private equity, real estate, and venture capital
+        </p>
+        
+        <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Contact Information</h3>
+        <p style="margin-bottom: 2rem;">
+          <strong>Phone:</strong> (212) 555-STONKS<br>
+          <strong>Email:</strong> stonks@fourschmucks.com<br>
+          <strong>Office:</strong> 456 Wall Street, Schmucks Financial District, New York, NY 10005
+        </p>
+        
+        <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Minimum Investment</h3>
+        <p style="margin-bottom: 2rem;">
+          <strong>Standard Portfolio:</strong> $100,000 minimum<br>
+          <strong>Premium Service:</strong> $500,000 minimum<br>
+          <strong>Institutional:</strong> $5,000,000 minimum
+        </p>
+        
+        <a href="mailto:stonks@fourschmucks.com" class="cta-button">Schedule a Consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Four Schmucks Stonks. All rights reserved. | "Don't Schmuck Around with Your Money!"</p>
+    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com" style="color: #fbbf24; text-decoration: none;">← Back to Four Schmucks</a></p>
+  </footer>
+</body>
+</html>

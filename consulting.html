@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four Schmucks Consulting - Innovative Strategies for Unconventional Success</title>
+  <meta name="description" content="Four Schmucks Consulting offers innovative strategies for unconventional success in business strategy, market entry, and digital transformation.">
+  <meta property="og:title" content="Four Schmucks Consulting - Innovative Strategies for Unconventional Success" />
+  <meta property="og:description" content="Four Schmucks Consulting offers innovative strategies for unconventional success in business strategy, market entry, and digital transformation." />
+  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Four Schmucks Consulting - Innovative Strategies for Unconventional Success" />
+  <meta name="twitter:description" content="Four Schmucks Consulting offers innovative strategies for unconventional success in business strategy, market entry, and digital transformation." />
+  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-701KZR6WCN');
+  </script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; }
+    
+    .header { background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+    .logo { height: 50px; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: #3498db; }
+    
+    .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
+    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+    .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+    .cta-button { background: #3498db; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
+    .cta-button:hover { transform: translateY(-3px); }
+    
+    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .section { margin-bottom: 4rem; }
+    .section h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #2c3e50; }
+    
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .service-card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; border-left: 5px solid #3498db; }
+    .service-card:hover { transform: translateY(-5px); }
+    .service-card h3 { color: #2c3e50; margin-bottom: 1rem; font-size: 1.5rem; }
+    .service-card p { color: #666; margin-bottom: 1rem; }
+    .service-card .icon { font-size: 2rem; color: #3498db; margin-bottom: 1rem; }
+    
+    .case-studies-section { background: #f8f9fa; padding: 4rem 0; }
+    .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .case-study-card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .case-study-card:hover { transform: translateY(-5px); }
+    .case-study-card h3 { color: #2c3e50; margin-bottom: 1rem; font-size: 1.5rem; }
+    .case-study-card .industry { color: #3498db; font-weight: bold; margin-bottom: 0.5rem; }
+    .case-study-card .results { background: #e8f4fd; padding: 1rem; border-radius: 10px; margin: 1rem 0; }
+    .case-study-card .results strong { color: #2c3e50; }
+    
+    .team-section { background: white; padding: 4rem 0; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .team-member { background: #f8f9fa; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .team-member:hover { transform: translateY(-5px); }
+    .team-member img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; border: 4px solid #3498db; }
+    .team-member h3 { color: #2c3e50; margin-bottom: 0.5rem; }
+    .team-member .title { color: #3498db; font-weight: bold; margin-bottom: 1rem; }
+    .team-member .bio { color: #666; font-size: 0.9rem; }
+    
+    .methodology-section { background: #2c3e50; color: white; padding: 4rem 0; }
+    .methodology-content { text-align: center; max-width: 800px; margin: 0 auto; }
+    .methodology-content h2 { color: white; }
+    .methodology-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .methodology-step { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; }
+    .methodology-step .number { background: #3498db; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold; }
+    
+    .footer { background: #2c3e50; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-content p { font-size: 1.2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .case-studies-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .methodology-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="https://www.fourschmucks.com">
+        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Consulting Logo" class="logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Four Schmucks Consulting</h1>
+      <p>Innovative Strategies for Unconventional Success</p>
+      <a href="#services" class="cta-button">Explore Our Services</a>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <section id="services" class="section">
+      <h2>Our Consulting Services</h2>
+      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        We specialize in helping companies think differently, act boldly, and achieve extraordinary results 
+        through unconventional strategies and innovative approaches.
+      </p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">🚀</div>
+          <h3>Business Strategy & Innovation</h3>
+          <p>Transform your business model with cutting-edge strategies that challenge conventional thinking and create sustainable competitive advantages.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">🌍</div>
+          <h3>Market Entry & Expansion</h3>
+          <p>Navigate new markets with confidence using our proven frameworks for international expansion and market penetration strategies.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">💻</div>
+          <h3>Digital Transformation</h3>
+          <p>Accelerate your digital journey with comprehensive transformation strategies that align technology with business objectives.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">📊</div>
+          <h3>Performance Optimization</h3>
+          <p>Unlock hidden potential in your operations with data-driven insights and process optimization strategies.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">🎯</div>
+          <h3>Change Management</h3>
+          <p>Successfully navigate organizational change with our human-centered approach to transformation and cultural evolution.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">🔬</div>
+          <h3>Research & Analytics</h3>
+          <p>Make informed decisions with comprehensive market research, competitive analysis, and predictive analytics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-studies" class="case-studies-section">
+      <h2>Success Stories</h2>
+      <div class="case-studies-grid">
+        <div class="case-study-card">
+          <h3>Tech Startup Growth Acceleration</h3>
+          <div class="industry">Technology | AI/ML</div>
+          <p>A Silicon Valley AI startup struggling with market positioning and scaling challenges.</p>
+          <div class="results">
+            <strong>Results:</strong> 500% revenue growth in 18 months, successful Series B funding of $25M, expanded to 3 new markets.
+          </div>
+        </div>
+        
+        <div class="case-study-card">
+          <h3>Traditional Retail Digital Transformation</h3>
+          <div class="industry">Retail | E-commerce</div>
+          <p>Century-old retail chain facing digital disruption and declining foot traffic.</p>
+          <div class="results">
+            <strong>Results:</strong> 300% increase in online sales, 40% reduction in operational costs, 25% improvement in customer satisfaction.
+          </div>
+        </div>
+        
+        <div class="case-study-card">
+          <h3>Manufacturing Process Innovation</h3>
+          <div class="industry">Manufacturing | Automotive</div>
+          <p>Automotive parts manufacturer struggling with efficiency and quality control issues.</p>
+          <div class="results">
+            <strong>Results:</strong> 45% increase in production efficiency, 60% reduction in defects, $2.5M annual cost savings.
+          </div>
+        </div>
+        
+        <div class="case-study-card">
+          <h3>Healthcare System Optimization</h3>
+          <div class="industry">Healthcare | Hospital Network</div>
+          <p>Regional hospital network facing operational inefficiencies and patient satisfaction challenges.</p>
+          <div class="results">
+            <strong>Results:</strong> 35% improvement in patient wait times, 50% reduction in administrative overhead, 90% patient satisfaction score.
+          </div>
+        </div>
+        
+        <div class="case-study-card">
+          <h3>Financial Services Innovation</h3>
+          <div class="industry">Finance | Banking</div>
+          <p>Traditional bank struggling to compete with fintech disruptors and changing customer expectations.</p>
+          <div class="results">
+            <strong>Results:</strong> 200% increase in digital adoption, 40% improvement in customer retention, successful launch of 3 new digital products.
+          </div>
+        </div>
+        
+        <div class="case-study-card">
+          <h3>Energy Sector Market Entry</h3>
+          <div class="industry">Energy | Renewable</div>
+          <p>Renewable energy company seeking to expand into emerging markets with complex regulatory environments.</p>
+          <div class="results">
+            <strong>Results:</strong> Successful entry into 5 new markets, $150M in new contracts, 80% regulatory compliance rate.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team-section">
+      <h2>Meet Our Consulting Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dr. Marcus Chen">
+          <h3>Dr. Marcus Chen</h3>
+          <div class="title">Managing Partner & Chief Strategy Officer</div>
+          <div class="bio">Former McKinsey partner with 15+ years in strategic consulting. PhD in Economics from Stanford. Expert in digital transformation and market entry strategies.</div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Sarah Rodriguez">
+          <h3>Sarah Rodriguez</h3>
+          <div class="title">Senior Partner, Innovation Practice</div>
+          <div class="bio">Former Google X executive with expertise in disruptive innovation and emerging technologies. Led 50+ breakthrough projects across various industries.</div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="James Thompson">
+          <h3>James Thompson</h3>
+          <div class="title">Partner, Operations & Performance</div>
+          <div class="bio">Former Bain consultant specializing in operational excellence and performance optimization. MBA from Harvard Business School.</div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dr. Elena Petrov">
+          <h3>Dr. Elena Petrov</h3>
+          <div class="title">Partner, Research & Analytics</div>
+          <div class="bio">Former MIT researcher with expertise in predictive analytics and market intelligence. PhD in Data Science and 20+ years in research.</div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Michael Chang">
+          <h3>Michael Chang</h3>
+          <div class="title">Partner, Change Management</div>
+          <div class="bio">Former Deloitte consultant specializing in organizational transformation and cultural change. Expert in human-centered design and change psychology.</div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dr. Priya Patel">
+          <h3>Dr. Priya Patel</h3>
+          <div class="title">Partner, Healthcare & Life Sciences</div>
+          <div class="bio">Former Johns Hopkins researcher with deep expertise in healthcare systems optimization and medical technology innovation.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodology" class="methodology-section">
+      <div class="methodology-content">
+        <h2>Our Methodology</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+          We follow a proven, iterative approach that combines deep analysis with creative problem-solving 
+          to deliver sustainable, transformative results.
+        </p>
+        <div class="methodology-steps">
+          <div class="methodology-step">
+            <div class="number">1</div>
+            <h3>Discovery & Analysis</h3>
+            <p>Deep dive into your business, market, and competitive landscape to identify opportunities and challenges.</p>
+          </div>
+          <div class="methodology-step">
+            <div class="number">2</div>
+            <h3>Strategy Development</h3>
+            <p>Co-create innovative strategies that challenge conventional thinking and create sustainable competitive advantages.</p>
+          </div>
+          <div class="methodology-step">
+            <div class="number">3</div>
+            <h3>Implementation Planning</h3>
+            <p>Develop detailed roadmaps and change management strategies to ensure successful execution.</p>
+          </div>
+          <div class="methodology-step">
+            <div class="number">4</div>
+            <h3>Execution & Support</h3>
+            <p>Provide ongoing support and guidance throughout implementation to ensure sustainable results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Ready to Transform Your Business?</h2>
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+          Let's discuss how our unconventional approach can help you achieve extraordinary results. 
+          Schedule a consultation to explore the possibilities.
+        </p>
+        
+        <h3 style="color: #2c3e50; margin-bottom: 1rem;">Consultation Options</h3>
+        <p style="margin-bottom: 2rem;">
+          <strong>Strategy Session:</strong> 2-hour deep dive into your business challenges and opportunities<br>
+          <strong>Discovery Workshop:</strong> Full-day session with key stakeholders to identify transformation opportunities<br>
+          <strong>Ongoing Partnership:</strong> Long-term strategic partnership with regular check-ins and support
+        </p>
+        
+        <h3 style="color: #2c3e50; margin-bottom: 1rem;">Contact Information</h3>
+        <p style="margin-bottom: 2rem;">
+          <strong>Phone:</strong> (415) 555-CONSULT<br>
+          <strong>Email:</strong> consulting@fourschmucks.com<br>
+          <strong>Office:</strong> 1234 Innovation Drive, Schmucks Plaza, San Francisco, CA 94105
+        </p>
+        
+        <a href="mailto:consulting@fourschmucks.com" class="cta-button">Schedule a Consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Four Schmucks Consulting. All rights reserved. | "Innovation Through Unconventional Thinking"</p>
+    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com" style="color: #3498db; text-decoration: none;">← Back to Four Schmucks</a></p>
+  </footer>
+</body>
+</html>
