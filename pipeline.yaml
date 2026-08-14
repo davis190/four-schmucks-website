@@ -131,6 +131,18 @@ Resources:
                   - lambda:GetPolicy
                   - lambda:TagResource
                   - lambda:ListTags
+                  # Required for CloudFront to associate a Lambda@Edge version with the
+                  # distribution: CloudFront calls this on the caller's behalf to replicate
+                  # the function to every edge region. Publishing a version is NOT enough -
+                  # without this the distribution update fails with
+                  # "Lambda@Edge cannot enable replication for the specified Lambda function".
+                  #
+                  # It went unnoticed until Aug 2026 because the association had never
+                  # actually changed under this role: the site stack was bootstrapped with a
+                  # human's credentials, and the stale-version bug (see deploy.sh) meant no
+                  # subsequent pipeline run ever published a version for CloudFront to
+                  # re-associate. Fixing that bug is what first exercised this permission.
+                  - lambda:EnableReplication*
                 Resource:
                   - !Sub "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:fourschmucks-subdomain-routing-*"
               - Sid: IamRoleForLambdaExecution
