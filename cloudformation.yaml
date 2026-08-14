@@ -10,14 +10,23 @@ Parameters:
     Description: The S3 bucket name for static hosting
   LambdaRoutingCodeVersion:
     Type: String
-    Default: "3"
+    Default: "manual"
     Description: >
-      Bump this any time SubdomainRoutingFunction's inline code changes (e.g. a new
-      subdomain is added). AWS::Lambda::Version is immutable and CloudFormation only
-      publishes a new one when a property of the Version resource itself changes -
-      it does not detect that the underlying function code changed. Without bumping
-      this, CloudFront keeps using the old published version and new subdomains 404
-      or silently fall back to the default site.
+      Forces a new AWS::Lambda::Version to be published. That resource is immutable and
+      CloudFormation only publishes a new one when a property of the Version resource
+      itself changes - it does NOT detect that the inline function code changed. Without
+      a new value here, CloudFront keeps serving the stale routing code and new subdomains
+      silently fall back to the homepage.
+
+      DO NOT hand-edit this default and expect it to take effect. `aws cloudformation
+      deploy` sends UsePreviousValue=true for any parameter it is not explicitly given,
+      so an existing stack ignores the template default entirely. This is exactly how the
+      stale-version bug shipped twice.
+
+      deploy.sh computes this from a hash of this template and passes it in
+      --parameter-overrides, so it changes automatically on every template edit. The
+      "manual" default only applies to a hand-rolled `aws cloudformation deploy`, which
+      needs the parameter passed explicitly to publish a new version.
 
 Resources:
   WebsiteBucket:

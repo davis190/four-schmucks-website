@@ -38,7 +38,7 @@ When adding a new brand/subdomain page, you must update in lockstep:
 4. The `required_files` and `subdomains` arrays in `test-sites.sh`.
 5. The CloudFront invalidation paths and printed URLs at the end of `deploy.sh`.
 6. The routing table in `SUBDOMAIN_ROUTING.md`.
-7. The `LambdaRoutingCodeVersion` parameter's default in `cloudformation.yaml` — bump it (e.g. "2" -> "3"). `AWS::Lambda::Version` is immutable and CloudFormation only publishes a new one when a property of that resource changes; without bumping this, CloudFront keeps using the stale Lambda@Edge version and the new subdomain silently falls back to serving the homepage instead of 404ing (this exact bug shipped once already).
+7. **Nothing.** `LambdaRoutingCodeVersion` is handled automatically — `deploy.sh` hashes `cloudformation.yaml` and passes the result in `--parameter-overrides`, so editing the template always publishes a new `AWS::Lambda::Version`. Do **not** hand-bump the parameter's `Default:` and assume it took effect: `aws cloudformation deploy` sends `UsePreviousValue=true` for any parameter it isn't explicitly given, so an existing stack ignores the default. That is precisely how CloudFront twice ended up pinned to a stale routing version, silently serving the homepage on a new subdomain instead of its page.
 
 The Lambda routing logic only rewrites the URI when the path is `/`, empty, or extensionless and not under `/logos/` — asset requests (e.g. `/logos/foo.png`) pass through untouched.
 
@@ -110,7 +110,7 @@ Google Analytics (`gtag.js`, `G-701KZR6WCN`), canonical, `theme-color`, favicon 
 3b. Add the brand's display font to the `TYPE` map in `tools/make-og-cards.mjs`, then re-run it to render the new social card. Without this the page's `og:image` 404s and `test-sites.sh` fails.
 4. `subdomainMap` inside the Lambda function code in `cloudformation.yaml`.
 5. `CloudFrontDistribution.Aliases` in `cloudformation.yaml`. **Leave `Certificate` alone** — it is a wildcard (`*.${DomainName}`) covering every single-label subdomain, so no SAN edit is needed and nothing blocks on DNS validation. Adding an alias is an in-place distribution update. (This used to be an enumerated SAN list, which made every new brand a certificate replacement and the slowest step of the whole process.)
-6. Bump the `LambdaRoutingCodeVersion` parameter default in `cloudformation.yaml` (e.g. "2" → "3"). `AWS::Lambda::Version` is immutable and CloudFormation only publishes a new one when a property of that resource changes; without bumping this, CloudFront keeps using the stale Lambda@Edge version and the new subdomain silently falls back to serving the homepage instead of 404ing (this exact bug shipped once already).
+6. Nothing to do for `LambdaRoutingCodeVersion` — `deploy.sh` derives it from a hash of `cloudformation.yaml`, so any template edit publishes a fresh `AWS::Lambda::Version`. See step 7 of the routing section above for why hand-bumping the `Default:` does nothing.
 7. `required_files` and `subdomains` arrays in `test-sites.sh`.
 8. The printed URLs at the end of `deploy.sh`, and the routing table in `SUBDOMAIN_ROUTING.md`.
 

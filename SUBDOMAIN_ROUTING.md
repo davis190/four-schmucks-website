@@ -115,7 +115,40 @@ https://fraud.fourschmucks.com     → launder.html (alternative)
 3. Check ACM certificate validation status
 4. Verify DNS records point to CloudFront
 
-### **Wrong Content Showing**
+### **A new subdomain serves the homepage instead of its own page**
+
+This is the signature of a **stale Lambda@Edge version**, and it is by far the most common
+failure here — it has shipped twice. The subdomain is missing from the *running* version's
+`subdomainMap`, so the function returns the request unmodified, the URI stays `/`, and
+CloudFront serves `DefaultRootObject` (`index.html`).
+
+Diagnose it from outside in one command — compare a known-good subdomain against the new one:
+
+```bash
+for h in mirage launder; do
+  printf "%-9s " "$h"; curl -s "https://$h.fourschmucks.com/" | grep -o '<title>[^<]*'
+done
+```
+
+If the older subdomain routes correctly and only the new one falls back, the function is
+running an earlier published version. Confirm with:
+
+```bash
+aws lambda list-versions-by-function --region us-east-1 \
+  --function-name fourschmucks-subdomain-routing-fourschmucks-site \
+  --query 'Versions[].[Version,Description]' --output table
+```
+
+The cause is always the same: `AWS::Lambda::Version` is immutable, so CloudFormation
+publishes a new one only when a property of *that resource* changes — never because the
+inline code changed. `deploy.sh` handles this by hashing `cloudformation.yaml` into
+`LambdaRoutingCodeVersion` and passing it in `--parameter-overrides`. **Hand-editing the
+parameter's `Default:` does not work**, because `aws cloudformation deploy` sends
+`UsePreviousValue=true` for any parameter it isn't explicitly given.
+
+Allow 5–10 minutes for a newly published version to propagate before concluding it failed.
+
+### **Other wrong-content checks**
 1. Check Lambda@Edge function logs in CloudWatch
 2. Verify HTML files are synced to S3
 3. Check CloudFront cache invalidation

@@ -49,13 +49,37 @@ LAMBDA_REGION="us-east-1"  # Lambda@Edge must be deployed to us-east-1
 echo "Deploying to region: $REGION"
 echo "Lambda@Edge will be deployed to: $LAMBDA_REGION"
 
+# Lambda@Edge version pinning.
+#
+# AWS::Lambda::Version is immutable: CloudFormation publishes a new version only when a
+# property of the Version resource itself changes. Editing the inline function code is NOT
+# enough, so the Version's Description embeds LambdaRoutingCodeVersion to force the change.
+#
+# That used to be a hand-bumped Default in the template, and it silently did nothing:
+# `aws cloudformation deploy` sends UsePreviousValue=true for every parameter NOT listed in
+# --parameter-overrides, so the stack kept its old value no matter what the template said.
+# CloudFront stayed pinned to the stale version and each new subdomain served the homepage
+# instead of its own page. That shipped twice before anyone caught it.
+#
+# Hashing the template removes the manual step: any edit yields a new value, so a new
+# version is always published. Hashing the whole file rather than just the inline code
+# keeps it immune to YAML reformatting — the cost is a redundant version publish when a
+# template change doesn't touch the routing code, which is harmless.
+if command -v shasum >/dev/null 2>&1; then
+  ROUTING_VERSION=$(shasum -a 256 cloudformation.yaml | cut -c1-16)
+else
+  ROUTING_VERSION=$(sha256sum cloudformation.yaml | cut -c1-16)
+fi
+echo "Lambda routing version: $ROUTING_VERSION"
+
 # Deploy CloudFormation stack
 echo "Deploying CloudFormation stack..."
 if ! aws cloudformation deploy \
   --template-file cloudformation.yaml \
   --stack-name $STACK_NAME \
   --capabilities CAPABILITY_NAMED_IAM \
-  --parameter-overrides DomainName=$DOMAIN_NAME BucketName=$BUCKET_NAME; then
+  --parameter-overrides DomainName=$DOMAIN_NAME BucketName=$BUCKET_NAME \
+                        LambdaRoutingCodeVersion=$ROUTING_VERSION; then
     echo "❌ CloudFormation deployment failed"
     echo "💡 Check the CloudFormation console for detailed error messages"
     exit 1
