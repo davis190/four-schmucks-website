@@ -85,6 +85,16 @@ window.SCHMUCK_BRANDS = [
     icon: '🌫'
   },
   {
+    key: 'launder',
+    name: 'Four Schmucks Fraud & Launder',
+    short: 'Fraud & Launder',
+    sub: 'launder',
+    file: 'launder.html',
+    tagline: 'A compliance firm named after its founders. Please stop asking.',
+    accent: '#be123c',
+    icon: '⚖️'
+  },
+  {
     key: 'rickroll',
     name: 'Four Schmucks Sponsorship',
     short: 'Sponsorship',

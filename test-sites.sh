@@ -17,7 +17,7 @@ fail() {
 }
 
 # Every page that must exist and be deployable.
-required_files=("index.html" "404.html" "lifestyle.html" "plumbing.html" "brewing.html" "consulting.html" "stonks.html" "rickroll.html" "mirage.html")
+required_files=("index.html" "404.html" "lifestyle.html" "plumbing.html" "brewing.html" "consulting.html" "stonks.html" "rickroll.html" "mirage.html" "launder.html")
 
 # Shared assets the pages depend on. A page that loses its stylesheet still renders,
 # just as unstyled markup, so the DOCTYPE check alone would not catch it.
@@ -96,7 +96,7 @@ fi
 
 # Social cards are NOT optional: every page's og:image points at one, and a 404 there
 # means broken link previews everywhere the site gets shared.
-for key in index lifestyle plumbing brewing consulting stonks mirage rickroll; do
+for key in index lifestyle plumbing brewing consulting stonks mirage rickroll launder; do
     if [ -f "images/card-${key}.jpg" ]; then
         echo "  ✅ images/card-${key}.jpg"
     else
@@ -112,12 +112,12 @@ done
 # Heroes and product photos ARE optional — heroes fall back to the mesh gradient and
 # product tiles fall back to the emoji tile (the <img> removes itself on error).
 missing_heroes=0
-for brand in index lifestyle plumbing brewing consulting stonks mirage; do
+for brand in index lifestyle plumbing brewing consulting stonks mirage launder; do
     [ -f "images/hero-${brand}.webp" ] || missing_heroes=$((missing_heroes + 1))
 done
 [ "$missing_heroes" -eq 0 ] \
-    && echo "  ✅ all 7 hero images present" \
-    || echo "  ℹ️  $missing_heroes/7 heroes not yet generated — pages fall back to gradients"
+    && echo "  ✅ all 8 hero images present" \
+    || echo "  ℹ️  $missing_heroes/8 heroes not yet generated — pages fall back to gradients"
 
 missing_products=0
 for slug in brew-ipa brew-golden brew-stout brew-wheat brew-pale brew-sour \
@@ -151,10 +151,11 @@ if [ -f "cloudformation.yaml" ]; then
         fail "cloudformation.yaml: SubdomainRoutingFunction not defined"
     fi
 
-    # Each subdomain needs an entry in the Lambda's subdomainMap, an ACM SAN and a
-    # CloudFront alias. Checking for the quoted map key specifically, rather than a
-    # bare substring anywhere in the file, so a stray mention in a comment can't pass.
-    subdomains=("lifestyle" "plumbing" "poop" "brewing" "consulting" "stonks" "rickroll" "mirage")
+    # Each subdomain needs an entry in the Lambda's subdomainMap and a CloudFront alias.
+    # No ACM check: the certificate is a wildcard, so it already covers every subdomain.
+    # Checking for the quoted map key specifically, rather than a bare substring anywhere
+    # in the file, so a stray mention in a comment can't pass.
+    subdomains=("lifestyle" "plumbing" "poop" "brewing" "consulting" "stonks" "rickroll" "mirage" "launder" "fraud")
     for subdomain in "${subdomains[@]}"; do
         if grep -q "'${subdomain}':" "cloudformation.yaml" && grep -q "${subdomain}\.\${DomainName}" "cloudformation.yaml"; then
             echo "     ✅ $subdomain routed and aliased"

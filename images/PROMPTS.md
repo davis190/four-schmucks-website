@@ -41,10 +41,10 @@ with `cover`, so the browser crops to fit.
 
 | Set | Count | Done |
 |---|---|---|
-| Heroes | 8 | ✅ all |
+| Heroes | 9 | ✅ all |
 | Brewing products | 10 | ✅ all |
 | Lifestyle products | 7 | ✅ all |
-| Social cards | 8 | ✅ all (rendered) |
+| Social cards | 9 | ✅ all (rendered) |
 | Favicons | 3 | ✅ all (derived) |
 
 The prompts below are kept for regenerating or restyling individual images.
@@ -54,7 +54,7 @@ The prompts below are kept for regenerating or restyling individual images.
 # 1. Hero images
 
 **Filenames:** `hero-index`, `hero-lifestyle`, `hero-plumbing`, `hero-brewing`,
-`hero-consulting`, `hero-stonks`, `hero-mirage`, `hero-rickroll`
+`hero-consulting`, `hero-stonks`, `hero-mirage`, `hero-launder`, `hero-rickroll`
 
 **Shared style suffix — append to every hero prompt:**
 
@@ -85,7 +85,13 @@ The prompts below are kept for regenerating or restyling individual images.
 7. **`hero-mirage`** *(purple / cyan)* — A dense bank of violet fog with a faint cyan light
    source buried inside it, and the barely-perceptible silhouette of a doorway that may or
    may not be there. Purple and cyan only. Abstract, atmospheric, unsettling.
-8. **`hero-rickroll`** *(magenta / gold)* — A single vintage cassette tape on a black
+8. **`hero-launder`** *(oxblood / brass)* — An engraved brass partnership nameplate mounted on
+   dark polished granite beside a heavy panelled door, lit by a single warm brass lamp from the
+   right. Deep oxblood light bleeding in from the left. The plate is blank and unlettered — worn
+   smooth, faintly scratched, decades old. Institutional, discreet, slightly forbidding.
+   *(Deliberately blank: image models cannot be trusted to letter "FRAUD & LAUNDER" correctly,
+   and a misspelt plate is worse than no plate.)*
+9. **`hero-rickroll`** *(magenta / gold)* — A single vintage cassette tape on a black
    reflective surface, magenta and gold light, tape spooling out of the shell into shadow.
    *(This page uses a pure gradient stage; to use the image, add
    `--hero-img: url('/images/hero-rickroll.webp');` to its `:root` and layer it into `.stage`.)*

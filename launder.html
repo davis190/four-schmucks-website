@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Four Schmucks Fraud &amp; Launder — Compliance, Forensics &amp; Garment Care</title>
+  <meta name="description" content="Fraud &amp; Launder is a regulatory compliance and forensic accounting partnership founded in 1978 by Gerald Fraud and Marguerite Launder. It is not what the name suggests. It also runs a dry cleaner.">
+  <link rel="canonical" href="https://launder.fourschmucks.com/">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Four Schmucks Fraud &amp; Launder — Compliance, Forensics &amp; Garment Care">
+  <meta property="og:description" content="Named after the founders. Established 1978. Please stop calling about the other thing.">
+  <meta property="og:image" content="https://www.fourschmucks.com/images/card-launder.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://launder.fourschmucks.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Four Schmucks Fraud &amp; Launder — Compliance, Forensics &amp; Garment Care">
+  <meta name="twitter:description" content="Named after the founders. Established 1978. Please stop calling about the other thing.">
+  <meta name="twitter:image" content="https://www.fourschmucks.com/images/card-launder.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Scroll-reveal is gated on this class, so content stays visible if site.js never runs. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --accent: #be123c;
+      --accent-2: #d6b16a;
+      --glow: rgba(190,18,60,.34);
+      --surface-tint: rgba(190,18,60,.06);
+      --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+      --hero-img: url('/images/hero-launder.webp');
+    }
+    /* The display face is a text serif, not a display cut — it needs tightening
+       at hero size or the headline sits too loose against the other brands. */
+    .hero h1 { letter-spacing: -.02em; }
+
+    /* bespoke: the client intake ledger */
+    .ledger {
+      max-width: 780px; margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--accent-2) 26%, transparent);
+      border-radius: 6px; padding: 1.6rem 1.75rem 1.25rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+    }
+    .ledger-head {
+      display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+      font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent-2); padding-bottom: .9rem; margin-bottom: .4rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--accent-2) 24%, transparent);
+    }
+    .ledger-lines { list-style: none; margin: 0; padding: 0; }
+    .ledger-lines li {
+      display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+      padding: .85rem 0;
+      border-bottom: 1px dotted color-mix(in srgb, var(--accent-2) 22%, transparent);
+    }
+    .ledger-lines .ask { flex: 1 1 15rem; font-size: .97rem; }
+    .ledger-lines .verdict {
+      flex: 0 0 auto;
+      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: .3rem .6rem; border-radius: 3px;
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+      transform: rotate(-1.5deg);
+    }
+    .ledger-lines .ok .verdict {
+      color: var(--accent-2);
+      border-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
+      transform: rotate(1.5deg);
+    }
+    .ledger-foot { margin: 1.1rem 0 0; font-size: .82rem; color: var(--text-faint); }
+    @media (prefers-reduced-motion: reduce) { .ledger-lines .verdict { transform: none; } }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-701KZR6WCN');
+  </script>
+</head>
+<body data-brand="launder">
+
+  <header class="header">
+    <nav class="nav">
+      <a class="nav-brand" href="https://www.fourschmucks.com">
+        <img class="logo" src="/logos/four_schmucks_curling.png" alt="" width="120" height="120">
+        <span class="wordmark">Four Schmucks<small>Fraud &amp; Launder</small></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#practice">Practice</a></li>
+        <li><a href="#intake">Intake</a></li>
+        <li><a href="#process">Method</a></li>
+        <li><a href="#work">Cases</a></li>
+        <li><a href="#team">Partners</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Compliance &amp; Forensic Accounting · Est. 1978</div>
+      <h1>Fraud &amp; Launder</h1>
+      <p class="lede">
+        A partnership named after the two people who founded it. We have been
+        explaining that since 1978, and we will go on explaining it for as long
+        as the phone keeps ringing.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">Instruct the Firm</a>
+        <a class="btn btn-ghost" href="#faq">About the Name</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ── Practice ─────────────────────────────────────────────────────── -->
+    <section class="section" id="practice">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Practice</p>
+          <h2>What the firm actually does</h2>
+          <p>
+            Two surnames on a brass plate, and forty-seven years of walking new clients
+            back from the conclusion they arrived with. Everything below is the boring,
+            documented, heavily audited version.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card reveal">
+            <div class="icon">🧾</div>
+            <span class="tag">Compliance</span>
+            <h3>Anti-Money-Laundering Programmes</h3>
+            <p>We design, document and test the controls that prevent precisely the thing our letterhead keeps implying. For reasons we consider self-evident, ours is the most externally audited AML practice in the region.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🔍</div>
+            <span class="tag alt">Forensics</span>
+            <h3>Forensic Accounting</h3>
+            <p>Twelve thousand transactions, one spreadsheet and a partner who does not get bored. We find the entry that does not belong and write it up in a form that survives cross-examination.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🛂</div>
+            <span class="tag">Compliance</span>
+            <h3>Sanctions &amp; Watchlist Screening</h3>
+            <p>Continuous screening against every list that matters, refreshed daily. Our own firm name has now been manually cleared by four separate vendors, which we have chosen to take as a compliment.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🪪</div>
+            <span class="tag">Compliance</span>
+            <h3>Know-Your-Client Onboarding</h3>
+            <p>Client due diligence for institutions that would rather find out now than in a deposition. We have declined more engagements than we have accepted in every year since 1994.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">☎️</div>
+            <span class="tag alt">Forensics</span>
+            <h3>Whistleblower Hotline</h3>
+            <p>An independent, recorded and genuinely confidential line, staffed by people who have heard worse. Callers often pause for a moment after hearing the firm name. We are trained to wait.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🧺</div>
+            <span class="tag alt">Garments</span>
+            <h3>Commercial Garment Care</h3>
+            <p>Yes. Really. Marguerite opened a dry cleaner on the ground floor in 1981 to cover the rent, and nobody has since produced a defensible reason to close it. Same-day on suits. It is the only division that has never lost money.</p>
+          </div>
+        </div>
+
+        <p class="fine-print" style="text-align:center">
+          Garment Care is on the ground floor. Compliance is on the third. They share a lift,
+          a receptionist, and a great deal of history.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Intake ledger (bespoke) ──────────────────────────────────────── -->
+    <section class="section tinted" id="intake">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Intake</p>
+          <h2>One week at the front desk</h2>
+          <p>
+            Every enquiry that reaches this firm is logged before it reaches a partner.
+            This is a real week, lightly redacted, and it is the most persuasive marketing
+            material we have.
+          </p>
+        </div>
+
+        <div class="ledger reveal">
+          <div class="ledger-head">
+            <span>Client Intake Ledger — Week 32</span>
+            <span>Ref. FL/8814</span>
+          </div>
+          <ul class="ledger-lines">
+            <li>
+              <span class="ask">"Could this be routed somewhere a bit friendlier?"</span>
+              <span class="verdict">Declined &amp; reported</span>
+            </li>
+            <li>
+              <span class="ask">"Sorry — you're called <em>what</em>?"</span>
+              <span class="verdict">Not a service</span>
+            </li>
+            <li>
+              <span class="ask">"We need the 2019 numbers to look different."</span>
+              <span class="verdict">Declined &amp; reported</span>
+            </li>
+            <li>
+              <span class="ask">"Do you do the other kind of laundering?"</span>
+              <span class="verdict">Asked &amp; answered</span>
+            </li>
+            <li>
+              <span class="ask">"What if nobody looks at the third quarter?"</span>
+              <span class="verdict">Declined &amp; reported</span>
+            </li>
+            <li class="ok">
+              <span class="ask">"Two dinner jackets. Same day. Light starch."</span>
+              <span class="verdict">Accepted</span>
+            </li>
+          </ul>
+          <p class="ledger-foot">
+            Declined enquiries are logged, retained for seven years and, where the rules
+            require it, reported. The dinner jackets were ready by four.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Method ───────────────────────────────────────────────────────── -->
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Method</p>
+          <h2>How an engagement runs</h2>
+        </div>
+
+        <div class="grid cols-4">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <h3>Explain the Name</h3>
+            <p>Ten minutes, every single kickoff, without exception. There is a slide. The slide has a photograph of Gerald's grandfather on it.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">2</div>
+            <h3>Scope</h3>
+            <p>We map what you are genuinely exposed to, rather than what your last consultant found easiest to draw. The list is usually shorter and considerably worse.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">3</div>
+            <h3>Test</h3>
+            <p>Controls are sampled, not admired. We pull the files, follow the money that was supposed to move, and note every place the process only works when someone remembers.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">4</div>
+            <h3>Report</h3>
+            <p>A findings document written to be read by a regulator — because sooner or later, one of them reads it. No adjectives that cannot be evidenced.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Cases ────────────────────────────────────────────────────────── -->
+    <section class="section tinted" id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Selected Matters</p>
+          <h2>Cases, anonymised to the point of rudeness</h2>
+        </div>
+
+        <div class="grid cols-2">
+          <div class="card reveal">
+            <span class="tag">Compliance</span>
+            <h3>Regional Bank, 400,000 Alerts, Nobody Reading Them</h3>
+            <p>An alerting system tuned so conservatively that the compliance team had quietly stopped opening it eighteen months earlier.</p>
+            <div class="results">
+              <strong>Outcome:</strong> False positives down 71%. The eleven alerts that actually mattered were escalated within a fortnight.
+            </div>
+            <p class="fine-print">The bank asked us not to name them. They have never asked us to change our name, which we appreciate.</p>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag alt">Forensics</span>
+            <h3>Family Business, Two Sets of Books, One Nervous Nephew</h3>
+            <p>The founder wanted the nephew investigated. We asked to see nine years of ledgers first, which is not what he had in mind.</p>
+            <div class="results">
+              <strong>Outcome:</strong> Discrepancy traced to a single long-serving employee. Matter referred. Recovery ongoing.
+            </div>
+            <p class="fine-print">The nephew was innocent throughout and remains, we are told, nervous.</p>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag">Compliance</span>
+            <h3>Payments Startup That Grew Faster Than Its Onboarding</h3>
+            <p>Eleven months of extraordinary growth, built on a client-verification process designed for roughly four hundred users.</p>
+            <div class="results">
+              <strong>Outcome:</strong> 180,000 client files re-verified in eleven weeks. Licence retained.
+            </div>
+            <p class="fine-print">"Retained" is carrying a great deal of weight in that sentence, but it is accurate.</p>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag alt">Garments</span>
+            <h3>Hotel Group, 1,200 Covers A Night, One Linen Contract</h3>
+            <p>Their previous supplier lost roughly a tablecloth an hour and invoiced for it monthly, in arrears, without comment.</p>
+            <div class="results">
+              <strong>Outcome:</strong> Turnaround from 48 hours to 14. Linen loss down 60%. Contract renewed twice.
+            </div>
+            <p class="fine-print">This is the case the partners bring up at dinner. It is never the one clients ask about.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Partners ─────────────────────────────────────────────────────── -->
+    <section class="section raised" id="team">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Partnership</p>
+          <h2>The names on the plate</h2>
+        </div>
+
+        <div class="grid cols-4">
+          <div class="card person reveal">
+            <div class="avatar">⚖️</div>
+            <h3>Gerald Fraud III</h3>
+            <div class="role">Managing Partner</div>
+            <p>Third generation of Frauds at this firm, and the second to be asked about it at a christening. Chairs the ethics committee, which he insisted on renaming twice.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">🔍</div>
+            <h3>Marguerite Launder</h3>
+            <div class="role">Senior Partner, Forensics</div>
+            <p>Founded the firm in 1978 and the dry cleaner in 1981. Has never once conceded that the combination is funny. Reads other people's ledgers for pleasure.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">🛡️</div>
+            <h3>Adaeze Okonkwo-Barrett</h3>
+            <div class="role">Head of AML Advisory</div>
+            <p>Joined from the regulator, so she knows exactly which questions get asked and in what order. Keeps a printed list. Will not show anyone the list.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">🧺</div>
+            <h3>Aurelio Vance</h3>
+            <div class="role">Director of Garment Care</div>
+            <p>Thirty-one years on the ground floor. Handles every suit that leaves this building and has never understood why the third floor finds his job title so entertaining.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">FAQ</p>
+          <h2>The four questions, in order of frequency</h2>
+        </div>
+
+        <div class="faq reveal">
+          <div class="faq-item">
+            <h3>Is the name a joke?</h3>
+            <p>The name is 1978 — two surnames on a brass plate, in the order the partners settled over one dinner. The joke arrived later, at no cost to us, and has never once left.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do you launder money?</h3>
+            <p>We launder linen, wool and the occasional silk. Anything else that comes through the door is logged, declined, and where the rules require it, reported. This is the shortest answer we give and by some margin the one we give most.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Why has the firm never rebranded?</h3>
+            <p>It was costed in 2011 at £42,000. The partners voted to buy a new press instead. The press is still running and the phone is still ringing, so the vote is generally held to have been sound.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are you connected to the other Four Schmucks companies?</h3>
+            <p>We audit them. It goes badly for them every time, and they keep booking us anyway, which our forensics team finds more interesting than the audits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ──────────────────────────────────────────────────────── -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Contact</p>
+          <h2>Instruct the firm</h2>
+          <p>Compliance work on the third floor, forensic instructions through the clerk, and anything with a collar on it downstairs before nine.</p>
+        </div>
+
+        <div class="contact-panel reveal">
+          <div class="contact-cols">
+            <div>
+              <h3>Engagements</h3>
+              <p>
+                <strong>Compliance Review:</strong> 6–10 weeks<br>
+                <strong>Forensic Instruction:</strong> as long as it takes<br>
+                <strong>Garment Care:</strong> same day, in before 9am
+              </p>
+            </div>
+            <div>
+              <h3>Offices</h3>
+              <p>1234 Innovation Drive, Third Floor<br>Schmucks Plaza, San Francisco<br>Garment Care: ground floor, side entrance.</p>
+            </div>
+            <div>
+              <h3>Enquiries</h3>
+              <p>
+                <strong>Email:</strong> compliance@fourschmucks.com<br>
+                <strong>Phone:</strong> (415) 555-CLEAN
+              </p>
+            </div>
+          </div>
+          <a class="btn" href="mailto:compliance@fourschmucks.com">Request a Review</a>
+          <p class="disclaimer">
+            Four Schmucks Fraud &amp; Launder is a satirical brand and does not exist. It is not
+            a law firm, an accountancy practice, a compliance consultancy or a dry cleaner, and
+            nothing here is legal, financial or regulatory advice. The partners, matters, figures
+            and the 1978 founding are entirely fictional. No service of any kind — including
+            either of the ones the name suggests — is offered on this page.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="brand-strip" data-brand-strip></section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="slogan">"Above Board Since 1978."</p>
+      <p>&copy; 2026 Four Schmucks Fraud &amp; Launder · <a href="https://www.fourschmucks.com">← Back to Four Schmucks</a></p>
+    </div>
+  </footer>
+
+  <script src="/assets/brands.js"></script>
+  <script src="/assets/site.js"></script>
+</body>
+</html>

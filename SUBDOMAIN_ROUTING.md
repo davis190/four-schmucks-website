@@ -23,7 +23,9 @@ const subdomainMap = {
   'consulting': 'consulting.html',
   'stonks': 'stonks.html',
   'rickroll': 'rickroll.html',
-  'mirage': 'mirage.html'
+  'mirage': 'mirage.html',
+  'launder': 'launder.html',
+  'fraud': 'launder.html'      // Alternative domain for Fraud & Launder
 };
 ```
 
@@ -47,6 +49,8 @@ https://consulting.fourschmucks.com → consulting.html
 https://stonks.fourschmucks.com    → stonks.html
 https://rickroll.fourschmucks.com  → rickroll.html
 https://mirage.fourschmucks.com    → mirage.html
+https://launder.fourschmucks.com   → launder.html
+https://fraud.fourschmucks.com     → launder.html (alternative)
 ```
 
 ## 🚀 Deployment Process
@@ -90,11 +94,17 @@ https://mirage.fourschmucks.com    → mirage.html
 - **Edge Locations**: Content is served from nearest edge location
 
 ### **SSL Certificate**
-- **Not a wildcard**: `SubjectAlternativeNames` is an explicit, enumerated list of
-  every subdomain. Adding one **replaces the certificate** — ACM issues a new cert
-  requiring new DNS validation, and the stack update blocks until validation
-  succeeds. This is the slowest and riskiest step of adding a service line.
-- **Validation**: DNS validation required for each subdomain
+- **Wildcard**: the cert is `fourschmucks.com` + `*.fourschmucks.com`. A wildcard matches
+  exactly one label, which is all this site uses, so **adding a service line requires no
+  certificate change at all** — no SAN edit, no re-validation, nothing blocking the stack.
+  Adding the subdomain to `CloudFrontDistribution.Aliases` is an in-place distribution
+  update, and the alias is accepted because the cert already covers it.
+- **The apex is separate**: `*.fourschmucks.com` does **not** match `fourschmucks.com`, so
+  the bare domain stays as `Certificate.DomainName`.
+- **Validation**: ACM issues a *single* CNAME covering both the apex and the wildcard.
+- **History**: this was an enumerated SAN list until August 2026. Every new subdomain
+  replaced the certificate and stalled the stack on fresh DNS validation, which made it
+  the slowest and riskiest part of shipping a brand. The wildcard removed that step.
 - **Renewal**: Automatic renewal through ACM
 
 ## 🔍 Troubleshooting

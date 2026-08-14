@@ -10,7 +10,7 @@ Parameters:
     Description: The S3 bucket name for static hosting
   LambdaRoutingCodeVersion:
     Type: String
-    Default: "2"
+    Default: "3"
     Description: >
       Bump this any time SubdomainRoutingFunction's inline code changes (e.g. a new
       subdomain is added). AWS::Lambda::Version is immutable and CloudFormation only
@@ -50,18 +50,16 @@ Resources:
   Certificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
+      # Wildcard, deliberately. This was an enumerated SAN list, which meant every new
+      # service line REPLACED the certificate and blocked the stack update on fresh DNS
+      # validation. A wildcard covers every single-label subdomain, so adding a brand no
+      # longer touches ACM at all - only the Lambda map, the Aliases list and a DNS record.
+      #
+      # The apex is not covered by the wildcard (*.x.com does not match x.com), so it stays
+      # as DomainName. ACM issues ONE validation CNAME for both names, not two.
       DomainName: !Ref DomainName
       SubjectAlternativeNames:
-        - !Ref DomainName
-        - !Sub "www.${DomainName}"
-        - !Sub "lifestyle.${DomainName}"
-        - !Sub "plumbing.${DomainName}"
-        - !Sub "poop.${DomainName}"
-        - !Sub "brewing.${DomainName}"
-        - !Sub "consulting.${DomainName}"
-        - !Sub "stonks.${DomainName}"
-        - !Sub "rickroll.${DomainName}"
-        - !Sub "mirage.${DomainName}"
+        - !Sub "*.${DomainName}"
       ValidationMethod: DNS
 
   # Lambda@Edge function for subdomain routing
@@ -96,7 +94,9 @@ Resources:
                 'consulting': 'consulting.html',
                 'stonks': 'stonks.html',
                 'rickroll': 'rickroll.html',
-                'mirage': 'mirage.html'
+                'mirage': 'mirage.html',
+                'launder': 'launder.html',
+                'fraud': 'launder.html'
               };
               
               // If it's a subdomain and we have a mapping, serve the appropriate file
@@ -165,6 +165,8 @@ Resources:
           - !Sub "stonks.${DomainName}"
           - !Sub "rickroll.${DomainName}"
           - !Sub "mirage.${DomainName}"
+          - !Sub "launder.${DomainName}"
+          - !Sub "fraud.${DomainName}"
         Origins:
           - Id: S3Origin
             DomainName: !GetAtt WebsiteBucket.RegionalDomainName

@@ -29,11 +29,12 @@ The subdomain → file mapping (defined identically in the Lambda function code,
 | `stonks` | `stonks.html` |
 | `rickroll` | `rickroll.html` |
 | `mirage` | `mirage.html` |
+| `launder` / `fraud` | `launder.html` |
 
 When adding a new brand/subdomain page, you must update in lockstep:
 1. The new `.html` file at the repo root.
 2. `subdomainMap` inside the Lambda function code in `cloudformation.yaml`.
-3. The ACM `Certificate.SubjectAlternativeNames` list and `CloudFrontDistribution.Aliases` list in `cloudformation.yaml`.
+3. The `CloudFrontDistribution.Aliases` list in `cloudformation.yaml`. The ACM certificate is a wildcard (`*.${DomainName}`) and needs no change.
 4. The `required_files` and `subdomains` arrays in `test-sites.sh`.
 5. The CloudFront invalidation paths and printed URLs at the end of `deploy.sh`.
 6. The routing table in `SUBDOMAIN_ROUTING.md`.
@@ -95,7 +96,7 @@ Every page links `/assets/site.css`, then overrides these variables in its own `
 
 Shared components: `.header`/`.nav`/`.nav-toggle`, `.hero` + `.eyebrow` + `.lede`, `.btn`/`.btn-ghost`, `.wrap`, `.section` (+ `.tinted`/`.raised`), `.section-head` + `.kicker`, `.grid` (+ `.cols-2`/`.cols-4`), `.card` (+ `.person`), `.tile`, `.stat`, `.tag` (+ `.alt`), `.step`, `.quote`, `.avatar`, `.results`, `.fine-print`, `.disclaimer`, `.faq`, `.contact-panel`, `.brand-strip`, `.footer`, `.reveal`.
 
-Beyond the theme variables, each page defines **one bespoke section** in its inline `<style>` — that's what keeps the brands from feeling like recolours of each other (plumbing's Clog Severity Index, brewing's ABV/Regret chart, consulting's Synergy Matrix, stonks' ticker tape, lifestyle's Aspiration Index, mirage's dial). Keep the CSS for it inline on that page.
+Beyond the theme variables, each page defines **one bespoke section** in its inline `<style>` — that's what keeps the brands from feeling like recolours of each other (plumbing's Clog Severity Index, brewing's ABV/Regret chart, consulting's Synergy Matrix, stonks' ticker tape, lifestyle's Aspiration Index, mirage's dial, Fraud & Launder's intake ledger). Keep the CSS for it inline on that page.
 
 Hero images are optional: a missing `--hero-img` file simply doesn't paint, and the mesh gradient underneath carries the hero on its own.
 
@@ -108,7 +109,7 @@ Google Analytics (`gtag.js`, `G-701KZR6WCN`), canonical, `theme-color`, favicon 
 3. Add a `<li>` to the `<noscript>` fallback list in `index.html` (the only place the registry is duplicated, so crawlers without JS still see the portfolio).
 3b. Add the brand's display font to the `TYPE` map in `tools/make-og-cards.mjs`, then re-run it to render the new social card. Without this the page's `og:image` 404s and `test-sites.sh` fails.
 4. `subdomainMap` inside the Lambda function code in `cloudformation.yaml`.
-5. `Certificate.SubjectAlternativeNames` **and** `CloudFrontDistribution.Aliases` in `cloudformation.yaml`. Note the cert is an enumerated list, not a wildcard — adding a SAN replaces the certificate and the stack update blocks on new DNS validation. This is the slow, risky step.
+5. `CloudFrontDistribution.Aliases` in `cloudformation.yaml`. **Leave `Certificate` alone** — it is a wildcard (`*.${DomainName}`) covering every single-label subdomain, so no SAN edit is needed and nothing blocks on DNS validation. Adding an alias is an in-place distribution update. (This used to be an enumerated SAN list, which made every new brand a certificate replacement and the slowest step of the whole process.)
 6. Bump the `LambdaRoutingCodeVersion` parameter default in `cloudformation.yaml` (e.g. "2" → "3"). `AWS::Lambda::Version` is immutable and CloudFormation only publishes a new one when a property of that resource changes; without bumping this, CloudFront keeps using the stale Lambda@Edge version and the new subdomain silently falls back to serving the homepage instead of 404ing (this exact bug shipped once already).
 7. `required_files` and `subdomains` arrays in `test-sites.sh`.
 8. The printed URLs at the end of `deploy.sh`, and the routing table in `SUBDOMAIN_ROUTING.md`.

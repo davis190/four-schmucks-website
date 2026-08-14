@@ -54,12 +54,14 @@ const TYPE = {
   consulting: { family: 'Inter Tight',          spec: 'Inter+Tight:wght@500;700' },
   stonks:     { family: 'JetBrains Mono',       spec: 'JetBrains+Mono:wght@500;700' },
   mirage:     { family: 'Space Grotesk',        spec: 'Space+Grotesk:wght@500;700' },
+  launder:    { family: 'Libre Baskerville',    spec: 'Libre+Baskerville:wght@400;700' },
   rickroll:   { family: 'Space Grotesk',        spec: 'Space+Grotesk:wght@500;700' }
 };
 
 const SECONDARY = {
   index: '#22d3ee', lifestyle: '#e8b4b8', plumbing: '#f97316', brewing: '#fcd34d',
-  consulting: '#cbd5e1', stonks: '#fbbf24', mirage: '#22d3ee', rickroll: '#ffd700'
+  consulting: '#cbd5e1', stonks: '#fbbf24', mirage: '#22d3ee', launder: '#d6b16a',
+  rickroll: '#ffd700'
 };
 
 // The holding company isn't a subsidiary, so it isn't in the registry.
@@ -68,7 +70,7 @@ const cards = [
     key: 'index',
     name: 'Four Schmucks',
     eyebrow: 'Diversified Global Holdings',
-    tagline: 'Seven subsidiaries. One holding company. One logo.',
+    tagline: 'Eight subsidiaries. One holding company. One logo.',
     sub: 'www',
     accent: '#6366f1'
   },
