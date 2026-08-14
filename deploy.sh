@@ -92,11 +92,37 @@ echo "✅ CloudFront Domain: $CLOUDFRONT_DOMAIN"
 echo "✅ CloudFront Distribution ID: $CLOUDFRONT_DIST_ID"
 
 echo "Syncing static site to S3 bucket: $S3_BUCKET"
-aws s3 sync . s3://$S3_BUCKET/ --exclude ".git/*" --exclude "deploy.sh" --exclude "cloudformation.yaml" --exclude "pipeline.yaml" --exclude "buildspec.yml" --delete
-aws s3 sync ./logos s3://$S3_BUCKET/logos/ --delete
+# Recursive by default, so assets/, images/ and logos/ are picked up automatically —
+# new asset directories need no changes here. Infra and docs are excluded; everything
+# else in the working tree is public.
+aws s3 sync . s3://$S3_BUCKET/ \
+    --exclude ".git/*" \
+    --exclude ".gitignore" \
+    --exclude ".claude/*" \
+    --exclude ".DS_Store" \
+    --exclude "*/.DS_Store" \
+    --exclude "deploy.sh" \
+    --exclude "test-sites.sh" \
+    --exclude "cloudformation.yaml" \
+    --exclude "pipeline.yaml" \
+    --exclude "buildspec.yml" \
+    --exclude "README.md" \
+    --exclude "CLAUDE.md" \
+    --exclude "SUBDOMAIN_ROUTING.md" \
+    --exclude "images/PROMPTS.md" \
+    --exclude "images/src/*" \
+    --exclude "tools/*" \
+    --exclude "package.json" \
+    --exclude "package-lock.json" \
+    --exclude "node_modules/*" \
+    --delete
 
 echo "Invalidating CloudFront distribution: $CLOUDFRONT_DIST_ID"
-aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/" "/index.html" "/lifestyle.html" "/plumbing.html" "/brewing.html" "/consulting.html" "/stonks.html" "/rickroll.html" "/mirage.html"
+# One wildcard rather than a per-page list. The pages share /assets/site.css, and the
+# distribution forwards no query string (so ?v= cache-busting silently does nothing)
+# and sets no Cache-Control (so CloudFront applies its 24h default TTL). Without this
+# invalidating everything, a CSS change would be invisible for a day.
+aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"
 
 echo "Waiting for CloudFront deployment to complete..."
 echo "Note: Lambda@Edge functions can take 5-10 minutes to deploy globally."

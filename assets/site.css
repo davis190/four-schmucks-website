@@ -1,0 +1,499 @@
+/* ==========================================================================
+   Four Schmucks — shared design system
+   --------------------------------------------------------------------------
+   One stylesheet, many brands. Structure, chrome and motion live here; each
+   page re-skins itself by overriding the theme block below in a small inline
+   <style>. Nothing brand-specific should ever be added to this file.
+
+   To theme a page, override these in the page's own :root:
+     --accent        primary brand colour
+     --accent-2      secondary, used for gradients and the second tag style
+     --glow          rgba() of --accent, for button/º card glow
+     --surface-tint  very low-alpha rgba() of --accent, for tinted panels
+     --font-display  display face for h1/h2/nav (body stays --font-body)
+     --hero-img      url('/images/hero-x.webp') or none
+   ========================================================================== */
+
+/* --- tokens --------------------------------------------------------------- */
+
+:root {
+  /* theme — overridden per page */
+  --accent: #6366f1;
+  --accent-2: #22d3ee;
+  --glow: rgba(99, 102, 241, .35);
+  --surface-tint: rgba(99, 102, 241, .06);
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --hero-img: none;
+
+  /* base — shared by every brand */
+  --bg: #08090d;
+  --bg-raised: #0d0f16;
+  --surface: rgba(255, 255, 255, .04);
+  --surface-hi: rgba(255, 255, 255, .07);
+  --line: rgba(255, 255, 255, .09);
+  --text: #e8eaf2;
+  --text-dim: #9aa0b5;
+  --text-faint: #6b7185;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --maxw: 1200px;
+  --header-h: 72px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* --- reset ---------------------------------------------------------------- */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 1rem); }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-decoration: none; }
+::selection { background: var(--accent); color: #08090d; }
+
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 4px; }
+
+/* --- header / nav --------------------------------------------------------- */
+
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-h);
+  background: rgba(8, 9, 13, .72);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border-bottom: 1px solid var(--line);
+}
+/* a hairline of brand colour so the chrome isn't identical across brands */
+.header::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+  opacity: .5;
+}
+
+.nav {
+  max-width: var(--maxw); height: 100%; margin: 0 auto; padding: 0 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.nav-brand { display: flex; align-items: center; gap: .7rem; color: var(--text); }
+.nav-brand .logo { height: 38px; width: auto; filter: drop-shadow(0 0 8px var(--glow)); }
+.nav-brand .wordmark {
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  letter-spacing: -.01em; white-space: nowrap;
+}
+.nav-brand .wordmark small {
+  display: block; font-size: .68rem; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent-2); line-height: 1.2;
+}
+
+.nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+.nav-links a {
+  color: var(--text-dim); font-size: .92rem; font-weight: 500;
+  transition: color .2s var(--ease); position: relative;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: var(--accent); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease);
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none; width: 42px; height: 42px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); background: var(--surface); cursor: pointer;
+  padding: 0;
+  /* flex column, not grid: grid would place each bar in its own implicit row and the
+     resulting spacing wouldn't match the 6px translate that forms the X below */
+  flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.nav-toggle span {
+  display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--text);
+  transition: transform .25s var(--ease), opacity .2s var(--ease);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* --- hero ----------------------------------------------------------------- */
+
+.hero {
+  position: relative; isolation: isolate;
+  min-height: min(92vh, 860px);
+  margin-top: var(--header-h);
+  display: grid; place-items: center; text-align: center;
+  padding: 5rem 1.5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 22% 18%, var(--glow), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 82% 78%, color-mix(in srgb, var(--accent-2) 28%, transparent), transparent 58%),
+    linear-gradient(180deg, rgba(8, 9, 13, .55) 0%, rgba(8, 9, 13, .82) 60%, var(--bg) 100%),
+    var(--hero-img) center / cover no-repeat,
+    linear-gradient(180deg, var(--bg-raised), var(--bg));
+}
+/* film grain — keeps the flat gradients from banding on large screens */
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; opacity: .35;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+}
+
+.hero-content { max-width: 900px; position: relative; z-index: 1; }
+
+.eyebrow {
+  display: inline-block; margin-bottom: 1.5rem;
+  padding: .4rem 1rem; border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 45%, transparent);
+  background: var(--surface-tint);
+  font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 4.75rem);
+  line-height: 1.03; letter-spacing: -.035em; font-weight: 700;
+  margin-bottom: 1.25rem;
+  background: linear-gradient(120deg, var(--text) 20%, var(--accent) 62%, var(--accent-2) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  padding-bottom: .08em; /* stop descenders clipping under background-clip */
+}
+
+.hero .lede {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  color: var(--text-dim); max-width: 660px; margin: 0 auto 2.25rem;
+}
+
+.cta-row { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+
+/* --- buttons -------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .9rem 1.75rem; border-radius: 100px; border: 1px solid transparent;
+  font-family: var(--font-body); font-size: .98rem; font-weight: 600;
+  color: #08090d; background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 30px -6px var(--glow);
+  cursor: pointer;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px -8px var(--glow); }
+.btn:active { transform: translateY(0); }
+
+.btn-ghost {
+  background: var(--surface); color: var(--text);
+  border-color: var(--line); box-shadow: none;
+}
+.btn-ghost:hover { border-color: var(--accent); box-shadow: none; }
+
+/* --- layout / sections ---------------------------------------------------- */
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+
+.section { padding: 5.5rem 0; }
+.section.tinted {
+  background: var(--surface-tint);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.section.raised { background: var(--bg-raised); }
+
+.section-head { max-width: 720px; margin: 0 auto 3.5rem; text-align: center; }
+.section-head .kicker {
+  font-size: .74rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .9rem;
+}
+.section-head h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.85rem, 4vw, 2.75rem); line-height: 1.12; letter-spacing: -.025em;
+  color: var(--text); margin-bottom: .9rem;
+}
+.section-head p { color: var(--text-dim); font-size: 1.05rem; }
+
+/* --- grid + cards --------------------------------------------------------- */
+
+.grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+.grid.cols-4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+
+.card {
+  position: relative; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.85rem;
+  transition: transform .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  background: var(--surface-hi);
+}
+/* accent wash that reveals on hover */
+.card::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0; transition: opacity .3s var(--ease);
+}
+.card:hover::before { opacity: 1; }
+
+.card .icon {
+  display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 12px; margin-bottom: 1.15rem;
+  font-size: 1.5rem; line-height: 1;
+  background: var(--surface-tint);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.card h3 {
+  font-family: var(--font-display); font-size: 1.2rem; font-weight: 600;
+  letter-spacing: -.015em; color: var(--text); margin-bottom: .6rem;
+}
+.card p { color: var(--text-dim); font-size: .96rem; }
+.card .price {
+  display: block; margin-top: 1.1rem; padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display); font-weight: 600; color: var(--accent);
+}
+
+/* homepage brand card — site.js re-themes each one to the brand it links to */
+.brand-card { display: block; color: inherit; }
+.brand-card .go {
+  display: block; margin-top: 1.25rem; padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: .82rem; letter-spacing: .04em; color: var(--text-faint);
+  transition: color .3s var(--ease);
+}
+.brand-card .go::after { content: ' →'; }
+.brand-card:hover .go { color: var(--accent); }
+
+/* A card's "image". Base state is a pure-CSS gradient tile with an emoji, which
+   needs no assets at all. Product pages can layer a real photo on top via
+   `.tile img` — and because that img removes itself on error, a missing or
+   not-yet-generated photo falls back to the emoji tile rather than showing a
+   broken-image icon. Same graceful-degradation contract as --hero-img. */
+.tile {
+  position: relative; overflow: hidden;
+  aspect-ratio: 16 / 10; border-radius: var(--radius-sm); margin-bottom: 1.25rem;
+  display: grid; place-items: center; font-size: 2.75rem; line-height: 1;
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 60%),
+    radial-gradient(circle at 75% 80%, color-mix(in srgb, var(--accent-2) 38%, transparent), transparent 55%),
+    var(--bg-raised);
+  border: 1px solid var(--line);
+}
+.tile img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform .4s var(--ease);
+}
+.card:hover .tile img { transform: scale(1.04); }
+
+/* --- stats ---------------------------------------------------------------- */
+
+.stat { text-align: center; padding: 1.75rem 1rem; }
+.stat .num {
+  font-family: var(--font-display); font-weight: 700; letter-spacing: -.03em;
+  font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stat .label {
+  margin-top: .6rem; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* --- tags / badges -------------------------------------------------------- */
+
+.tag {
+  display: inline-block; padding: .25rem .7rem; border-radius: 100px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.tag.alt {
+  background: color-mix(in srgb, var(--accent-2) 16%, transparent);
+  color: var(--accent-2);
+  border-color: color-mix(in srgb, var(--accent-2) 30%, transparent);
+}
+.tag + h3 { margin-top: .9rem; }
+
+/* --- numbered steps ------------------------------------------------------- */
+
+.step { text-align: center; }
+.step .num {
+  width: 46px; height: 46px; margin: 0 auto 1.15rem; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: #08090d; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 26px -6px var(--glow);
+}
+.step h3 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: .5rem; }
+.step p { color: var(--text-dim); font-size: .94rem; }
+
+/* --- quotes / testimonials ------------------------------------------------ */
+
+.quote {
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius); padding: 1.75rem;
+}
+.quote p { color: var(--text-dim); font-style: italic; margin-bottom: 1.1rem; }
+.quote .who { font-weight: 600; color: var(--text); font-size: .95rem; }
+.quote .where { color: var(--text-faint); font-size: .84rem; }
+
+/* --- avatars (no stock photos of real people) ----------------------------- */
+
+.avatar {
+  width: 84px; height: 84px; margin: 0 auto 1.15rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: 2.1rem; line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 30px -8px var(--glow);
+}
+.card.person { text-align: center; }
+.card.person .role {
+  color: var(--accent-2); font-size: .85rem; font-weight: 600;
+  letter-spacing: .04em; margin-bottom: .9rem;
+}
+
+/* --- results callout ------------------------------------------------------ */
+
+.results {
+  background: var(--surface-tint); border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm); padding: 1rem 1.15rem; margin: 1.15rem 0 0;
+  font-size: .95rem; color: var(--text-dim);
+}
+.results strong { color: var(--text); }
+
+/* --- fine print / disclaimer ---------------------------------------------- */
+
+.fine-print {
+  margin-top: .9rem; font-size: .78rem; font-style: italic; color: var(--text-faint);
+}
+.disclaimer {
+  max-width: 780px; margin: 3rem auto 0; padding: 1.5rem 1.75rem;
+  border: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: var(--radius); background: var(--surface);
+  font-size: .84rem; color: var(--text-faint); text-align: center;
+}
+
+/* --- faq ------------------------------------------------------------------ */
+
+.faq { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--line); padding: 1.5rem 0; }
+.faq-item:last-child { border-bottom: 0; }
+.faq-item h3 { font-family: var(--font-display); font-size: 1.08rem; margin-bottom: .5rem; }
+.faq-item p { color: var(--text-dim); font-size: .96rem; }
+
+/* --- contact panel -------------------------------------------------------- */
+
+.contact-panel {
+  max-width: 860px; margin: 0 auto; text-align: center;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 2.75rem 2rem;
+}
+.contact-cols {
+  display: grid; gap: 2rem; text-align: left; margin: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.contact-cols h3 {
+  font-family: var(--font-display); font-size: .8rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: .75rem;
+}
+.contact-cols p { color: var(--text-dim); font-size: .94rem; }
+.contact-cols strong { color: var(--text); font-weight: 600; }
+
+/* --- brand strip (rendered from brands.js — every page gets one) ---------- */
+
+.brand-strip { padding: 3.5rem 0; border-top: 1px solid var(--line); background: var(--bg-raised); }
+.brand-strip .strip-label {
+  text-align: center; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 1.75rem;
+}
+.brand-chips {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem;
+  max-width: 900px; margin: 0 auto; list-style: none;
+}
+.brand-chips a {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .55rem 1.05rem; border-radius: 100px;
+  background: var(--surface); border: 1px solid var(--line);
+  color: var(--text-dim); font-size: .88rem; font-weight: 500;
+  transition: color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+}
+/* --chip is set inline per brand by site.js, so each sibling keeps its identity */
+.brand-chips a:hover {
+  color: var(--chip, var(--accent)); border-color: var(--chip, var(--accent));
+  transform: translateY(-2px);
+}
+.brand-chips a[aria-current="page"] {
+  color: var(--chip, var(--accent));
+  border-color: var(--chip, var(--accent));
+  background: color-mix(in srgb, var(--chip, var(--accent)) 12%, transparent);
+}
+
+/* --- footer --------------------------------------------------------------- */
+
+.footer {
+  padding: 2.5rem 0; text-align: center;
+  background: var(--bg); border-top: 1px solid var(--line);
+  color: var(--text-faint); font-size: .88rem;
+}
+.footer .slogan { color: var(--text-dim); font-style: italic; margin-bottom: .6rem; }
+.footer a { color: var(--accent-2); }
+.footer a:hover { text-decoration: underline; }
+
+/* --- scroll reveal (driven by site.js) ------------------------------------
+   Gated on .js, which the inline head script sets. Without it every .reveal
+   stays visible, so a failed/blocked site.js leaves a static page rather than
+   a blank one — the content must never depend on JS to be readable. */
+
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* --- responsive ----------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed; inset: var(--header-h) 0 auto 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: .5rem 1.5rem 1.5rem;
+    /* fully opaque — at .97 the gradient hero headline ghosted through the panel */
+    background: var(--bg);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    /* hidden by default on small screens; site.js toggles [data-open] */
+    display: none;
+  }
+  .nav-links[data-open="true"] { display: flex; }
+  .nav-links li { border-bottom: 1px solid var(--line); }
+  .nav-links li:last-child { border-bottom: 0; }
+  .nav-links a { display: block; padding: .95rem 0; font-size: 1rem; }
+  .nav-links a::after { display: none; }
+
+  .section { padding: 4rem 0; }
+  .section-head { margin-bottom: 2.5rem; }
+  .grid, .grid.cols-2, .grid.cols-4 { grid-template-columns: 1fr; }
+  .contact-panel { padding: 2rem 1.25rem; }
+}
+
+@media (max-width: 420px) {
+  .nav-brand .wordmark { font-size: .9rem; }
+  .btn { padding: .8rem 1.4rem; font-size: .92rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+}

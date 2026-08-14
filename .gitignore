@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+package-lock.json
+
+# images/src/ IS committed on purpose — those are the only copies of the generated
+# source art, and keeping them means the .webp output can be re-derived at a
+# different size or quality without re-generating the images. They're excluded
+# from the S3 sync, so they cost repo size but never bandwidth.

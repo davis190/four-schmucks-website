@@ -3,18 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Four Schmucks Plumbing - Worldwide Plumbing Excellence</title>
-  <meta name="description" content="Four Schmucks Plumbing provides worldwide plumbing services with emergency repairs, luxury installations, and international pipeline projects.">
-  <meta property="og:title" content="Four Schmucks Plumbing - Worldwide Plumbing Excellence" />
-  <meta property="og:description" content="Four Schmucks Plumbing provides worldwide plumbing services with emergency repairs, luxury installations, and international pipeline projects." />
-  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Four Schmucks Plumbing - Worldwide Plumbing Excellence" />
-  <meta name="twitter:description" content="Four Schmucks Plumbing provides worldwide plumbing services with emergency repairs, luxury installations, and international pipeline projects." />
-  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
-  
+  <title>Four Schmucks Plumbing — Six Continents. One Drain Snake.</title>
+  <meta name="description" content="Four Schmucks Plumbing provides emergency drain, pipe and fixture services across six continents, with a published clog severity index and 24-hour response.">
+  <link rel="canonical" href="https://plumbing.fourschmucks.com/">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Four Schmucks Plumbing — Six Continents. One Drain Snake.">
+  <meta property="og:description" content="Emergency plumbing at global scale. Zero judgment, itemised invoices.">
+  <meta property="og:image" content="https://www.fourschmucks.com/images/card-plumbing.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://plumbing.fourschmucks.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Four Schmucks Plumbing — Six Continents. One Drain Snake.">
+  <meta name="twitter:description" content="Emergency plumbing at global scale. Zero judgment, itemised invoices.">
+  <meta name="twitter:image" content="https://www.fourschmucks.com/images/card-plumbing.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Scroll-reveal is gated on this class, so content stays visible if site.js never runs. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --accent: #0ea5e9;
+      --accent-2: #f97316;
+      --glow: rgba(14,165,233,.35);
+      --surface-tint: rgba(14,165,233,.06);
+      --font-display: 'Archivo', system-ui, sans-serif;
+      --hero-img: url('/images/hero-plumbing.webp');
+    }
+    /* bespoke: the Clog Severity Index */
+    .csi { display: grid; gap: .75rem; max-width: 900px; margin: 0 auto; }
+    .csi-row {
+      display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 1.25rem;
+      padding: 1.15rem 1.35rem; border-radius: var(--radius-sm);
+      background: var(--surface); border: 1px solid var(--line);
+      border-left: 4px solid var(--level);
+      transition: transform .25s var(--ease), background .25s var(--ease);
+    }
+    .csi-row:hover { transform: translateX(4px); background: var(--surface-hi); }
+    .csi-row .lvl {
+      display: grid; place-items: center; width: 40px; height: 40px; border-radius: 9px;
+      font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+      color: #08090d; background: var(--level);
+    }
+    .csi-row h3 { font-family: var(--font-display); font-size: 1.05rem; margin-bottom: .15rem; }
+    .csi-row p { color: var(--text-dim); font-size: .89rem; }
+    .csi-row .meta { text-align: right; white-space: nowrap; }
+    .csi-row .meta .eta { color: var(--level); font-weight: 700; font-size: .95rem; }
+    .csi-row .meta .cost { color: var(--text-faint); font-size: .82rem; }
+    @media (max-width: 620px) {
+      .csi-row { grid-template-columns: 40px 1fr; }
+      .csi-row .meta { grid-column: 2; text-align: left; }
+    }
+    /* bespoke: emergency band */
+    .emergency { background: linear-gradient(135deg, #7f1d1d, #b91c1c); border: 0; text-align: center; }
+    .emergency h2 { color: #fff; font-family: var(--font-display); font-size: clamp(1.6rem,4vw,2.4rem); margin-bottom: .75rem; }
+    .emergency p { color: rgba(255,255,255,.85); max-width: 640px; margin: 0 auto 1.5rem; }
+    .emergency .tel {
+      display: inline-block; font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(1.75rem,5vw,2.75rem); color: #fff; letter-spacing: -.02em;
+    }
+    .emergency .tel:hover { text-decoration: underline; }
+  </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
   <script>
@@ -23,72 +80,23 @@
     gtag('js', new Date());
     gtag('config', 'G-701KZR6WCN');
   </script>
-  
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', Arial, sans-serif; line-height: 1.6; color: #333; }
-    
-    .header { background: linear-gradient(135deg, #0066cc 0%, #004499 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-    .logo { height: 50px; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: #ffd700; }
-    
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
-    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-    .cta-button { background: #ffd700; color: #333; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
-    .cta-button:hover { transform: translateY(-3px); }
-    
-    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    .section { margin-bottom: 4rem; }
-    .section h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #0066cc; }
-    
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .service-card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; border-left: 5px solid #0066cc; }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card h3 { color: #0066cc; margin-bottom: 1rem; font-size: 1.5rem; }
-    .service-card p { color: #666; margin-bottom: 1rem; }
-    .service-card .price { color: #0066cc; font-weight: bold; font-size: 1.1rem; }
-    
-    .guarantee-section { background: #f8f9fa; padding: 4rem 0; }
-    .guarantee-content { text-align: center; max-width: 800px; margin: 0 auto; }
-    .guarantee-badge { background: #ffd700; color: #333; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-bottom: 2rem; }
-    
-    .testimonials-section { background: white; padding: 4rem 0; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .testimonial-card { background: #f8f9fa; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    .testimonial-card .quote { font-style: italic; color: #666; margin-bottom: 1rem; font-size: 1.1rem; }
-    .testimonial-card .author { color: #0066cc; font-weight: bold; }
-    .testimonial-card .location { color: #999; font-size: 0.9rem; }
-    
-    .emergency-section { background: #dc3545; color: white; padding: 4rem 0; text-align: center; }
-    .emergency-section h2 { color: white; }
-    .emergency-number { font-size: 3rem; font-weight: bold; margin: 1rem 0; }
-    
-    .footer { background: #0066cc; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
-    
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero-content h1 { font-size: 2.5rem; }
-      .hero-content p { font-size: 1.2rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
-<body>
+<body data-brand="plumbing">
+
   <header class="header">
     <nav class="nav">
-      <a href="https://www.fourschmucks.com">
-        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Plumbing Logo" class="logo">
+      <a class="nav-brand" href="https://www.fourschmucks.com">
+        <img class="logo" src="/logos/four_schmucks_curling.png" alt="" width="120" height="120">
+        <span class="wordmark">Four Schmucks<small>Plumbing</small></span>
       </a>
-      <ul class="nav-links">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#services">Services</a></li>
+        <li><a href="#severity">Severity Index</a></li>
         <li><a href="#guarantee">Guarantee</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#emergency">Emergency</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -96,189 +104,276 @@
 
   <section class="hero">
     <div class="hero-content">
+      <div class="eyebrow">24-Hour Global Response</div>
       <h1>Four Schmucks Plumbing</h1>
-      <p>Worldwide Plumbing Excellence with a Smile</p>
-      <a href="#services" class="cta-button">Our Services</a>
+      <p class="lede">
+        Six continents. One drain snake. Zero judgment about what you put down there,
+        and a fully itemised invoice about what it cost to get it back out.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#services">Our Services</a>
+        <a class="btn btn-ghost" href="#emergency">It's An Emergency</a>
+      </div>
     </div>
   </section>
 
-  <main class="main-content">
-    <section id="services" class="section">
-      <h2>Our Plumbing Services</h2>
-      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-        From emergency repairs to luxury installations, Four Schmucks Plumbing serves customers worldwide 
-        with professional, reliable, and surprisingly entertaining plumbing solutions.
-      </p>
-      
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Emergency Plumbing</h3>
-          <p>24/7 emergency response for burst pipes, clogged drains, and plumbing disasters. We're there when you need us most.</p>
-          <div class="price">Starting at $89</div>
-        </div>
-        
-        <div class="service-card">
-          <h3>Luxury Bathroom Installations</h3>
-          <p>Transform your bathroom into a spa-like retreat with our premium fixtures and expert craftsmanship.</p>
-          <div class="price">Starting at $2,500</div>
-        </div>
-        
-        <div class="service-card">
-          <h3>Kitchen Plumbing</h3>
-          <p>Complete kitchen plumbing solutions including sink installations, garbage disposal, and appliance hookups.</p>
-          <div class="price">Starting at $150</div>
-        </div>
-        
-        <div class="service-card">
-          <h3>International Pipeline Projects</h3>
-          <p>Large-scale plumbing infrastructure for commercial and industrial projects worldwide.</p>
-          <div class="price">Project-based pricing</div>
-        </div>
-        
-        <div class="service-card">
-          <h3>Drain Cleaning & Maintenance</h3>
-          <p>Professional drain cleaning services using state-of-the-art equipment and eco-friendly solutions.</p>
-          <div class="price">Starting at $75</div>
-        </div>
-        
-        <div class="service-card">
-          <h3>Water Heater Services</h3>
-          <p>Installation, repair, and maintenance of all water heater types with energy-efficient options.</p>
-          <div class="price">Starting at $200</div>
-        </div>
-      </div>
-    </section>
+  <main>
 
-    <section id="guarantee" class="guarantee-section">
-      <div class="guarantee-content">
-        <div class="guarantee-badge">The Schmucks Guarantee</div>
-        <h2>Our Promise to You</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-          At Four Schmucks Plumbing, we don't just fix pipes—we fix problems with a smile. 
-          Our guarantee is simple: if you're not completely satisfied with our work, we'll make it right, 
-          no questions asked.
-        </p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-          <div>
-            <h3 style="color: #0066cc; margin-bottom: 1rem;">100% Satisfaction</h3>
-            <p>We guarantee your complete satisfaction with every job we complete.</p>
+    <!-- ── Services ─────────────────────────────────────────────────────── -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Capabilities</p>
+          <h2>Everything from a slow sink to an international incident</h2>
+          <p>
+            We are a full-stack plumbing organisation, a phrase our consulting division
+            insisted we use and which means nothing here.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card reveal">
+            <div class="icon">🚰</div>
+            <h3>Emergency Drain Clearance</h3>
+            <p>Available around the clock, worldwide. We arrive fast, we work quietly, and we never ask the follow-up question you're dreading.</p>
+            <span class="price">From $150 · 24/7</span>
           </div>
-          <div>
-            <h3 style="color: #0066cc; margin-bottom: 1rem;">Licensed & Insured</h3>
-            <p>All our plumbers are fully licensed, bonded, and insured for your protection.</p>
+          <div class="card reveal">
+            <div class="icon">🔧</div>
+            <h3>Fixture Installation</h3>
+            <p>Taps, toilets, tubs and the wall-mounted thing you saw in a hotel and have thought about ever since. Installed level, first time.</p>
+            <span class="price">From $275</span>
           </div>
-          <div>
-            <h3 style="color: #0066cc; margin-bottom: 1rem;">Upfront Pricing</h3>
-            <p>No hidden fees or surprises. You'll know the cost before we start any work.</p>
+          <div class="card reveal">
+            <div class="icon">📹</div>
+            <h3>Pipe Camera Diagnostics</h3>
+            <p>We send a camera down and narrate the footage back to you. Most clients ask us to stop narrating roughly forty seconds in.</p>
+            <span class="price">From $340</span>
+          </div>
+          <div class="card reveal">
+            <div class="icon">♨️</div>
+            <h3>Water Heater Service</h3>
+            <p>Repair, replacement, and a frank conversation about the unit's remaining life expectancy that we deliver with appropriate gravity.</p>
+            <span class="price">From $420</span>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🏗️</div>
+            <h3>Commercial Repiping</h3>
+            <p>Whole-building work for offices, restaurants and one aquarium we are contractually barred from describing further.</p>
+            <span class="price">From $2,500</span>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🌐</div>
+            <h3>International Pipeline Projects</h3>
+            <p>Cross-border infrastructure engagements. Yes, it is the same four people. Yes, we fly there. No, we will not explain the logistics.</p>
+            <span class="price">Quoted per continent</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="testimonials" class="testimonials-section">
-      <h2>What Our Customers Say</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="quote">
-            "Four Schmucks Plumbing saved the day when our basement flooded at 2 AM. 
-            They were here within 30 minutes and had us laughing despite the situation!"
-          </div>
-          <div class="author">Sarah Johnson</div>
-          <div class="location">San Francisco, CA</div>
+    <!-- ── Clog Severity Index (bespoke) ────────────────────────────────── -->
+    <section class="section tinted" id="severity">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Proprietary Framework</p>
+          <h2>The Clog Severity Index™</h2>
+          <p>
+            A five-level classification system we developed so that customers and technicians
+            can discuss the situation without either party having to describe it.
+          </p>
         </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">
-            "The luxury bathroom renovation exceeded our expectations. Professional, 
-            clean, and they even made jokes about the old pipes. Highly recommend!"
+
+        <div class="csi reveal">
+          <div class="csi-row" style="--level:#22c55e">
+            <div class="lvl">1</div>
+            <div>
+              <h3>A Gurgle</h3>
+              <p>The drain is making a noise. Nothing is wrong yet. You are, however, now aware of it forever.</p>
+            </div>
+            <div class="meta"><div class="eta">Next Tuesday</div><div class="cost">$75</div></div>
           </div>
-          <div class="author">Michael Chen</div>
-          <div class="location">New York, NY</div>
+
+          <div class="csi-row" style="--level:#84cc16">
+            <div class="lvl">2</div>
+            <div>
+              <h3>The Slow Descent</h3>
+              <p>Water leaves, eventually, on its own schedule. You have started brushing your teeth elsewhere.</p>
+            </div>
+            <div class="meta"><div class="eta">48 hours</div><div class="cost">$150</div></div>
+          </div>
+
+          <div class="csi-row" style="--level:#f59e0b">
+            <div class="lvl">3</div>
+            <div>
+              <h3>Standing Water, Standing Firm</h3>
+              <p>It has stopped pretending. You have purchased a chemical product. The chemical product did nothing.</p>
+            </div>
+            <div class="meta"><div class="eta">Same day</div><div class="cost">$450</div></div>
+          </div>
+
+          <div class="csi-row" style="--level:#f97316">
+            <div class="lvl">4</div>
+            <div>
+              <h3>Multi-Fixture Event</h3>
+              <p>Flushing upstairs now causes something downstairs. The house is communicating with itself and you are not invited.</p>
+            </div>
+            <div class="meta"><div class="eta">90 minutes</div><div class="cost">$1,200</div></div>
+          </div>
+
+          <div class="csi-row" style="--level:#ef4444">
+            <div class="lvl">5</div>
+            <div>
+              <h3>Do Not Enter The Basement</h3>
+              <p>We will handle this. Please go and stay somewhere else tonight. Take the pets. Do not take photographs.</p>
+            </div>
+            <div class="meta"><div class="eta">20 minutes</div><div class="cost">$2,500</div></div>
+          </div>
         </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">
-            "International project completed on time and under budget. Four Schmucks 
-            handled the complex logistics perfectly while keeping the team entertained."
-          </div>
-          <div class="author">Dr. Elena Rodriguez</div>
-          <div class="location">Barcelona, Spain</div>
+
+        <p class="fine-print" style="text-align:center;max-width:900px;margin:1.5rem auto 0">
+          Level 5 pricing is a starting figure. In eleven years no Level 5 has ever concluded at the starting figure.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Guarantee ────────────────────────────────────────────────────── -->
+    <section class="section" id="guarantee">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Schmuck Guarantee</p>
+          <h2>Three promises we have never broken</h2>
         </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">
-            "Emergency call at 3 AM, and they were here in 20 minutes. Fixed the 
-            burst pipe and had us laughing about 'plumbing adventures.' Amazing service!"
+
+        <div class="grid cols-4">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <h3>Fixed On The First Visit</h3>
+            <p>Or the second visit is free. We have made this promise 4,000 times and honoured it 4,000 times, though not always on the first visit.</p>
           </div>
-          <div class="author">David Thompson</div>
-          <div class="location">London, UK</div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">
-            "Professional, reliable, and surprisingly funny. They made our kitchen 
-            renovation enjoyable instead of stressful. Will definitely use them again!"
+          <div class="step reveal">
+            <div class="num">2</div>
+            <h3>The Price We Quoted</h3>
+            <p>The number on the estimate is the number on the invoice. Any variance is absorbed by us and mentioned bitterly in the van afterwards.</p>
           </div>
-          <div class="author">Lisa Park</div>
-          <div class="location">Tokyo, Japan</div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">
-            "The Schmucks Guarantee is real! They came back twice to make sure 
-            everything was perfect. That's service you don't see anymore."
+          <div class="step reveal">
+            <div class="num">3</div>
+            <h3>We Leave It Cleaner</h3>
+            <p>Every technician leaves the space cleaner than they found it. This is non-negotiable and has caused at least one resignation.</p>
           </div>
-          <div class="author">Robert Williams</div>
-          <div class="location">Sydney, Australia</div>
+          <div class="step reveal">
+            <div class="num">4</div>
+            <h3>We Never Bring It Up</h3>
+            <p>Whatever we find, we find privately. It does not go in the notes. It does not come up at your next appointment.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="emergency" class="emergency-section">
-      <h2>24/7 Emergency Service</h2>
-      <p style="font-size: 1.3rem; margin-bottom: 2rem;">
-        Plumbing emergencies don't wait for business hours. We're here when you need us most.
-      </p>
-      <div class="emergency-number">1-800-SCHMUCKS</div>
-      <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-        Available 24/7 for emergency plumbing services worldwide
-      </p>
-      <a href="tel:1-800-SCHMUCKS" class="cta-button">Call Now</a>
-    </section>
+    <!-- ── Reviews ──────────────────────────────────────────────────────── -->
+    <section class="section raised" id="reviews">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Customer Reviews</p>
+          <h2>What people say once it's over</h2>
+        </div>
 
-    <section id="contact" class="section">
-      <h2>Contact & Service Areas</h2>
-      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h3 style="color: #0066cc; margin-bottom: 1rem;">Service Areas</h3>
-        <p style="margin-bottom: 2rem;">
-          <strong>North America:</strong> United States, Canada, Mexico<br>
-          <strong>Europe:</strong> UK, Germany, France, Spain, Italy, Netherlands<br>
-          <strong>Asia-Pacific:</strong> Japan, Australia, Singapore, Hong Kong<br>
-          <strong>Middle East:</strong> UAE, Saudi Arabia, Qatar
-        </p>
-        
-        <h3 style="color: #0066cc; margin-bottom: 1rem;">Headquarters</h3>
-        <p style="margin-bottom: 2rem;">
-          567 Plumbing Way<br>
-          Schmucks Industrial Park<br>
-          Chicago, IL 60601<br>
-          United States
-        </p>
-        
-        <h3 style="color: #0066cc; margin-bottom: 1rem;">Business Hours</h3>
-        <p style="margin-bottom: 2rem;">
-          <strong>Regular Service:</strong> Monday-Friday 7 AM - 7 PM<br>
-          <strong>Emergency Service:</strong> 24/7, 365 days a year
-        </p>
-        
-        <a href="mailto:plumbing@fourschmucks.com" class="cta-button">Get a Quote</a>
+        <div class="grid">
+          <div class="quote reveal">
+            <p>"They arrived at 2am, fixed a Level 4 in under an hour, and left. Nobody made a single joke. I have never felt so respected in my life."</p>
+            <div class="who">Marta Ferrer</div>
+            <div class="where">Barcelona, Spain</div>
+          </div>
+          <div class="quote reveal">
+            <p>"The technician looked at my pipes, went quiet for a moment, and said 'this is not your fault.' I did not know I needed to hear that."</p>
+            <div class="who">Kenji Watanabe</div>
+            <div class="where">Tokyo, Japan</div>
+          </div>
+          <div class="quote reveal">
+            <p>"Quoted $450. Invoiced $450. In this economy I assumed that was illegal."</p>
+            <div class="who">Priya Raghunathan</div>
+            <div class="where">Chicago, USA</div>
+          </div>
+          <div class="quote reveal">
+            <p>"I asked what was down there. He said 'a drain.' That was the whole answer and it was the correct one."</p>
+            <div class="who">Tom Whitlock</div>
+            <div class="where">Sydney, Australia</div>
+          </div>
+          <div class="quote reveal">
+            <p>"They mailed a follow-up card that just said 'it's holding.' It was holding. Best customer service of my life."</p>
+            <div class="who">Aoife Brennan</div>
+            <div class="where">Dublin, Ireland</div>
+          </div>
+          <div class="quote reveal">
+            <p>"Four guys got off a plane to unclog one sink. I still don't understand the business model but the sink works."</p>
+            <div class="who">Daniel Osei</div>
+            <div class="where">Accra, Ghana</div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ── Emergency (bespoke band) ─────────────────────────────────────── -->
+    <section class="section emergency" id="emergency">
+      <div class="wrap">
+        <h2>Level 4 or 5? Stop reading.</h2>
+        <p>
+          Our emergency line is staffed 24 hours a day, every day, in every region we operate.
+          You will speak to a person within three rings.
+        </p>
+        <a class="tel" href="tel:1-800-724-6825">1-800-SCHMUCKS</a>
+      </div>
+    </section>
+
+    <!-- ── Contact ──────────────────────────────────────────────────────── -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Contact</p>
+          <h2>Book a technician</h2>
+        </div>
+
+        <div class="contact-panel reveal">
+          <div class="contact-cols">
+            <div>
+              <h3>Service Areas</h3>
+              <p>North America · Europe<br>Asia-Pacific · Africa<br>South America (by arrangement)</p>
+            </div>
+            <div>
+              <h3>Operations HQ</h3>
+              <p>801 W Superior Street<br>Chicago, IL 60642<br>United States</p>
+            </div>
+            <div>
+              <h3>Hours</h3>
+              <p>
+                <strong>Standard:</strong> Mon–Sat, 7am–7pm local<br>
+                <strong>Emergency:</strong> Always<br>
+                <strong>Also at:</strong> poop.fourschmucks.com
+              </p>
+            </div>
+          </div>
+          <a class="btn" href="tel:1-800-724-6825">Call 1-800-SCHMUCKS</a>
+          <p class="disclaimer">
+            Four Schmucks Plumbing is a satirical brand. The Clog Severity Index™, the pricing,
+            the testimonials and the six-continent footprint are all fictional. Please call an
+            actual plumber, and please stop putting that down the drain.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <section class="brand-strip" data-brand-strip></section>
+
   <footer class="footer">
-    <p>&copy; 2026 Four Schmucks Plumbing. All rights reserved. | "We Don't Schmuck Around with Your Pipes!"</p>
-    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com" style="color: #ffd700; text-decoration: none;">← Back to Four Schmucks</a></p>
+    <div class="wrap">
+      <p class="slogan">"We Don't Schmuck Around With Your Pipes."</p>
+      <p>&copy; 2026 Four Schmucks Plumbing · <a href="https://www.fourschmucks.com">← Back to Four Schmucks</a></p>
+    </div>
   </footer>
+
+  <script src="/assets/brands.js"></script>
+  <script src="/assets/site.js"></script>
 </body>
-</html> 
+</html>

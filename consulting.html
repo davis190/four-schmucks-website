@@ -3,18 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Four Schmucks Consulting - Innovative Strategies for Unconventional Success</title>
-  <meta name="description" content="Four Schmucks Consulting offers innovative strategies for unconventional success in business strategy, market entry, and digital transformation.">
-  <meta property="og:title" content="Four Schmucks Consulting - Innovative Strategies for Unconventional Success" />
-  <meta property="og:description" content="Four Schmucks Consulting offers innovative strategies for unconventional success in business strategy, market entry, and digital transformation." />
-  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Four Schmucks Consulting - Innovative Strategies for Unconventional Success" />
-  <meta name="twitter:description" content="Four Schmucks Consulting offers innovative strategies for unconventional success in business strategy, market entry, and digital transformation." />
-  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
-  
+  <title>Four Schmucks Consulting — Strategic Advisory for Complex Organisations</title>
+  <meta name="description" content="Four Schmucks Consulting is a global strategy practice delivering transformation, operating model design and growth advisory to enterprise clients across every sector.">
+  <link rel="canonical" href="https://consulting.fourschmucks.com/">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Four Schmucks Consulting — Strategic Advisory for Complex Organisations">
+  <meta property="og:description" content="We will tell you what you already knew, in a deck, for a great deal of money.">
+  <meta property="og:image" content="https://www.fourschmucks.com/images/card-consulting.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://consulting.fourschmucks.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Four Schmucks Consulting — Strategic Advisory for Complex Organisations">
+  <meta name="twitter:description" content="We will tell you what you already knew, in a deck, for a great deal of money.">
+  <meta name="twitter:image" content="https://www.fourschmucks.com/images/card-consulting.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Scroll-reveal is gated on this class, so content stays visible if site.js never runs. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --accent: #3b82f6;
+      --accent-2: #cbd5e1;
+      --glow: rgba(59,130,246,.32);
+      --surface-tint: rgba(59,130,246,.06);
+      --font-display: 'Inter Tight', system-ui, sans-serif;
+      --hero-img: url('/images/hero-consulting.webp');
+    }
+    /* bespoke: the Synergy Matrix */
+    .matrix { max-width: 600px; margin: 0 auto; }
+    .matrix-grid {
+      position: relative; display: grid;
+      grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+      aspect-ratio: 1 / .82; border-radius: var(--radius); overflow: hidden;
+      background: var(--bg-raised); border: 1px solid var(--line);
+    }
+    .quad {
+      display: grid; place-items: center; text-align: center; padding: 1rem .9rem;
+      border: 1px solid var(--line); font-size: .78rem; color: var(--text-faint);
+    }
+    .quad strong {
+      display: block; font-family: var(--font-display); font-weight: 600;
+      color: var(--text-dim); font-size: .95rem; margin-bottom: .25rem;
+    }
+    .quad.target { background: var(--surface-tint); }
+    .quad.target strong { color: var(--accent); }
+    .matrix .dot {
+      position: absolute; width: 16px; height: 16px; border-radius: 50%; z-index: 2;
+      background: var(--accent); margin: -8px 0 0 -8px;
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 18%, transparent), 0 0 26px var(--glow);
+      animation: settle 2.4s cubic-bezier(.22,.61,.36,1) both;
+    }
+    @keyframes settle {
+      0%   { top: 80%; left: 18%; opacity: 0; }
+      35%  { opacity: 1; }
+      100% { top: 26%; left: 74%; opacity: 1; }
+    }
+    .axis {
+      display: flex; justify-content: space-between; font-size: .72rem;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint);
+      margin-top: .85rem;
+    }
+    .axis-y {
+      text-align: center; font-size: .72rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-faint); margin-bottom: .85rem;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .matrix .dot { animation: none; top: 26%; left: 74%; opacity: 1; }
+    }
+  </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
   <script>
@@ -23,84 +88,23 @@
     gtag('js', new Date());
     gtag('config', 'G-701KZR6WCN');
   </script>
-  
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; }
-    
-    .header { background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-    .logo { height: 50px; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: #3498db; }
-    
-    .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
-    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-    .cta-button { background: #3498db; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
-    .cta-button:hover { transform: translateY(-3px); }
-    
-    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    .section { margin-bottom: 4rem; }
-    .section h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #2c3e50; }
-    
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .service-card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; border-left: 5px solid #3498db; }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card h3 { color: #2c3e50; margin-bottom: 1rem; font-size: 1.5rem; }
-    .service-card p { color: #666; margin-bottom: 1rem; }
-    .service-card .icon { font-size: 2rem; color: #3498db; margin-bottom: 1rem; }
-    
-    .case-studies-section { background: #f8f9fa; padding: 4rem 0; }
-    .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .case-study-card { background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .case-study-card:hover { transform: translateY(-5px); }
-    .case-study-card h3 { color: #2c3e50; margin-bottom: 1rem; font-size: 1.5rem; }
-    .case-study-card .industry { color: #3498db; font-weight: bold; margin-bottom: 0.5rem; }
-    .case-study-card .results { background: #e8f4fd; padding: 1rem; border-radius: 10px; margin: 1rem 0; }
-    .case-study-card .results strong { color: #2c3e50; }
-    
-    .team-section { background: white; padding: 4rem 0; }
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .team-member { background: #f8f9fa; border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .team-member:hover { transform: translateY(-5px); }
-    .team-member img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; border: 4px solid #3498db; }
-    .team-member h3 { color: #2c3e50; margin-bottom: 0.5rem; }
-    .team-member .title { color: #3498db; font-weight: bold; margin-bottom: 1rem; }
-    .team-member .bio { color: #666; font-size: 0.9rem; }
-    
-    .methodology-section { background: #2c3e50; color: white; padding: 4rem 0; }
-    .methodology-content { text-align: center; max-width: 800px; margin: 0 auto; }
-    .methodology-content h2 { color: white; }
-    .methodology-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .methodology-step { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; }
-    .methodology-step .number { background: #3498db; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold; }
-    
-    .footer { background: #2c3e50; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
-    
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero-content h1 { font-size: 2.5rem; }
-      .hero-content p { font-size: 1.2rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .case-studies-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .methodology-steps { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
-<body>
+<body data-brand="consulting">
+
   <header class="header">
     <nav class="nav">
-      <a href="https://www.fourschmucks.com">
-        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Consulting Logo" class="logo">
+      <a class="nav-brand" href="https://www.fourschmucks.com">
+        <img class="logo" src="/logos/four_schmucks_curling.png" alt="" width="120" height="120">
+        <span class="wordmark">Four Schmucks<small>Consulting</small></span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#case-studies">Case Studies</a></li>
-        <li><a href="#team">Our Team</a></li>
-        <li><a href="#methodology">Methodology</a></li>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Practices</a></li>
+        <li><a href="#matrix">Methodology</a></li>
+        <li><a href="#work">Case Studies</a></li>
+        <li><a href="#team">Leadership</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -108,227 +112,247 @@
 
   <section class="hero">
     <div class="hero-content">
+      <div class="eyebrow">Global Strategy Practice</div>
       <h1>Four Schmucks Consulting</h1>
-      <p>Innovative Strategies for Unconventional Success</p>
-      <a href="#services" class="cta-button">Explore Our Services</a>
+      <p class="lede">
+        We will tell you what you already knew, in a deck, with a framework attached,
+        for an amount of money that makes it feel true.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#services">Our Practices</a>
+        <a class="btn btn-ghost" href="#work">Selected Work</a>
+      </div>
     </div>
   </section>
 
-  <main class="main-content">
-    <section id="services" class="section">
-      <h2>Our Consulting Services</h2>
-      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-        We specialize in helping companies think differently, act boldly, and achieve extraordinary results 
-        through unconventional strategies and innovative approaches.
-      </p>
-      
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="icon">🚀</div>
-          <h3>Business Strategy & Innovation</h3>
-          <p>Transform your business model with cutting-edge strategies that challenge conventional thinking and create sustainable competitive advantages.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="icon">🌍</div>
-          <h3>Market Entry & Expansion</h3>
-          <p>Navigate new markets with confidence using our proven frameworks for international expansion and market penetration strategies.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="icon">💻</div>
-          <h3>Digital Transformation</h3>
-          <p>Accelerate your digital journey with comprehensive transformation strategies that align technology with business objectives.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="icon">📊</div>
-          <h3>Performance Optimization</h3>
-          <p>Unlock hidden potential in your operations with data-driven insights and process optimization strategies.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="icon">🎯</div>
-          <h3>Change Management</h3>
-          <p>Successfully navigate organizational change with our human-centered approach to transformation and cultural evolution.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="icon">🔬</div>
-          <h3>Research & Analytics</h3>
-          <p>Make informed decisions with comprehensive market research, competitive analysis, and predictive analytics.</p>
-        </div>
-      </div>
-    </section>
+  <main>
 
-    <section id="case-studies" class="case-studies-section">
-      <h2>Success Stories</h2>
-      <div class="case-studies-grid">
-        <div class="case-study-card">
-          <h3>Tech Startup Growth Acceleration</h3>
-          <div class="industry">Technology | AI/ML</div>
-          <p>A Silicon Valley AI startup struggling with market positioning and scaling challenges.</p>
-          <div class="results">
-            <strong>Results:</strong> 500% revenue growth in 18 months, successful Series B funding of $25M, expanded to 3 new markets.
-          </div>
+    <!-- ── Practices ────────────────────────────────────────────────────── -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Practice Areas</p>
+          <h2>Six disciplines, one deck template</h2>
+          <p>
+            Each practice is led by a partner with deep sector expertise and a laptop
+            containing the same ninety slides.
+          </p>
         </div>
-        
-        <div class="case-study-card">
-          <h3>Traditional Retail Digital Transformation</h3>
-          <div class="industry">Retail | E-commerce</div>
-          <p>Century-old retail chain facing digital disruption and declining foot traffic.</p>
-          <div class="results">
-            <strong>Results:</strong> 300% increase in online sales, 40% reduction in operational costs, 25% improvement in customer satisfaction.
+
+        <div class="grid">
+          <div class="card reveal">
+            <div class="icon">🚀</div>
+            <h3>Growth Strategy</h3>
+            <p>We identify your highest-value expansion opportunities, then present them back to you as the three things your own head of sales has been saying since March.</p>
           </div>
-        </div>
-        
-        <div class="case-study-card">
-          <h3>Manufacturing Process Innovation</h3>
-          <div class="industry">Manufacturing | Automotive</div>
-          <p>Automotive parts manufacturer struggling with efficiency and quality control issues.</p>
-          <div class="results">
-            <strong>Results:</strong> 45% increase in production efficiency, 60% reduction in defects, $2.5M annual cost savings.
+          <div class="card reveal">
+            <div class="icon">🌍</div>
+            <h3>Market Entry</h3>
+            <p>Comprehensive assessment of new geographies, including a competitive landscape, a regulatory overview, and a recommendation to start with Canada.</p>
           </div>
-        </div>
-        
-        <div class="case-study-card">
-          <h3>Healthcare System Optimization</h3>
-          <div class="industry">Healthcare | Hospital Network</div>
-          <p>Regional hospital network facing operational inefficiencies and patient satisfaction challenges.</p>
-          <div class="results">
-            <strong>Results:</strong> 35% improvement in patient wait times, 50% reduction in administrative overhead, 90% patient satisfaction score.
+          <div class="card reveal">
+            <div class="icon">💻</div>
+            <h3>Digital Transformation</h3>
+            <p>An eighteen-month programme to modernise your technology estate, delivered in phases, of which your organisation will complete the first one.</p>
           </div>
-        </div>
-        
-        <div class="case-study-card">
-          <h3>Financial Services Innovation</h3>
-          <div class="industry">Finance | Banking</div>
-          <p>Traditional bank struggling to compete with fintech disruptors and changing customer expectations.</p>
-          <div class="results">
-            <strong>Results:</strong> 200% increase in digital adoption, 40% improvement in customer retention, successful launch of 3 new digital products.
+          <div class="card reveal">
+            <div class="icon">📊</div>
+            <h3>Operating Model Design</h3>
+            <p>We redraw your org chart. Everyone's box moves. The work does not change. Morale improves for six weeks.</p>
           </div>
-        </div>
-        
-        <div class="case-study-card">
-          <h3>Energy Sector Market Entry</h3>
-          <div class="industry">Energy | Renewable</div>
-          <p>Renewable energy company seeking to expand into emerging markets with complex regulatory environments.</p>
-          <div class="results">
-            <strong>Results:</strong> Successful entry into 5 new markets, $150M in new contracts, 80% regulatory compliance rate.
+          <div class="card reveal">
+            <div class="icon">🎯</div>
+            <h3>Cost Optimisation</h3>
+            <p>Rigorous, data-led identification of savings across the enterprise, typically totalling slightly less than our fee.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🔬</div>
+            <h3>AI Readiness</h3>
+            <p>We assess your organisation's preparedness for artificial intelligence and deliver a maturity score. Every client to date has scored a 2 out of 5.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="team" class="team-section">
-      <h2>Meet Our Consulting Team</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dr. Marcus Chen">
-          <h3>Dr. Marcus Chen</h3>
-          <div class="title">Managing Partner & Chief Strategy Officer</div>
-          <div class="bio">Former McKinsey partner with 15+ years in strategic consulting. PhD in Economics from Stanford. Expert in digital transformation and market entry strategies.</div>
+    <!-- ── Synergy Matrix (bespoke) ─────────────────────────────────────── -->
+    <section class="section tinted" id="matrix">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Proprietary Methodology</p>
+          <h2>The Synergy Matrix™</h2>
+          <p>
+            Every engagement begins by plotting your organisation against two axes.
+            Over 340 engagements, the plot has landed in the same quadrant 340 times.
+          </p>
         </div>
-        
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Sarah Rodriguez">
-          <h3>Sarah Rodriguez</h3>
-          <div class="title">Senior Partner, Innovation Practice</div>
-          <div class="bio">Former Google X executive with expertise in disruptive innovation and emerging technologies. Led 50+ breakthrough projects across various industries.</div>
+
+        <div class="matrix reveal">
+          <p class="axis-y">↑ Strategic Value</p>
+          <div class="matrix-grid">
+            <div class="quad"><div><strong>Quick Wins</strong>Low effort, real value. Rarely selected.</div></div>
+            <div class="quad target"><div><strong>Transformational Investment</strong>High effort, high value. Requires a partner.</div></div>
+            <div class="quad"><div><strong>Business As Usual</strong>You are already doing this for free.</div></div>
+            <div class="quad"><div><strong>Strategic Distractions</strong>Expensive, pointless. We flag these, gently.</div></div>
+            <div class="dot" aria-hidden="true"></div>
+          </div>
+          <p class="axis"><span>Low cost</span><span>Implementation cost →</span><span>High cost</span></p>
         </div>
-        
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="James Thompson">
-          <h3>James Thompson</h3>
-          <div class="title">Partner, Operations & Performance</div>
-          <div class="bio">Former Bain consultant specializing in operational excellence and performance optimization. MBA from Harvard Business School.</div>
+
+        <p class="fine-print" style="text-align:center;max-width:700px;margin:1.75rem auto 0">
+          The matrix is a registered methodology of Four Schmucks Consulting. The quadrant labels
+          were finalised before the first client engagement.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Case studies ─────────────────────────────────────────────────── -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Selected Work</p>
+          <h2>Client outcomes, anonymised at their request</h2>
         </div>
-        
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dr. Elena Petrov">
-          <h3>Dr. Elena Petrov</h3>
-          <div class="title">Partner, Research & Analytics</div>
-          <div class="bio">Former MIT researcher with expertise in predictive analytics and market intelligence. PhD in Data Science and 20+ years in research.</div>
-        </div>
-        
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Michael Chang">
-          <h3>Michael Chang</h3>
-          <div class="title">Partner, Change Management</div>
-          <div class="bio">Former Deloitte consultant specializing in organizational transformation and cultural change. Expert in human-centered design and change psychology.</div>
-        </div>
-        
-        <div class="team-member">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Dr. Priya Patel">
-          <h3>Dr. Priya Patel</h3>
-          <div class="title">Partner, Healthcare & Life Sciences</div>
-          <div class="bio">Former Johns Hopkins researcher with deep expertise in healthcare systems optimization and medical technology innovation.</div>
+
+        <div class="grid cols-2">
+          <div class="card reveal">
+            <span class="tag">Consumer Goods</span>
+            <h3>A Legacy Retailer, Reoriented</h3>
+            <p>An 80-year-old chain facing structural decline engaged us to reimagine its customer proposition across 400 locations.</p>
+            <div class="results">
+              <strong>Outcome:</strong> 500% growth in the digital channel, from a base we were not permitted to disclose.
+            </div>
+            <p class="fine-print">The base was eleven online orders per week.</p>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag alt">Financial Services</span>
+            <h3>Operating Model Redesign, Tier 1 Bank</h3>
+            <p>A nine-month engagement to flatten a management structure that had grown to fourteen reporting layers.</p>
+            <div class="results">
+              <strong>Outcome:</strong> Reduced to nine layers. Client described the result as "a genuine transformation."
+            </div>
+            <p class="fine-print">Five new layers have since been added, none by us.</p>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag">Public Sector</span>
+            <h3>National Infrastructure Programme</h3>
+            <p>Advisory on a $150M multi-year modernisation initiative spanning four government departments.</p>
+            <div class="results">
+              <strong>Outcome:</strong> All four departments aligned on a shared roadmap within eleven weeks.
+            </div>
+            <p class="fine-print">Alignment was on the roadmap document, not on its contents.</p>
+          </div>
+
+          <div class="card reveal">
+            <span class="tag alt">Technology</span>
+            <h3>AI Strategy for a Series C Platform</h3>
+            <p>A fast-scaling software company asked us to define where artificial intelligence fits in its product roadmap.</p>
+            <div class="results">
+              <strong>Outcome:</strong> A prioritised three-horizon plan delivered in 62 slides.
+            </div>
+            <p class="fine-print">The client had already built the Horizon 1 feature before our kickoff meeting.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="methodology" class="methodology-section">
-      <div class="methodology-content">
-        <h2>Our Methodology</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-          We follow a proven, iterative approach that combines deep analysis with creative problem-solving 
-          to deliver sustainable, transformative results.
+    <!-- ── Leadership ───────────────────────────────────────────────────── -->
+    <section class="section raised" id="team">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Leadership</p>
+          <h2>The partners</h2>
+          <p>Collectively, several decades of experience and one shared belief about the correct number of bullet points per slide.</p>
+        </div>
+
+        <div class="grid cols-4">
+          <div class="card person reveal">
+            <div class="avatar">◆</div>
+            <h3>Elena Marchetti</h3>
+            <div class="role">Managing Partner</div>
+            <p>Built the firm's growth practice from nothing. Has never once been the last person to leave a meeting.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">▲</div>
+            <h3>Adebayo Fashola</h3>
+            <div class="role">Partner, Operating Models</div>
+            <p>Can redraw any organisation's structure on a napkin in under four minutes. Frequently does so uninvited.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">●</div>
+            <h3>Sofia Lindqvist</h3>
+            <div class="role">Partner, Digital</div>
+            <p>Ran transformation programmes at three enterprises before joining. Two of them finished.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">■</div>
+            <h3>Raymond Cho</h3>
+            <div class="role">Partner, AI Readiness</div>
+            <p>Authored the maturity model that has assigned every client a score of 2. Considers this validating.</p>
+          </div>
+        </div>
+
+        <p class="fine-print" style="text-align:center;margin-top:2rem">
+          Partners are fictional. Any resemblance to someone who once made you sit through a workshop is coincidental.
         </p>
-        <div class="methodology-steps">
-          <div class="methodology-step">
-            <div class="number">1</div>
-            <h3>Discovery & Analysis</h3>
-            <p>Deep dive into your business, market, and competitive landscape to identify opportunities and challenges.</p>
+      </div>
+    </section>
+
+    <!-- ── Contact ──────────────────────────────────────────────────────── -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Contact</p>
+          <h2>Begin an engagement</h2>
+          <p>Initial conversations are complimentary and last exactly forty-five minutes.</p>
+        </div>
+
+        <div class="contact-panel reveal">
+          <div class="contact-cols">
+            <div>
+              <h3>Offices</h3>
+              <p>San Francisco · London<br>Singapore · Frankfurt<br>Toronto</p>
+            </div>
+            <div>
+              <h3>Engagement Models</h3>
+              <p>
+                <strong>Diagnostic:</strong> 4 weeks<br>
+                <strong>Full Programme:</strong> 6–18 months<br>
+                <strong>Retained Advisory:</strong> Indefinite
+              </p>
+            </div>
+            <div>
+              <h3>Enquiries</h3>
+              <p>
+                <strong>New business:</strong> consulting@fourschmucks.com<br>
+                <strong>Recruiting:</strong> careers@fourschmucks.com<br>
+                <strong>Phone:</strong> (415) 555-0188
+              </p>
+            </div>
           </div>
-          <div class="methodology-step">
-            <div class="number">2</div>
-            <h3>Strategy Development</h3>
-            <p>Co-create innovative strategies that challenge conventional thinking and create sustainable competitive advantages.</p>
-          </div>
-          <div class="methodology-step">
-            <div class="number">3</div>
-            <h3>Implementation Planning</h3>
-            <p>Develop detailed roadmaps and change management strategies to ensure successful execution.</p>
-          </div>
-          <div class="methodology-step">
-            <div class="number">4</div>
-            <h3>Execution & Support</h3>
-            <p>Provide ongoing support and guidance throughout implementation to ensure sustainable results.</p>
-          </div>
+          <a class="btn" href="mailto:consulting@fourschmucks.com">Request a Conversation</a>
+          <p class="disclaimer">
+            Four Schmucks Consulting is a satirical brand. The partners, case studies, client
+            outcomes and the Synergy Matrix™ are entirely fictional. No real organisation was
+            advised, restructured, or billed in the making of this page.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Ready to Transform Your Business?</h2>
-      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-          Let's discuss how our unconventional approach can help you achieve extraordinary results. 
-          Schedule a consultation to explore the possibilities.
-        </p>
-        
-        <h3 style="color: #2c3e50; margin-bottom: 1rem;">Consultation Options</h3>
-        <p style="margin-bottom: 2rem;">
-          <strong>Strategy Session:</strong> 2-hour deep dive into your business challenges and opportunities<br>
-          <strong>Discovery Workshop:</strong> Full-day session with key stakeholders to identify transformation opportunities<br>
-          <strong>Ongoing Partnership:</strong> Long-term strategic partnership with regular check-ins and support
-        </p>
-        
-        <h3 style="color: #2c3e50; margin-bottom: 1rem;">Contact Information</h3>
-        <p style="margin-bottom: 2rem;">
-          <strong>Phone:</strong> (415) 555-CONSULT<br>
-          <strong>Email:</strong> consulting@fourschmucks.com<br>
-          <strong>Office:</strong> 1234 Innovation Drive, Schmucks Plaza, San Francisco, CA 94105
-        </p>
-        
-        <a href="mailto:consulting@fourschmucks.com" class="cta-button">Schedule a Consultation</a>
-      </div>
-    </section>
   </main>
 
+  <section class="brand-strip" data-brand-strip></section>
+
   <footer class="footer">
-    <p>&copy; 2026 Four Schmucks Consulting. All rights reserved. | "Innovation Through Unconventional Thinking"</p>
-    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com" style="color: #3498db; text-decoration: none;">← Back to Four Schmucks</a></p>
+    <div class="wrap">
+      <p class="slogan">"Innovation Through Unconventional Thinking."</p>
+      <p>&copy; 2026 Four Schmucks Consulting · <a href="https://www.fourschmucks.com">← Back to Four Schmucks</a></p>
+    </div>
   </footer>
+
+  <script src="/assets/brands.js"></script>
+  <script src="/assets/site.js"></script>
 </body>
 </html>

@@ -60,11 +60,20 @@ https://mirage.fourschmucks.com    → mirage.html
 ### 2. **Lambda@Edge Deployment**
 - Function is deployed to `us-east-1` region (required)
 - Function version is created for CloudFront association
-- Function is associated with CloudFront's `origin-request` event
+- Function is associated with CloudFront's **`viewer-request`** event
+
+  It must stay on `viewer-request`. The distribution does not forward the `Host`
+  header, so `Host` is not part of the cache key — the rewritten URI is what varies
+  per subdomain. Moving the function to `origin-request` would run it *after* the
+  cache lookup and cause one subdomain's page to be served on another.
 
 ### 3. **File Sync**
-- All HTML files are synced to S3 bucket
-- CloudFront cache is invalidated
+- All site files are synced to S3 (recursively, so `assets/`, `images/` and `logos/`
+  are included automatically; infra scripts and repo docs are excluded)
+- CloudFront cache is invalidated with a single `/*` wildcard. The pages share
+  `/assets/site.css`, the distribution forwards no query string (so `?v=` cache-busting
+  does nothing) and sets no `Cache-Control` (so CloudFront's 24h default TTL applies) —
+  a per-page invalidation list would leave changed CSS stale for a day.
 - Lambda@Edge function propagates globally (5-10 minutes)
 
 ## ⚠️ Important Notes
@@ -81,7 +90,10 @@ https://mirage.fourschmucks.com    → mirage.html
 - **Edge Locations**: Content is served from nearest edge location
 
 ### **SSL Certificate**
-- **Wildcard**: Certificate covers all subdomains
+- **Not a wildcard**: `SubjectAlternativeNames` is an explicit, enumerated list of
+  every subdomain. Adding one **replaces the certificate** — ACM issues a new cert
+  requiring new DNS validation, and the stack update blocks until validation
+  succeeds. This is the slowest and riskiest step of adding a service line.
 - **Validation**: DNS validation required for each subdomain
 - **Renewal**: Automatic renewal through ACM
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Four Schmucks</title>
+  <meta name="description" content="This page does not exist. Neither, strictly speaking, do most of the others.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Scroll-reveal is gated on this class, so content stays visible if site.js never runs. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --accent: #6366f1;
+      --accent-2: #22d3ee;
+      --glow: rgba(99,102,241,.35);
+      --surface-tint: rgba(99,102,241,.06);
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+    }
+    .stage {
+      min-height: 100vh; display: grid; place-items: center; text-align: center;
+      padding: 3rem 1.5rem;
+      background:
+        radial-gradient(ellipse 70% 55% at 28% 22%, var(--glow), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 78%, rgba(34,211,238,.16), transparent 55%),
+        var(--bg);
+    }
+    .stage-inner { max-width: 640px; }
+    .code {
+      font-family: var(--font-display); font-weight: 700; letter-spacing: -.05em;
+      font-size: clamp(5rem, 22vw, 11rem); line-height: .9; margin-bottom: 1rem;
+      background: linear-gradient(120deg, var(--text) 15%, var(--accent) 55%, var(--accent-2) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .stage h1 {
+      font-family: var(--font-display); font-weight: 600; letter-spacing: -.02em;
+      font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: .9rem;
+    }
+    .stage p { color: var(--text-dim); margin-bottom: 2rem; }
+  </style>
+</head>
+<body data-brand="index">
+
+  <main class="stage">
+    <div class="stage-inner">
+      <div class="code">404</div>
+      <h1>This page does not exist</h1>
+      <p>
+        Neither, strictly speaking, do most of the others. But this one doesn't exist in the
+        boring way, so here is a link back to the ones that at least render.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="https://www.fourschmucks.com">Back to Four Schmucks</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="brand-strip" data-brand-strip></section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="slogan">"Don't Schmuck It Up!"</p>
+      <p>&copy; 2026 Four Schmucks Holding Company.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/brands.js"></script>
+  <script src="/assets/site.js"></script>
+</body>
+</html>

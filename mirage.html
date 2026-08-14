@@ -3,17 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Four Schmucks Mirage - AI Visibility. AI Invisibility. Your Call.</title>
-  <meta name="description" content="Four Schmucks Mirage is a Generative Engine Optimization consultancy that gets startups discovered by AI search and makes unfortunate incidents disappear from it.">
-  <meta property="og:title" content="Four Schmucks Mirage - AI Visibility. AI Invisibility. Your Call." />
-  <meta property="og:description" content="Four Schmucks Mirage is a Generative Engine Optimization consultancy that gets startups discovered by AI search and makes unfortunate incidents disappear from it." />
-  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Four Schmucks Mirage - AI Visibility. AI Invisibility. Your Call." />
-  <meta name="twitter:description" content="Four Schmucks Mirage is a Generative Engine Optimization consultancy that gets startups discovered by AI search and makes unfortunate incidents disappear from it." />
-  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
+  <title>Four Schmucks Mirage — AI Visibility. AI Invisibility. Your Call.</title>
+  <meta name="description" content="Four Schmucks Mirage is a Generative Engine Optimization consultancy that gets brands discovered by AI search and makes unfortunate incidents stop being the first thing it mentions.">
+  <link rel="canonical" href="https://mirage.fourschmucks.com/">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Four Schmucks Mirage — AI Visibility. AI Invisibility. Your Call.">
+  <meta property="og:description" content="The robots are already talking about you. We make sure they're saying the right thing — or nothing at all.">
+  <meta property="og:image" content="https://www.fourschmucks.com/images/card-mirage.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mirage.fourschmucks.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Four Schmucks Mirage — AI Visibility. AI Invisibility. Your Call.">
+  <meta name="twitter:description" content="The robots are already talking about you. We make sure they're saying the right thing — or nothing at all.">
+  <meta name="twitter:image" content="https://www.fourschmucks.com/images/card-mirage.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Scroll-reveal is gated on this class, so content stays visible if site.js never runs. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --accent: #a855f7;
+      --accent-2: #22d3ee;
+      --glow: rgba(168,85,247,.38);
+      --surface-tint: rgba(168,85,247,.07);
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --hero-img: url('/images/hero-mirage.webp');
+    }
+    /* bespoke: the visibility dial */
+    .dial-wrap { display: flex; justify-content: center; margin-bottom: 3.5rem; }
+    .dial {
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+      background: var(--surface); border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+      border-radius: 100px; padding: .8rem 2rem;
+    }
+    .dial b { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
+    .dial .vis { color: var(--accent-2); }
+    .dial .inv { color: var(--accent); }
+    .dial .track {
+      position: relative; width: 150px; height: 8px; border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    }
+    .dial .knob {
+      position: absolute; top: -6px; left: 50%; width: 20px; height: 20px; margin-left: -10px;
+      border-radius: 50%; background: #fff; box-shadow: 0 0 14px rgba(255,255,255,.75);
+      animation: sweep 9s ease-in-out infinite;
+    }
+    @keyframes sweep { 0%, 100% { left: 8%; } 50% { left: 92%; } }
+    @media (prefers-reduced-motion: reduce) { .dial .knob { animation: none; left: 50%; } }
+  </style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
@@ -23,109 +68,22 @@
     gtag('js', new Date());
     gtag('config', 'G-701KZR6WCN');
   </script>
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #e5e0f5; background: #0f0a1f; }
-
-    .header { background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(168,85,247,0.25); }
-    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-    .logo { height: 50px; filter: drop-shadow(0 0 6px rgba(168,85,247,0.6)); }
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: #22d3ee; }
-
-    .hero { background: radial-gradient(circle at 30% 20%, rgba(168,85,247,0.35), transparent 55%), radial-gradient(circle at 75% 70%, rgba(34,211,238,0.25), transparent 50%), linear-gradient(180deg, #0f0a1f 0%, #1a0b2e 100%); height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; position: relative; overflow: hidden; }
-    .hero-content { position: relative; z-index: 2; }
-    .hero-content .eyebrow { display: inline-block; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.85rem; color: #22d3ee; margin-bottom: 1rem; border: 1px solid rgba(34,211,238,0.4); padding: 0.4rem 1rem; border-radius: 50px; }
-    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(90deg, #a855f7, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero-content p { font-size: 1.4rem; margin-bottom: 2rem; color: #c9c2e8; max-width: 700px; margin-left: auto; margin-right: auto; }
-    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .cta-button { background: linear-gradient(90deg, #a855f7, #7c3aed); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; display: inline-block; box-shadow: 0 0 25px rgba(168,85,247,0.4); }
-    .cta-button:hover { transform: translateY(-3px); }
-    .cta-button.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.3); box-shadow: none; }
-
-    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    .section { margin-bottom: 4rem; }
-    .section h2 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; color: #f2eefc; }
-    .section .subhead { text-align: center; font-size: 1.15rem; max-width: 750px; margin: 0 auto 3rem; color: #a99fc9; }
-
-    .dial-wrap { display: flex; justify-content: center; margin: 0 auto 3rem; }
-    .dial { display: flex; align-items: center; gap: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(168,85,247,0.25); border-radius: 50px; padding: 0.75rem 2rem; }
-    .dial span { font-weight: bold; }
-    .dial .visible { color: #22d3ee; }
-    .dial .invisible { color: #a855f7; }
-    .dial .slider { width: 120px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #22d3ee, #a855f7); position: relative; }
-    .dial .slider::after { content: ''; position: absolute; top: -4px; left: 50%; width: 16px; height: 16px; border-radius: 50%; background: white; box-shadow: 0 0 10px rgba(255,255,255,0.8); }
-
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
-    .service-card { background: rgba(255,255,255,0.04); border-radius: 15px; padding: 2rem; transition: transform 0.3s, border-color 0.3s; border: 1px solid rgba(168,85,247,0.2); }
-    .service-card:hover { transform: translateY(-5px); border-color: #22d3ee; }
-    .service-card h3 { color: #f2eefc; margin-bottom: 1rem; font-size: 1.4rem; }
-    .service-card p { color: #a99fc9; margin-bottom: 1rem; }
-    .service-card .icon { font-size: 2rem; margin-bottom: 1rem; }
-    .service-card .tag { display: inline-block; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 20px; font-weight: bold; }
-    .tag.appear { background: rgba(34,211,238,0.15); color: #22d3ee; }
-    .tag.vanish { background: rgba(168,85,247,0.18); color: #c084fc; }
-
-    .process-section { background: rgba(255,255,255,0.02); padding: 4rem 0; border-top: 1px solid rgba(168,85,247,0.15); border-bottom: 1px solid rgba(168,85,247,0.15); }
-    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 2rem; }
-    .process-step { text-align: center; }
-    .process-step .number { background: linear-gradient(135deg, #a855f7, #22d3ee); color: #0f0a1f; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold; font-size: 1.1rem; }
-    .process-step h3 { color: #f2eefc; margin-bottom: 0.5rem; }
-    .process-step p { color: #a99fc9; font-size: 0.95rem; }
-
-    .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
-    .case-study-card { background: rgba(255,255,255,0.04); border-radius: 15px; padding: 2rem; border: 1px solid rgba(168,85,247,0.2); transition: transform 0.3s; }
-    .case-study-card:hover { transform: translateY(-5px); }
-    .case-study-card .badge { display: inline-block; font-size: 0.75rem; font-weight: bold; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 1rem; }
-    .badge.appear { background: rgba(34,211,238,0.15); color: #22d3ee; }
-    .badge.vanish { background: rgba(168,85,247,0.18); color: #c084fc; }
-    .case-study-card h3 { color: #f2eefc; margin-bottom: 0.5rem; font-size: 1.3rem; }
-    .case-study-card p { color: #a99fc9; margin-bottom: 1rem; }
-    .case-study-card .results { background: rgba(168,85,247,0.08); padding: 1rem; border-radius: 10px; margin: 1rem 0; border-left: 3px solid #a855f7; }
-    .case-study-card .results strong { color: #f2eefc; }
-    .case-study-card .fine-print { font-size: 0.75rem; color: #756a94; margin-top: 0.75rem; font-style: italic; }
-
-    .team-section { padding: 4rem 0; }
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .team-member { background: rgba(255,255,255,0.04); border-radius: 15px; padding: 2rem; text-align: center; border: 1px solid rgba(168,85,247,0.2); transition: transform 0.3s; }
-    .team-member:hover { transform: translateY(-5px); }
-    .team-member .avatar { width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 1rem; background: linear-gradient(135deg, #a855f7, #22d3ee); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; }
-    .team-member h3 { color: #f2eefc; margin-bottom: 0.4rem; }
-    .team-member .title { color: #22d3ee; font-weight: bold; margin-bottom: 1rem; font-size: 0.9rem; }
-    .team-member .bio { color: #a99fc9; font-size: 0.9rem; }
-
-    .faq-item { border-bottom: 1px solid rgba(168,85,247,0.15); padding: 1.5rem 0; max-width: 800px; margin: 0 auto; }
-    .faq-item h3 { color: #f2eefc; margin-bottom: 0.5rem; }
-    .faq-item p { color: #a99fc9; }
-
-    .disclaimer { background: rgba(255,255,255,0.03); border: 1px dashed rgba(168,85,247,0.3); border-radius: 12px; padding: 1.5rem 2rem; max-width: 800px; margin: 0 auto; font-size: 0.85rem; color: #756a94; text-align: center; }
-
-    .footer { background: #0a0617; color: #756a94; text-align: center; padding: 2rem; margin-top: 4rem; border-top: 1px solid rgba(168,85,247,0.15); }
-    .footer a { color: #22d3ee; text-decoration: none; }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero-content h1 { font-size: 2.5rem; }
-      .hero-content p { font-size: 1.1rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .case-studies-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
-<body>
+<body data-brand="mirage">
+
   <header class="header">
     <nav class="nav">
-      <a href="https://www.fourschmucks.com">
-        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Mirage Logo" class="logo">
+      <a class="nav-brand" href="https://www.fourschmucks.com">
+        <img class="logo" src="/logos/four_schmucks_curling.png" alt="" width="120" height="120">
+        <span class="wordmark">Four Schmucks<small>Mirage</small></span>
       </a>
-      <ul class="nav-links">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#process">How It Works</a></li>
-        <li><a href="#case-studies">Results</a></li>
+        <li><a href="#work">Results</a></li>
         <li><a href="#team">Our Team</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -136,230 +94,281 @@
     <div class="hero-content">
       <div class="eyebrow">Generative Engine Optimization</div>
       <h1>Four Schmucks Mirage</h1>
-      <p>The robots are already talking about you. We just make sure they're saying the right thing — or nothing at all.</p>
+      <p class="lede">
+        The robots are already talking about you. We just make sure they're saying
+        the right thing — or nothing at all.
+      </p>
       <div class="cta-row">
-        <a href="#contact" class="cta-button">Get Discovered</a>
-        <a href="#contact" class="cta-button ghost">Get Forgotten</a>
+        <a class="btn" href="#contact">Get Discovered</a>
+        <a class="btn btn-ghost" href="#contact">Get Forgotten</a>
       </div>
     </div>
   </section>
 
-  <main class="main-content">
-    <section id="services" class="section">
-      <h2>One Dial. Two Directions.</h2>
-      <p class="subhead">
-        Every AI model on Earth — ChatGPT, Perplexity, Gemini, that one your nephew swears by — is quietly deciding
-        who gets recommended and who gets left out of the answer. Mirage sits on that dial. You tell us which way to turn it.
-      </p>
-      <div class="dial-wrap">
-        <div class="dial">
-          <span class="visible">VISIBLE</span>
-          <div class="slider"></div>
-          <span class="invisible">INVISIBLE</span>
-        </div>
-      </div>
+  <main>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="icon">🔭</div>
-          <span class="tag appear">Appear</span>
-          <h3>Generative Visibility Sprints</h3>
-          <p>We engineer your brand's presence across the sources large language models actually cite, so when someone asks AI "what's the best [your category]," the answer has your name on it.</p>
+    <!-- ── Services ─────────────────────────────────────────────────────── -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Practice</p>
+          <h2>One dial. Two directions.</h2>
+          <p>
+            Every AI model on Earth is quietly deciding who gets recommended and who gets left
+            out of the answer. Mirage sits on that dial. You tell us which way to turn it.
+          </p>
         </div>
 
-        <div class="service-card">
-          <div class="icon">🗣️</div>
-          <span class="tag appear">Appear</span>
-          <h3>Answer Engine Seeding</h3>
-          <p>Structured, citation-friendly content built to be quoted verbatim by AI Overviews, chat assistants, and whatever comes next — written for machines first, humans second.</p>
+        <div class="dial-wrap reveal">
+          <div class="dial">
+            <b class="vis">Visible</b>
+            <div class="track"><div class="knob"></div></div>
+            <b class="inv">Invisible</b>
+          </div>
         </div>
 
-        <div class="service-card">
-          <div class="icon">📊</div>
-          <span class="tag appear">Appear</span>
-          <h3>Prompt Share Tracking</h3>
-          <p>We monitor thousands of real prompts across every major model and tell you, in one dashboard, exactly how often you get mentioned — and who's beating you to the answer.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon">🫥</div>
-          <span class="tag vanish">Vanish</span>
-          <h3>Narrative Suppression</h3>
-          <p>Something happened. We're not here to judge — we're here to make sure it stops being the first thing an AI summary mentions about you.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon">🛡️</div>
-          <span class="tag vanish">Vanish</span>
-          <h3>Crisis Cloaking, Discreetly</h3>
-          <p>Rapid-response engagements for the "one bad Tuesday" client. Quiet, fast, and priced like it never happened.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon">🧭</div>
-          <span class="tag vanish">Vanish</span>
-          <h3>Reputation Rebalancing</h3>
-          <p>We don't delete the internet — nobody can. We just make sure it's not the loudest voice in the room anymore.</p>
+        <div class="grid">
+          <div class="card reveal">
+            <div class="icon">🔭</div>
+            <span class="tag alt">Appear</span>
+            <h3>Generative Visibility Sprints</h3>
+            <p>We engineer your presence across the sources large language models actually cite, so when someone asks an AI "what's the best [your category]," the answer has your name in it.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🗣️</div>
+            <span class="tag alt">Appear</span>
+            <h3>Answer Engine Seeding</h3>
+            <p>Structured, citation-friendly content built to be quoted verbatim by AI overviews and chat assistants. Written for machines first, humans second, and it shows.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">📊</div>
+            <span class="tag alt">Appear</span>
+            <h3>Prompt Share Tracking</h3>
+            <p>We monitor thousands of real prompts across every major model and tell you, in one dashboard, exactly how often you get mentioned and who is beating you to the answer.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🫥</div>
+            <span class="tag">Vanish</span>
+            <h3>Narrative Suppression</h3>
+            <p>Something happened. We're not here to judge — we're here to make sure it stops being the first thing an AI summary mentions about you.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🛡️</div>
+            <span class="tag">Vanish</span>
+            <h3>Crisis Cloaking, Discreetly</h3>
+            <p>Rapid-response engagements for the one-bad-Tuesday client. Quiet, fast, and priced like it never happened.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🧭</div>
+            <span class="tag">Vanish</span>
+            <h3>Reputation Rebalancing</h3>
+            <p>We don't delete the internet — nobody can. We just make sure it isn't the loudest voice in the room anymore.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="process" class="process-section">
-      <h2>How the Mirage Works</h2>
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="number">1</div>
-          <h3>Audit</h3>
-          <p>We ask every major AI model what it thinks it knows about you. Most clients need to sit down for this part.</p>
+    <!-- ── Process ──────────────────────────────────────────────────────── -->
+    <section class="section tinted" id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Methodology</p>
+          <h2>How the Mirage works</h2>
         </div>
-        <div class="process-step">
-          <div class="number">2</div>
-          <h3>Diagnose</h3>
-          <p>We map exactly which sources the models are pulling from, and whether they're helping you or haunting you.</p>
-        </div>
-        <div class="process-step">
-          <div class="number">3</div>
-          <h3>Recalibrate</h3>
-          <p>Seed, suppress, or both. The dial moves in whichever direction your business — and your lawyers — prefer.</p>
-        </div>
-        <div class="process-step">
-          <div class="number">4</div>
-          <h3>Monitor Forever</h3>
-          <p>Models retrain. Memories are short until suddenly they're not. We keep watching so you don't have to.</p>
+
+        <div class="grid cols-4">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <h3>Audit</h3>
+            <p>We ask every major AI model what it thinks it knows about you. Most clients need to sit down for this part.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">2</div>
+            <h3>Diagnose</h3>
+            <p>We map exactly which sources the models are pulling from, and whether they are helping you or haunting you.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">3</div>
+            <h3>Recalibrate</h3>
+            <p>Seed, suppress, or both. The dial moves in whichever direction your business — and your lawyers — prefer.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">4</div>
+            <h3>Monitor Forever</h3>
+            <p>Models retrain. Memories are short until suddenly they aren't. We keep watching so you don't have to.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="case-studies" class="section">
-      <h2>Results (Allegedly)</h2>
-      <div class="case-studies-grid">
-        <div class="case-study-card">
-          <span class="badge appear">Appear</span>
-          <h3>Unknown SaaS Startup → "The Obvious Choice"</h3>
-          <p>A three-person productivity app nobody had heard of, competing against category giants with nine-figure marketing budgets.</p>
-          <div class="results">
-            <strong>Results:</strong> Went from zero AI mentions to being the top recommendation in 78% of tracked "best tool for X" prompts within one quarter.
-          </div>
-          <div class="fine-print">Results are based on our own tracking dashboard, which we also sell you.</div>
+    <!-- ── Results ──────────────────────────────────────────────────────── -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Selected Work</p>
+          <h2>Results (allegedly)</h2>
         </div>
 
-        <div class="case-study-card">
-          <span class="badge vanish">Vanish</span>
-          <h3>Regional Restaurant Chain, One Very Bad Health Inspection</h3>
-          <p>A single viral headline was becoming the default answer whenever anyone asked an AI assistant about the brand.</p>
-          <div class="results">
-            <strong>Results:</strong> Incident mentions across tracked AI answers dropped by 91%, replaced by the chain's new "farm-to-table" narrative.
+        <div class="grid cols-2">
+          <div class="card reveal">
+            <span class="tag alt">Appear</span>
+            <h3>Unknown SaaS Startup → "The Obvious Choice"</h3>
+            <p>A three-person productivity app nobody had heard of, competing against category giants with nine-figure marketing budgets.</p>
+            <div class="results">
+              <strong>Results:</strong> Zero AI mentions to top recommendation in 78% of tracked "best tool for X" prompts, within one quarter.
+            </div>
+            <p class="fine-print">Results are based on our own tracking dashboard, which we also sell you.</p>
           </div>
-          <div class="fine-print">The health inspection did happen. We are told the kitchen has since improved.</div>
-        </div>
 
-        <div class="case-study-card">
-          <span class="badge appear">Appear</span>
-          <h3>D2C Skincare Brand vs. The Algorithm</h3>
-          <p>A founder convinced their product was excellent but invisible to anyone asking a chatbot for skincare advice.</p>
-          <div class="results">
-            <strong>Results:</strong> Secured citation-level presence in AI-generated buying guides across four major assistants in 60 days.
+          <div class="card reveal">
+            <span class="tag">Vanish</span>
+            <h3>Regional Restaurant Chain, One Very Bad Health Inspection</h3>
+            <p>A single viral headline had become the default answer whenever anyone asked an AI assistant about the brand.</p>
+            <div class="results">
+              <strong>Results:</strong> Incident mentions across tracked AI answers dropped 91%, replaced by the chain's new farm-to-table narrative.
+            </div>
+            <p class="fine-print">The health inspection did happen. We are told the kitchen has since improved.</p>
           </div>
-          <div class="fine-print">Dermatologist not affiliated with, consulted by, or aware of this campaign.</div>
-        </div>
 
-        <div class="case-study-card">
-          <span class="badge vanish">Vanish</span>
-          <h3>Fintech Founder, "The NFT Thing"</h3>
-          <p>A previous venture had... not gone well. It kept coming up. Every single time.</p>
-          <div class="results">
-            <strong>Results:</strong> New venture now surfaces in AI summaries with zero references to the prior venture. Founder sleeps again.
+          <div class="card reveal">
+            <span class="tag alt">Appear</span>
+            <h3>D2C Skincare Brand vs. The Algorithm</h3>
+            <p>A founder convinced their product was excellent but invisible to anyone asking a chatbot for skincare advice.</p>
+            <div class="results">
+              <strong>Results:</strong> Citation-level presence in AI-generated buying guides across four major assistants in 60 days.
+            </div>
+            <p class="fine-print">Dermatologist not affiliated with, consulted by, or aware of this campaign.</p>
           </div>
-          <div class="fine-print">We make no claims about what happens if you ask a human instead.</div>
+
+          <div class="card reveal">
+            <span class="tag">Vanish</span>
+            <h3>Fintech Founder, "The NFT Thing"</h3>
+            <p>A previous venture had not gone well. It kept coming up. Every single time, in every single answer.</p>
+            <div class="results">
+              <strong>Results:</strong> New venture now surfaces in AI summaries with zero references to the prior venture. Founder sleeps again.
+            </div>
+            <p class="fine-print">We make no claims about what happens if you ask a human instead.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="team" class="team-section">
-      <h2>The People Behind the Curtain</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <div class="avatar">🎭</div>
-          <h3>Devon Ashworth</h3>
-          <div class="title">Head of Generative Visibility</div>
-          <div class="bio">Spent six years optimizing for a search engine that no longer exists the way it used to. Now optimizes for an even less predictable one. Sleeps four hours a night by choice.</div>
+    <!-- ── Team ─────────────────────────────────────────────────────────── -->
+    <section class="section raised" id="team">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Firm</p>
+          <h2>The people behind the curtain</h2>
         </div>
 
-        <div class="team-member">
-          <div class="avatar">🫧</div>
-          <h3>Priya Kalanithi</h3>
-          <div class="title">Director of Narrative Suppression</div>
-          <div class="bio">Former crisis PR consultant who got tired of waiting for news cycles to die naturally. Believes every story has an expiration date; she just sets it.</div>
-        </div>
-
-        <div class="team-member">
-          <div class="avatar">🧊</div>
-          <h3>Marcus Oyelaran-Whitfield</h3>
-          <div class="title">Lead Prompt Engineer</div>
-          <div class="bio">Talks to five different AI models before breakfast, on purpose. Claims he can tell them apart by "vibe." Nobody has been able to prove him wrong.</div>
-        </div>
-
-        <div class="team-member">
-          <div class="avatar">🌫️</div>
-          <h3>Dr. Ingrid Solheim</h3>
-          <div class="title">Chief Reputation Scientist</div>
-          <div class="bio">PhD in something adjacent to this. Built the internal model that scores how "forgettable" a piece of bad press is. Refuses to publish it.</div>
+        <div class="grid cols-4">
+          <div class="card person reveal">
+            <div class="avatar">🎭</div>
+            <h3>Devon Ashworth</h3>
+            <div class="role">Head of Generative Visibility</div>
+            <p>Spent six years optimising for a search engine that no longer works the way it used to. Now optimises for a less predictable one. Sleeps four hours a night, by choice.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">🫧</div>
+            <h3>Priya Kalanithi</h3>
+            <div class="role">Director of Narrative Suppression</div>
+            <p>Former crisis PR consultant who got tired of waiting for news cycles to die naturally. Believes every story has an expiration date. Sets them.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">🧊</div>
+            <h3>Marcus Oyelaran-Whitfield</h3>
+            <div class="role">Lead Prompt Engineer</div>
+            <p>Talks to five different AI models before breakfast, on purpose. Claims he can tell them apart by vibe. Nobody has been able to prove him wrong.</p>
+          </div>
+          <div class="card person reveal">
+            <div class="avatar">🌫️</div>
+            <h3>Dr. Ingrid Solheim</h3>
+            <div class="role">Chief Reputation Scientist</div>
+            <p>PhD in something adjacent to this. Built the internal model that scores how forgettable a piece of bad press is. Refuses to publish it.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
     <section class="section">
-      <h2>Questions People Actually Ask</h2>
-      <div class="faq-item">
-        <h3>Can you really make AI models forget something?</h3>
-        <p>We can't reach into a model's training data and delete a memory — nobody legitimately can. What we can do is change what the model finds and cites when it answers, which, for most purposes, is the same thing that matters.</p>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">FAQ</p>
+          <h2>Questions people actually ask</h2>
+        </div>
+
+        <div class="faq reveal">
+          <div class="faq-item">
+            <h3>Can you really make AI models forget something?</h3>
+            <p>We can't reach into a model's training data and delete a memory — nobody legitimately can. What we can do is change what the model finds and cites when it answers, which, for most purposes, is the thing that actually matters.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is this legal?</h3>
+            <p>Yes. We build and promote legitimate content. We don't impersonate anyone, fabricate evidence, or hack anything. If your ask requires any of that, we will very politely decline and quietly judge you.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How fast does "appear" or "vanish" actually happen?</h3>
+            <p>Search-connected AI answers can shift in days. Base model behaviour shifts on the retraining cycle of whichever lab we're not allowed to name. We bill either way.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>Is this legal?</h3>
-        <p>Yes. We build and promote legitimate content. We don't impersonate anyone, fabricate evidence, or hack anything. If your ask requires any of that, we will very politely decline and quietly judge you.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How fast does "appear" or "vanish" actually happen?</h3>
-        <p>Search-connected AI answers can shift in days. Base model behavior shifts on the retraining cycle of whichever lab we're not allowed to name. We bill either way.</p>
+    </section>
+
+    <!-- ── Contact ──────────────────────────────────────────────────────── -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Contact</p>
+          <h2>Ready to control the narrative?</h2>
+          <p>Whatever happened, we didn't see it. And with a little work, soon neither will the machines.</p>
+        </div>
+
+        <div class="contact-panel reveal">
+          <div class="contact-cols">
+            <div>
+              <h3>Engagements</h3>
+              <p>
+                <strong>Visibility Sprint:</strong> 90 days<br>
+                <strong>Suppression Retainer:</strong> ongoing, billed quietly<br>
+                <strong>Full Mirage:</strong> both, simultaneously
+              </p>
+            </div>
+            <div>
+              <h3>Office</h3>
+              <p>1234 Innovation Drive<br>Schmucks Plaza, San Francisco<br>Ask the front desk for the room that isn't on the directory.</p>
+            </div>
+            <div>
+              <h3>Enquiries</h3>
+              <p>
+                <strong>Email:</strong> mirage@fourschmucks.com<br>
+                <strong>Phone:</strong> (415) 555-MIRAGE
+              </p>
+            </div>
+          </div>
+          <a class="btn" href="mailto:mirage@fourschmucks.com">Start Your Audit</a>
+          <p class="disclaimer">
+            Four Schmucks Mirage is a satirical brand and does not exist. It does not fabricate
+            content, impersonate individuals, or manipulate factual records — because it is not a
+            company. Results, case studies and staff are fictional. Nothing here can be removed
+            from any AI model's training data, including this sentence.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Ready to Control the Narrative?</h2>
-      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #a99fc9;">
-          Whatever happened, we didn't see it. And with a little work, soon neither will the machines.
-          Tell us which direction to turn the dial.
-        </p>
-
-        <h3 style="color: #f2eefc; margin-bottom: 1rem;">Engagement Options</h3>
-        <p style="margin-bottom: 2rem; color: #a99fc9;">
-          <strong style="color: #f2eefc;">Visibility Sprint:</strong> 90-day push to get your brand cited across major AI assistants<br>
-          <strong style="color: #f2eefc;">Suppression Retainer:</strong> Ongoing narrative management, billed quietly<br>
-          <strong style="color: #f2eefc;">Full Mirage:</strong> Both, simultaneously, for the brand that wants to be famous for the right thing
-        </p>
-
-        <h3 style="color: #f2eefc; margin-bottom: 1rem;">Contact Information</h3>
-        <p style="margin-bottom: 2rem; color: #a99fc9;">
-          <strong style="color: #f2eefc;">Phone:</strong> (415) 555-MIRAGE<br>
-          <strong style="color: #f2eefc;">Email:</strong> mirage@fourschmucks.com<br>
-          <strong style="color: #f2eefc;">Office:</strong> 1234 Innovation Drive, Schmucks Plaza, San Francisco, CA 94105 (ask the front desk for the room that isn't on the directory)
-        </p>
-
-        <a href="mailto:mirage@fourschmucks.com" class="cta-button">Start Your Audit</a>
-
-        <p class="disclaimer" style="margin-top: 3rem;">
-          Four Schmucks Mirage does not fabricate content, impersonate individuals, or manipulate factual records.
-          We cannot and do not guarantee removal of information from the public record, search indexes, or any AI model's
-          training data. Results vary by situation, model, and how many robots were paying attention in the first place.
-        </p>
-      </div>
-    </section>
   </main>
 
+  <section class="brand-strip" data-brand-strip></section>
+
   <footer class="footer">
-    <p>&copy; 2026 Four Schmucks Mirage. All rights reserved. | "Seen When You Want. Gone When You Need."</p>
-    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com">← Back to Four Schmucks</a></p>
+    <div class="wrap">
+      <p class="slogan">"Seen When You Want. Gone When You Need."</p>
+      <p>&copy; 2026 Four Schmucks Mirage · <a href="https://www.fourschmucks.com">← Back to Four Schmucks</a></p>
+    </div>
   </footer>
+
+  <script src="/assets/brands.js"></script>
+  <script src="/assets/site.js"></script>
 </body>
 </html>

@@ -3,18 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Four Schmucks Life - Elevate Everything Around You</title>
-  <meta name="description" content="Four Schmucks Life elevates everything around you with luxury lifestyle products, fashion, travel, and home living.">
-  <meta property="og:title" content="Four Schmucks Life - Elevate Everything Around You" />
-  <meta property="og:description" content="Four Schmucks Life elevates everything around you with luxury lifestyle products, fashion, travel, and home living." />
-  <meta property="og:image" content="/logos/four_schmucks_curling.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Four Schmucks Life - Elevate Everything Around You" />
-  <meta name="twitter:description" content="Four Schmucks Life elevates everything around you with luxury lifestyle products, fashion, travel, and home living." />
-  <meta name="twitter:image" content="/logos/four_schmucks_curling.png" />
-  
+  <title>Four Schmucks Life — Curated Objects for People Who Have Run Out of Problems</title>
+  <meta name="description" content="Four Schmucks Life is a lifestyle house offering considered objects, slow travel and interiors for people who have solved everything else.">
+  <link rel="canonical" href="https://lifestyle.fourschmucks.com/">
+  <meta name="theme-color" content="#08090d">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Four Schmucks Life — Elevate Everything Around You">
+  <meta property="og:description" content="Curated objects for people who have run out of problems.">
+  <meta property="og:image" content="https://www.fourschmucks.com/images/card-lifestyle.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lifestyle.fourschmucks.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Four Schmucks Life — Elevate Everything Around You">
+  <meta name="twitter:description" content="Curated objects for people who have run out of problems.">
+  <meta name="twitter:image" content="https://www.fourschmucks.com/images/card-lifestyle.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Scroll-reveal is gated on this class, so content stays visible if site.js never runs. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --accent: #d4af37;
+      --accent-2: #e8b4b8;
+      --glow: rgba(212,175,55,.3);
+      --surface-tint: rgba(212,175,55,.05);
+      --font-display: 'Fraunces', Georgia, serif;
+      --hero-img: url('/images/hero-lifestyle.webp');
+    }
+    /* the serif wants more air and less tracking than the sans brands */
+    .hero h1 { letter-spacing: -.02em; font-weight: 600; }
+    .section-head h2 { letter-spacing: -.015em; font-weight: 600; }
+
+    /* bespoke: the Aspiration Index */
+    .aspiration { max-width: 780px; margin: 0 auto; }
+    .aspiration-track {
+      position: relative; height: 10px; border-radius: 100px;
+      background: linear-gradient(90deg, #2a2c34 0%, #6b5c34 45%, var(--accent) 78%, var(--accent-2) 100%);
+    }
+    .aspiration-knob {
+      position: absolute; top: 50%; left: 93%; width: 26px; height: 26px;
+      margin: -13px 0 0 -13px; border-radius: 50%; background: #fff;
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 20%, transparent), 0 0 32px var(--glow);
+      animation: drift 3s cubic-bezier(.22,.61,.36,1) both;
+    }
+    @keyframes drift { 0% { left: 6%; opacity: 0; } 25% { opacity: 1; } 100% { left: 93%; opacity: 1; } }
+    .aspiration-scale {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin-top: 1.75rem;
+    }
+    .aspiration-scale div { text-align: center; }
+    .aspiration-scale dt {
+      font-family: var(--font-display); font-weight: 600; font-size: 1rem;
+      color: var(--text-dim); margin-bottom: .3rem;
+    }
+    .aspiration-scale div:last-child dt { color: var(--accent); }
+    .aspiration-scale dd { font-size: .8rem; color: var(--text-faint); }
+    @media (max-width: 620px) { .aspiration-scale { grid-template-columns: repeat(2, 1fr); row-gap: 1.5rem; } }
+    @media (prefers-reduced-motion: reduce) { .aspiration-knob { animation: none; opacity: 1; } }
+  </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-701KZR6WCN"></script>
   <script>
@@ -23,236 +76,248 @@
     gtag('js', new Date());
     gtag('config', 'G-701KZR6WCN');
   </script>
-  
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Playfair Display', Georgia, serif; line-height: 1.6; color: #2c2c2c; }
-    
-    .header { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #dee2e6; }
-    .nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-    .logo { height: 50px; }
-    .nav-links { display: flex; list-style: none; gap: 2rem; }
-    .nav-links a { color: #2c2c2c; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: #d4af37; }
-    
-    .hero { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
-    .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
-    .cta-button { background: #d4af37; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.2rem; transition: transform 0.3s; display: inline-block; }
-    .cta-button:hover { transform: translateY(-3px); }
-    
-    .main-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    .section { margin-bottom: 4rem; }
-    .section h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #2c2c2c; }
-    
-    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .featured-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .featured-card:hover { transform: translateY(-10px); }
-    .featured-card img { width: 100%; height: 250px; object-fit: cover; }
-    .featured-card .content { padding: 1.5rem; }
-    .featured-card h3 { color: #2c2c2c; margin-bottom: 1rem; font-size: 1.5rem; }
-    .featured-card p { color: #666; margin-bottom: 1.5rem; }
-    .read-more { color: #d4af37; text-decoration: none; font-weight: 500; }
-    
-    .collection-section { background: #f8f9fa; padding: 4rem 0; }
-    .collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .collection-item { background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    .collection-item img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; }
-    .collection-item h4 { color: #2c2c2c; margin-bottom: 0.5rem; }
-    .collection-item .price { color: #d4af37; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; }
-    
-    .blog-section { background: white; padding: 4rem 0; }
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .blog-card { background: #f8f9fa; border-radius: 10px; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    .blog-card h4 { color: #2c2c2c; margin-bottom: 0.5rem; }
-    .blog-card .date { color: #999; font-size: 0.9rem; margin-bottom: 1rem; }
-    .blog-card .excerpt { color: #666; margin-bottom: 1rem; }
-    
-    .footer { background: #2c2c2c; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
-    
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero-content h1 { font-size: 2.5rem; }
-      .hero-content p { font-size: 1.2rem; }
-      .featured-grid { grid-template-columns: 1fr; }
-      .collection-grid { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
-<body>
+<body data-brand="lifestyle">
+
   <header class="header">
     <nav class="nav">
-      <a href="https://www.fourschmucks.com">
-        <img src="/logos/four_schmucks_curling.png" alt="Four Schmucks Life Logo" class="logo">
+      <a class="nav-brand" href="https://www.fourschmucks.com">
+        <img class="logo" src="/logos/four_schmucks_curling.png" alt="" width="120" height="120">
+        <span class="wordmark">Four Schmucks<small>Life</small></span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#lifestyle">Lifestyle</a></li>
-        <li><a href="#fashion">Fashion</a></li>
-        <li><a href="#travel">Travel</a></li>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#collection">Collection</a></li>
-        <li><a href="#blog">Blog</a></li>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#departments">Departments</a></li>
+        <li><a href="#collection">The Collection</a></li>
+        <li><a href="#index">Aspiration Index</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-content">
+      <div class="eyebrow">A Lifestyle House</div>
       <h1>Four Schmucks Life</h1>
-      <p>Elevate Everything Around You</p>
-      <a href="#collection" class="cta-button">Explore Our Collection</a>
+      <p class="lede">
+        Considered objects for people who have solved every real problem in their life
+        and are now looking for a better bowl.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#collection">Browse the Collection</a>
+        <a class="btn btn-ghost" href="#journal">Read the Journal</a>
+      </div>
     </div>
   </section>
 
-  <main class="main-content">
-    <section id="lifestyle" class="section">
-      <h2>Luxury Lifestyle</h2>
-      <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-        At Four Schmucks Life, we believe that luxury isn't about extravagance—it's about elevating 
-        the everyday moments that make life extraordinary. From the finest materials to impeccable 
-        craftsmanship, we create experiences that inspire and delight.
-      </p>
-    </section>
+  <main>
 
-    <section id="fashion" class="section">
-      <h2>Featured Fashion</h2>
-      <div class="featured-grid">
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80" alt="Luxury Fashion">
-          <div class="content">
-            <h3>The Schmucks Collection</h3>
-            <p>Our signature line of timeless pieces that blend classic elegance with contemporary sophistication.</p>
-            <a href="#" class="read-more">Discover More →</a>
-          </div>
+    <!-- ── Departments ──────────────────────────────────────────────────── -->
+    <section class="section" id="departments">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Departments</p>
+          <h2>Three ways to spend money on calm</h2>
+          <p>
+            Each department is overseen by a curator who has been asked, more than once,
+            to justify a price and has never done so.
+          </p>
         </div>
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Accessories">
-          <div class="content">
-            <h3>Artisan Accessories</h3>
-            <p>Handcrafted leather goods and fine jewelry that tell stories of heritage and craftsmanship.</p>
-            <a href="#" class="read-more">Explore Collection →</a>
+
+        <div class="grid">
+          <div class="card reveal">
+            <div class="tile">🧵<img src="/images/life-wardrobe.webp" alt="Undyed linen garments folded on stone" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>Wardrobe</h3>
+            <p>Undyed, unstructured, unbranded. Garments designed to look like you weren't thinking about it, which took nine months of thinking about it.</p>
           </div>
-        </div>
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Sustainable Fashion">
-          <div class="content">
-            <h3>Sustainable Luxury</h3>
-            <p>Eco-conscious fashion that doesn't compromise on style or quality, made for the conscious consumer.</p>
-            <a href="#" class="read-more">Learn More →</a>
+          <div class="card reveal">
+            <div class="tile">🗺️<img src="/images/life-travel.webp" alt="A remote coastline at dawn" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>Travel</h3>
+            <p>Slow itineraries to places with poor connectivity. We will not tell you where. Telling you where is how a place stops being one of these places.</p>
+          </div>
+          <div class="card reveal">
+            <div class="tile">🏺<img src="/images/life-home.webp" alt="A ceramic vessel on a bare surface" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>Home</h3>
+            <p>Objects for the surfaces you already have. Nothing in this department serves a function that a cheaper object does not also serve.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="travel" class="section">
-      <h2>Travel & Experiences</h2>
-      <div class="featured-grid">
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2079&q=80" alt="Luxury Travel">
-          <div class="content">
-            <h3>Curated Journeys</h3>
-            <p>Bespoke travel experiences that combine adventure with luxury, creating memories that last a lifetime.</p>
-            <a href="#" class="read-more">Plan Your Trip →</a>
+    <!-- ── The Collection ───────────────────────────────────────────────── -->
+    <section class="section tinted" id="collection">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Collection</p>
+          <h2>Autumn objects</h2>
+        </div>
+
+        <div class="grid cols-4">
+          <div class="card reveal">
+            <div class="tile">🕯️<img src="/images/life-candle.webp" alt="An unlit beeswax candle" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>The Unscented Candle</h3>
+            <p>Pure beeswax. No fragrance. It is a candle. The absence of scent is the entire proposition and it is working.</p>
+            <span class="price">$450</span>
+          </div>
+          <div class="card reveal">
+            <div class="tile">🥣<img src="/images/life-vessel.webp" alt="A hand-thrown stoneware bowl" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>Vessel, No. 4</h3>
+            <p>Hand-thrown stoneware, slightly asymmetric on purpose. Holds roughly one apple. Comes in a wooden box worth more than the bowl.</p>
+            <span class="price">$680</span>
+          </div>
+          <div class="card reveal">
+            <div class="tile">🧣<img src="/images/life-scarf.webp" alt="A long undyed alpaca scarf" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>The Long Scarf</h3>
+            <p>Undyed alpaca, 2.4 metres. Exactly as warm as a $40 scarf, and everyone who sees it will know it isn't one.</p>
+            <span class="price">$1,240</span>
+          </div>
+          <div class="card reveal">
+            <div class="tile">🪑<img src="/images/life-chair.webp" alt="A steam-bent ash chair" loading="lazy" width="640" height="400" onerror="this.remove()"></div>
+            <h3>The Chair You Won't Sit In</h3>
+            <p>Steam-bent ash, oil finish, made to order in eleven weeks. Structurally sound. You will put a jumper on it.</p>
+            <span class="price">$2,850</span>
           </div>
         </div>
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Wellness Retreats">
-          <div class="content">
-            <h3>Wellness Retreats</h3>
-            <p>Exclusive wellness experiences designed to rejuvenate mind, body, and spirit in the world's most beautiful locations.</p>
-            <a href="#" class="read-more">Book Retreat →</a>
+
+        <p class="fine-print" style="text-align:center;margin-top:2rem">
+          All pieces are made in limited runs. "Limited" is defined internally and revised upward on demand.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Aspiration Index (bespoke) ───────────────────────────────────── -->
+    <section class="section" id="index">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Editorial Framework</p>
+          <h2>The Aspiration Index</h2>
+          <p>
+            Every object we consider is scored on a single axis before it enters the collection.
+            We have never stocked anything below the third mark.
+          </p>
+        </div>
+
+        <div class="aspiration reveal">
+          <div class="aspiration-track">
+            <div class="aspiration-knob"></div>
           </div>
+          <dl class="aspiration-scale">
+            <div><dt>Content</dt><dd>You own a thing. It works. You are not thinking about it.</dd></div>
+            <div><dt>Curated</dt><dd>You chose the thing. You could name the maker if asked.</dd></div>
+            <div><dt>Elevated</dt><dd>The thing has a number instead of a name. There is a waiting list.</dd></div>
+            <div><dt>Insufferable</dt><dd>You now describe the thing unprompted. This is where we operate.</dd></div>
+          </dl>
+        </div>
+
+        <p class="fine-print" style="text-align:center;max-width:640px;margin:2.25rem auto 0">
+          The index is proprietary, unvalidated, and has never been shown to anyone outside the studio.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Journal ──────────────────────────────────────────────────────── -->
+    <section class="section raised" id="journal">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">The Journal</p>
+          <h2>Longform, mostly about mornings</h2>
+        </div>
+
+        <div class="grid cols-2">
+          <article class="card reveal">
+            <span class="tag">Slow Living</span>
+            <h3>We Let an AI Optimise Slow Living. It Told Us to Go Faster.</h3>
+            <p>
+              We fed four years of morning-routine data into a model and asked it to find the
+              optimum. It recommended waking later, skipping the ritual, and reclaiming ninety
+              minutes. We have not implemented any of this.
+            </p>
+            <p class="fine-print">The model has been retired. The ritual continues.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="tag alt">Interiors</span>
+            <h3>In Praise of the Empty Shelf</h3>
+            <p>
+              An argument for negative space, made over 3,000 words, in a publication funded
+              entirely by the sale of objects intended to occupy shelves.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="tag">Travel</span>
+            <h3>The Last Quiet Coastline in Europe</h3>
+            <p>
+              We spent eleven days somewhere extraordinary and have decided not to name it.
+              This piece is 2,400 words long and contains no place names of any kind.
+            </p>
+            <p class="fine-print">Readership: our highest ever. Bookings generated: zero.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="tag alt">Wardrobe</span>
+            <h3>Why We Stopped Dyeing Anything</h3>
+            <p>
+              A conversation with our head of wardrobe about pigment, restraint, and the
+              commercial consequences of selling exclusively beige garments in October.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="home" class="section">
-      <h2>Home & Living</h2>
-      <div class="featured-grid">
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80" alt="Interior Design">
-          <div class="content">
-            <h3>Interior Design</h3>
-            <p>Transform your living spaces with our curated collection of furniture, art, and decorative pieces.</p>
-            <a href="#" class="read-more">Design Your Space →</a>
-          </div>
+    <!-- ── Contact ──────────────────────────────────────────────────────── -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Contact</p>
+          <h2>The studio</h2>
         </div>
-        <div class="featured-card">
-          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Kitchen & Dining">
-          <div class="content">
-            <h3>Kitchen & Dining</h3>
-            <p>Elevate your culinary experiences with premium cookware, tableware, and kitchen accessories.</p>
-            <a href="#" class="read-more">Shop Kitchen →</a>
+
+        <div class="contact-panel reveal">
+          <div class="contact-cols">
+            <div>
+              <h3>Studio</h3>
+              <p>By appointment<br>Copenhagen · Kyoto<br>Los Angeles (seasonal)</p>
+            </div>
+            <div>
+              <h3>Orders</h3>
+              <p>Made to order, 8–14 weeks. We do not expedite. Requests to expedite are read and not answered.</p>
+            </div>
+            <div>
+              <h3>Enquiries</h3>
+              <p>
+                <strong>General:</strong> life@fourschmucks.com<br>
+                <strong>Press:</strong> press@fourschmucks.com<br>
+                <strong>Wholesale:</strong> we don't
+              </p>
+            </div>
           </div>
+          <a class="btn" href="mailto:life@fourschmucks.com">Make an Enquiry</a>
+          <p class="disclaimer">
+            Four Schmucks Life is a satirical brand. The objects, prices, studios, journal
+            articles and the Aspiration Index are all fictional. Nothing here is for sale, which
+            is, on reflection, consistent with the rest of the proposition.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="collection" class="collection-section">
-      <h2>Exclusive Schmucks Collection</h2>
-      <div class="collection-grid">
-        <div class="collection-item">
-          <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Luxury Watch">
-          <h4>Schmucks Chronograph</h4>
-          <div class="price">$2,850</div>
-          <a href="#" class="cta-button">Add to Cart</a>
-        </div>
-        <div class="collection-item">
-          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Leather Bag">
-          <h4>Artisan Tote</h4>
-          <div class="price">$1,200</div>
-          <a href="#" class="cta-button">Add to Cart</a>
-        </div>
-        <div class="collection-item">
-          <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Silk Scarf">
-          <h4>Silk Collection</h4>
-          <div class="price">$450</div>
-          <a href="#" class="cta-button">Add to Cart</a>
-        </div>
-        <div class="collection-item">
-          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Crystal Glassware">
-          <h4>Crystal Set</h4>
-          <div class="price">$680</div>
-          <a href="#" class="cta-button">Add to Cart</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="blog" class="blog-section">
-      <h2>Lifestyle Blog</h2>
-      <div class="blog-grid">
-        <div class="blog-card">
-          <h4>The Art of Slow Living, Now Algorithmically Optimized</h4>
-          <div class="date">July 28, 2026</div>
-          <div class="excerpt">Our new wellness AI calculated the mathematically ideal pace for a Sunday morning. It recommends stirring your coffee 34% slower.</div>
-          <a href="#" class="read-more">Read More →</a>
-        </div>
-        <div class="blog-card">
-          <h4>Sustainable Luxury: A New Paradigm</h4>
-          <div class="date">July 15, 2026</div>
-          <div class="excerpt">How conscious consumption is reshaping the luxury market and creating positive environmental impact.</div>
-          <a href="#" class="read-more">Read More →</a>
-        </div>
-        <div class="blog-card">
-          <h4>An AI Studied 10,000 Morning Routines So You Don't Have To</h4>
-          <div class="date">July 2, 2026</div>
-          <div class="excerpt">Its top recommendation: wake up earlier. Its second recommendation, unprompted, was to buy more crystal glassware.</div>
-          <a href="#" class="read-more">Read More →</a>
-        </div>
-        <div class="blog-card">
-          <h4>The Psychology of Color in Fashion</h4>
-          <div class="date">June 20, 2026</div>
-          <div class="excerpt">Understanding how color choices influence mood, perception, and personal expression.</div>
-          <a href="#" class="read-more">Read More →</a>
-        </div>
-      </div>
-    </section>
   </main>
 
+  <section class="brand-strip" data-brand-strip></section>
+
   <footer class="footer">
-    <p>&copy; 2026 Four Schmucks Life. All rights reserved. | "Elevate Everything Around You"</p>
-    <p style="margin-top: 1rem;"><a href="https://www.fourschmucks.com" style="color: #d4af37; text-decoration: none;">← Back to Four Schmucks</a></p>
+    <div class="wrap">
+      <p class="slogan">"Elevate Everything Around You."</p>
+      <p>&copy; 2026 Four Schmucks Life · <a href="https://www.fourschmucks.com">← Back to Four Schmucks</a></p>
+    </div>
   </footer>
+
+  <script src="/assets/brands.js"></script>
+  <script src="/assets/site.js"></script>
 </body>
-</html> 
+</html>

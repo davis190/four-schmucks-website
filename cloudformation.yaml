@@ -182,6 +182,18 @@ Resources:
           LambdaFunctionAssociations:
             - EventType: viewer-request
               LambdaFunctionARN: !Ref SubdomainRoutingFunctionVersion
+        # The bucket policy grants only s3:GetObject to the OAI, so a missing key comes
+        # back from S3 as 403 AccessDenied rather than 404. Map both to the styled 404
+        # page so a typo'd asset path doesn't surface as raw XML.
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 404
+            ResponsePagePath: /404.html
+            ErrorCachingMinTTL: 60
+          - ErrorCode: 404
+            ResponseCode: 404
+            ResponsePagePath: /404.html
+            ErrorCachingMinTTL: 60
         ViewerCertificate:
           AcmCertificateArn: !Ref Certificate
           SslSupportMethod: sni-only
